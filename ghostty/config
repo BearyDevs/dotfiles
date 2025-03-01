@@ -1,0 +1,30 @@
+# others command
+# $ ghostty +list-themes
+
+shell-integration-features = no-cursor,sudo,no-title
+font-family = "ComicShannsMono Nerd Font"
+font-size = 18
+window-height=1600
+window-width=2560
+background-opacity = 0.80
+background = #001419
+foreground = #cbe0f0
+cursor-color = #47ff9c
+cursor-style = block
+# cursor-style = bar
+# cursor-style = underline
+cursor-style-blink = true
+cursor-text = #011423
+cursor-click-to-move
+mouse-hide-while-typing
+background-blur-radius = 25
+keybind = cmd+r=reload_config
+keybind = cmd+t=unbind
+keybind = cmd+n=unbind
+window-colorspace = display-p3
+copy-on-select = clipboard
+mouse-scroll-multiplier = 2
+window-padding-balance = true
+window-save-state = always
+macos-titlebar-style = transparent
+theme = "solarized-osaka-night"

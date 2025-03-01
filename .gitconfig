@@ -1,0 +1,39 @@
+; [user]
+;   email = teerapat.tech@gmail.com
+;   name = BEARYDEV
+
+; [user]
+;   email = teerapatwas@bitbucket.org
+;   name = Teerapat Wassavanich
+
+[user]
+  email = teerapat.was@techflow.asia
+  name = Teerapat Wassavanich
+
+[core]
+  editor = nvim
+  autocrlf = input
+	excludesfile = /Users/techflow015/.gitignore_global
+
+[init]
+  defaultBranch = main
+
+[diff]
+  tool = neovim
+
+[difftool "neovim"]
+  cmd = "nvim -d $LOCAL $REMOTE"
+
+[merge]
+  tool = p4merge
+
+[mergetool "p4merge"]
+  path = /Applications/p4merge.app/Contents/MacOS/p4merge
+
+; [difftool "sourcetree"]
+; 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+; 	path = 
+;
+; [mergetool "sourcetree"]
+; 	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+; 	trustExitCode = true
