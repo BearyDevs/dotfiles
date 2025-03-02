@@ -50,10 +50,10 @@ key.set("i", "jk", "<ESC>", opts) -- Quick exit insert mode
 key.set("n", "<leader>v", "<cmd>:vsplit<cr>", { desc = "Vertical Split" })
 key.set("n", "<leader>V", "<cmd>:split<cr>", { desc = "Horizontal Split" })
 
-key.set("n", "<leader>h", function()
+key.set("n", "<leader>qh", function()
   Snacks.bufdelete()
 end, { desc = "Delete Buffer" })
-key.set("n", "<leader>H", function()
+key.set("n", "<leader>qH", function()
   Snacks.bufdelete.other()
 end, { desc = "Delete Other Buffers" })
 
