@@ -82,26 +82,21 @@ keymap.set("n", "<leader>gF", function()
 end, { desc = "Find files (including hidden) in Telescope" })
 
 -- ╭─────────────────────────────────────────────────────────╮
--- │ GitSign                                                 │
--- ╰─────────────────────────────────────────────────────────╯
-keymap.set("n", "<leader>G", function()
-  require("gitsigns").blame() -- Show blame information
-end, { desc = "Gitsigns Blame" })
-
-keymap.set("n", "gb", function()
-  require("gitsigns").blame_line({ full = true }) -- Show blame information
-end, { desc = "Gitsigns hunk Blame line" })
-
--- ╭─────────────────────────────────────────────────────────╮
 -- │ Neo-tree jump to current file                           │
 -- ╰─────────────────────────────────────────────────────────╯
 keymap.set("n", "<leader>o", function()
-  if vim.bo.filetype == "neo-tree" then
-    vim.cmd.wincmd("p")
-  else
-    vim.cmd.Neotree("focus")
-  end
-end, { desc = "Toggle Explorer Focus" })
+  require("neo-tree.command").execute({ toggle = true, dir = vim.uv.cwd(), focus = true })
+end, { desc = "Toggle Explorer and Focus on Current File" })
+
+keymap.set("n", "<leader>o", function()
+  require("neo-tree.command").execute({ toggle = true, dir = vim.uv.cwd(), focus = true })
+end, { desc = "Explorer NeoTree (Root Dir) and Focus on Current File" })
+
+
+-- ╭─────────────────────────────────────────────────────────╮
+-- │ Avante                                                  │
+-- ╰─────────────────────────────────────────────────────────╯
+keymap.set("n", "<leader>a", "", { desc = "Avante" })
 
 -- ╭─────────────────────────────────────────────────────────╮
 -- │ increment/decrement numbers                             │

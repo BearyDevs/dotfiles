@@ -8,7 +8,7 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 # ╭──────────────────────────────────────────────────────────╮
 # │ Ai Api                                                   │
 # ╰──────────────────────────────────────────────────────────╯
-export OPENAI_API_KEY=<key>
+export OPENAI_API_KEY=''
 
 # Check models that can use
 # $ curl https://api.openai.com/v1/models \ -H "Authorization: Bearer YOUR_OPENAI_API_KEY"
@@ -683,7 +683,7 @@ alias store-iterm2-all-config='cp ~/Library/Preferences/com.googlecode.iterm2.pl
 alias store-sh='cp ~/.config/install.sh ~/dotfile/ && cp ~/.config/fzf-git.sh ~/dotfile/ && cp ~/.config/fzf_listoldfiles.sh ~/dotfile/ && cp ~/.config/zoxide_openfiles_nvim.sh ~/dotfile/ && echo "\033[1;36m **sh scripts copy success\033[0m"'
 
 alias afterStore='echo -e "\033[38;2;255;215;0mALL SCRIPT BACKUP IS DONE, @~/dotfile \033[0m"; sleep 2'
-alias afterDone='cd ~/dotfile; gs; gaa; gc; sleep 1; home; cls; echo -e DOTFILE STORE SUCCESS, Please path to ~/dotfile and push'
+alias afterDone='cd ~/dotfile; gs; gaa; sleep 1; home; cls; echo -e DOTFILE STORE SUCCESS, Please path to ~/dotfile and remove secret-key of .zshrc and push'
 
 alias restore-iterm2-config='cp ~/dotfile/com.googlecode.iterm2.plist ~/Library/Preferences/com.googlecode.iterm2.plist'
 alias dotfile='cd ~/dotfile/'
