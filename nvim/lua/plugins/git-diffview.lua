@@ -2,7 +2,7 @@ return {
   {
     "sindrets/diffview.nvim",
     event = "VeryLazy",
-    cmd = { "DiffviewOpen" },
+    cmd = { "DiffviewOpen", "DiffviewClose", "DiffviewToggle" },
     opts = {
       enhanced_diff_hl = true,
       view = {
@@ -16,13 +16,23 @@ return {
       },
     },
     keys = {
-      { "<leader>gD", desc = "Diffview" },
-      { "<leader>gDo", "<cmd>DiffviewOpen<cr>", desc = "Diffview: open" },
-      { "<leader>gDc", "<cmd>DiffviewClose<cr>", desc = "Diffview: close" },
+      -- override of leader gd git diff view hunks
+      { "<leader>gd", function()
+          local lib = require("diffview.lib")
+          if lib.get_current_view() then
+            vim.cmd("DiffviewClose")
+          else
+            vim.cmd("DiffviewOpen")
+          end
+        end,
+        desc = "Toggle Diffview",
+      },
+      -- { "<leader>gdo", "<cmd>DiffviewOpen<cr>", desc = "Diffview: Open" },
+      -- { "<leader>gdc", "<cmd>DiffviewClose<cr>", desc = "Diffview: Close" },
     },
   },
   {
-    "NeogitOrg/neogit",
+    "neogitorg/neogit",
     optional = true,
     opts = { integrations = { diffview = true } },
   },

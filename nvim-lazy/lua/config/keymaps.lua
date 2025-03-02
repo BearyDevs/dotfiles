@@ -1,9 +1,12 @@
 -- Keymaps are automatically loaded on the VeryLazy event
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
---
-local key = vim.keymap
+
+local Util = require("lazyvim.util")
+local keymap = vim.keymap
 local opts = { noremap = true, silent = true, nowait = true }
+local telescope = require("telescope.builtin")
+local themes = require("telescope.themes")
 
 local function show_relative_path()
   local relative_path = vim.fn.expand("%")
@@ -21,46 +24,46 @@ end
 -- ╭─────────────────────────────────────────────────────────╮
 -- │ override default                                        │
 -- ╰─────────────────────────────────────────────────────────╯
-key.set("n", "<leader>|", "", opts) -- disable Vertical split
-key.set("n", "<leader>-", "", opts) -- disable Horizontal split
-key.set("n", ";", ":", { noremap = true, nowait = true })
-key.set("n", "q", "", opts) -- disable record macro
+keymap.set("n", "<leader>|", "", opts) -- disable Vertical split
+keymap.set("n", "<leader>-", "", opts) -- disable Horizontal split
+keymap.set("n", ";", ":", { noremap = true, nowait = true })
+keymap.set("n", "q", "", opts) -- disable record macro
 
-key.set("n", "<leader>$", function()
+keymap.set("n", "<leader>$", function()
   return show_relative_path()
 end, { desc = "Show Relative Path" })
-key.set("n", "<leader>%", function()
+keymap.set("n", "<leader>%", function()
   return show_project_path()
 end, { desc = "Show Relative th" })
-key.set("n", "Dw", "vb_d", opts) -- delete word backward
-key.set("n", "<C-a>", "gg<S-v>G", opts) -- select all
-key.set("n", "mk", "<cmd>m-2<cr>", opts) -- move line up
-key.set("n", "mj", "<cmd>m+1<cr>", opts) -- move line down
-key.set("n", "+", "<cmd>vertical resize +3<cr>", opts)
-key.set("n", "_", "<cmd>vertical resize -3<cr>", opts)
-key.set("n", ")", "<cmd>horizontal resize +3<cr>", opts)
-key.set("n", "(", "<cmd>horizontal resize -3<cr>", opts)
-key.set("n", "x", '"_x', opts)
-key.set("n", "c", '"_c', opts)
-key.set("v", "c", '"_c', opts)
-key.set("n", "X", '"_X', opts)
-key.set("n", "C", '"_C', opts)
-key.set("v", "C", '"_C', opts)
-key.set("i", "jk", "<ESC>", opts) -- Quick exit insert mode
-key.set("n", "<leader>v", "<cmd>:vsplit<cr>", { desc = "Vertical Split" })
-key.set("n", "<leader>V", "<cmd>:split<cr>", { desc = "Horizontal Split" })
+keymap.set("n", "Dw", "vb_d", opts) -- delete word backward
+keymap.set("n", "<C-a>", "gg<S-v>G", opts) -- select all
+keymap.set("n", "mk", "<cmd>m-2<cr>", opts) -- move line up
+keymap.set("n", "mj", "<cmd>m+1<cr>", opts) -- move line down
+keymap.set("n", "+", "<cmd>vertical resize +3<cr>", opts)
+keymap.set("n", "_", "<cmd>vertical resize -3<cr>", opts)
+keymap.set("n", ")", "<cmd>horizontal resize +3<cr>", opts)
+keymap.set("n", "(", "<cmd>horizontal resize -3<cr>", opts)
+keymap.set("n", "x", '"_x', opts)
+keymap.set("n", "c", '"_c', opts)
+keymap.set("v", "c", '"_c', opts)
+keymap.set("n", "X", '"_X', opts)
+keymap.set("n", "C", '"_C', opts)
+keymap.set("v", "C", '"_C', opts)
+keymap.set("i", "jk", "<ESC>", opts) -- Quick exit insert mode
+keymap.set("n", "<leader>v", "<cmd>:vsplit<cr>", { desc = "Vertical Split" })
+keymap.set("n", "<leader>V", "<cmd>:split<cr>", { desc = "Horizontal Split" })
 
-key.set("n", "<leader>h", function()
+keymap.set("n", "<leader>h", function()
   Snacks.bufdelete()
 end, { desc = "Delete Buffer" })
-key.set("n", "<leader>H", function()
+keymap.set("n", "<leader>H", function()
   Snacks.bufdelete.other()
 end, { desc = "Delete Other Buffers" })
 
 -- ╭─────────────────────────────────────────────────────────╮
 -- │ Snacks                                                  │
 -- ╰─────────────────────────────────────────────────────────╯
-key.set("n", "<leader>'", function()
+keymap.set("n", "<leader>'", function()
   Snacks.picker.pick("files", {
     hidden = true, -- Include hidden files (dotfiles)
     no_ignore = true, -- Include files ignored by .gitignore
@@ -69,46 +72,58 @@ key.set("n", "<leader>'", function()
 end, { desc = "Find files (including hidden)" })
 
 -- ╭─────────────────────────────────────────────────────────╮
--- │ Avante                                                  │
+-- │ Telescope                                               │
 -- ╰─────────────────────────────────────────────────────────╯
-key.set("n", "<leader>a", "", { desc = "Avante" })
+keymap.set("n", "<leader>gF", function()
+  telescope.find_files(themes.get_ivy({
+    hidden = true, -- Show hidden files (dotfiles)
+    no_ignore = true, -- Include files ignored by .gitignore
+  }))
+end, { desc = "Find files (including hidden) in Telescope" })
 
 -- ╭─────────────────────────────────────────────────────────╮
--- │ Recent                                                  │
+-- │ Neo-tree jump to current file                           │
 -- ╰─────────────────────────────────────────────────────────╯
-key.set("n", "<leader>fo", LazyVim.pick("oldfiles"), { desc = "Recent Files" })
-key.set("n", "<leader>fO", function()
-  Snacks.picker.recent({ filter = { cwd = true } })
-end, { desc = "Recent Files (cwd)" })
+keymap.set("n", "<leader>o", function()
+  require("neo-tree.command").execute({ toggle = true, dir = vim.uv.cwd(), focus = true })
+end, { desc = "Toggle Explorer and Focus on Current File" })
+
+keymap.set("n", "<leader>o", function()
+  require("neo-tree.command").execute({ toggle = true, dir = vim.uv.cwd(), focus = true })
+end, { desc = "Explorer NeoTree (Root Dir) and Focus on Current File" })
+
+
+-- ╭─────────────────────────────────────────────────────────╮
+-- │ Avante                                                  │
+-- ╰─────────────────────────────────────────────────────────╯
+keymap.set("n", "<leader>a", "", { desc = "Avante" })
 
 -- ╭─────────────────────────────────────────────────────────╮
 -- │ increment/decrement numbers                             │
 -- ╰─────────────────────────────────────────────────────────╯
-key.set("n", "<leader>+", "<M-a>", { desc = "Increment number" }) -- increment
-key.set("n", "<leader>-", "<M-x>", { desc = "Decrement number" }) -- decrement
+keymap.set("n", "<leader>+", "<M-a>", { desc = "Increment number" }) -- increment
+keymap.set("n", "<leader>-", "<M-x>", { desc = "Decrement number" }) -- decrement
 
 -- ╭─────────────────────────────────────────────────────────╮
 -- │ Diagnostics                                             │
 -- ╰─────────────────────────────────────────────────────────╯
-key.set("n", "gl", function()
+keymap.set("n", "gl", function()
   vim.diagnostic.open_float()
 end, { desc = "Show diagnostics hover" })
 
-key.set("n", "gj", function()
+keymap.set("n", "gj", function()
   vim.diagnostic.goto_next()
 end, { desc = "Go to next diagnostic" })
 
-key.set("n", "gk", function()
+keymap.set("n", "gk", function()
   vim.diagnostic.goto_prev()
 end, { desc = "Go to previous diagnostic" })
 
-key.set("n", "<leader>\\", "<cmd>LazyExtras<CR>", { desc = "LazyExtras" })
+keymap.set("n", "<leader>\\", "<cmd>LazyExtras<CR>", { desc = "LazyExtras" })
+keymap.set({ "n", "v" }, "gm", function()
+  Util.format({ force = true })
+end, { desc = "Format" })
 
--- ╭─────────────────────────────────────────────────────────╮
--- │ LspLens (link JetBrain that show implementatino and     │
--- │ reference)                                              │
--- ╰─────────────────────────────────────────────────────────╯
-key.set("n", "<leader>cL", "<cmd>LspLensToggle<CR>", { desc = "LspLensToggle" })
 
 -- ╭─────────────────────────────────────────────────────────╮
 -- │ Terminal                                                │
@@ -118,7 +133,7 @@ vim.api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-n>", { noremap = true, silent = 
 -- ╭─────────────────────────────────────────────────────────╮
 -- │ Formatting                                              │
 -- ╰─────────────────────────────────────────────────────────╯
-key.set({ "n", "v" }, "gm", function()
+keymap.set({ "n", "v" }, "<leader>F", function()
   LazyVim.format({ force = true })
 end, { desc = "Format" })
 

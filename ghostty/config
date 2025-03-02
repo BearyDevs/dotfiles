@@ -28,3 +28,6 @@ window-padding-balance = true
 window-save-state = always
 macos-titlebar-style = transparent
 theme = "solarized-osaka-night"
+macos-option-as-alt = left
+keybind = alt+left=unbind
+keybind = alt+right=unbind

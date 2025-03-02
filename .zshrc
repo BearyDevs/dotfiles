@@ -157,7 +157,7 @@ alias dotlocal='cd ~/.local'
 alias dotcache='cd ~/.cache'
 # alias vim='echo "Vim is deprecated, Use nvim instead"'
 alias vim='nvim'
-# alias vi='echo "Use vim instead"'
+alias vi='echo "Use vim instead"'
 # alias vide='neovide'
 # alias vimconfig='home; cd ~/.config/nvim'
 alias nvimconfig='home; cd ~/.config/nvim'
@@ -671,6 +671,7 @@ alias bkghostty='cp -rvf ~/.config/ghostty/ ~/dotfile/ghostty/ && echo "\033[1;3
 alias bkiterm2='cp -rvf ~/.config/iterm2/ ~/dotfile/iterm2/ && echo "\033[1;36m **iterm2 copy success\033[0m"'
 alias bkyazi='cp -rvf ~/.config/yazi/ ~/dotfile/yazi/ && echo "\033[1;36m **yazi copy success\033[0m"'
 alias bkasciilogo='cp -rvf ~/neofetch-bearydev-logo.txt ~/dotfile/ && echo "\033[1;36m **neofetch-bearydev-logo copy success\033[0m"'
+alias bknvim-lazy-old='cp -rvf ~/.config/nvim-lazy/ ~/dotfile/nvim-lazy/ && echo "\033[1;36m **nvim-lazy copy success\033[0m"'
 
 alias bkp10='cp -rvf ~/.p10k.zsh ~/dotfile/ && echo "\033[1;36m **.p10k.zsh copy success\033[0m"'
 alias bktmux='cp -rvf ~/.tmux.conf ~/dotfile/ && echo "\033[1;36m **.tmux.conf copy success\033[0m"'
@@ -688,7 +689,7 @@ alias afterDone='cd ~/dotfile; gs; gaa; sleep 1; home; cls; echo -e DOTFILE STOR
 alias restore-iterm2-config='cp ~/dotfile/com.googlecode.iterm2.plist ~/Library/Preferences/com.googlecode.iterm2.plist'
 alias dotfile='cd ~/dotfile/'
 
-alias store-dotfile='home; dlconfigfirst; bknvim; bkalacritty; bkghostty; bkiterm2; bkyazi; bkasciilogo; bkp10; bktmux; bkzsh; bkzshenv; bkwakatime; bkgitconfig; store-iterm2-all-config; store-sh; afterStore; afterDone'
+alias store-dotfile='home; dlconfigfirst; bknvim; bknvim-lazy-old; bkalacritty; bkghostty; bkiterm2; bkyazi; bkasciilogo; bkp10; bktmux; bkzsh; bkzshenv; bkwakatime; bkgitconfig; store-iterm2-all-config; store-sh; afterStore; afterDone'
 
 alias minfo='echo -e "\033[1;31m🅷 🅸 \033[0m \033[1;38;2;255;215;0m🅱 🅴 🅰 🆁 🆈 , \033[38;2;255;105;180m🅷 🅰 🅿 🅿 🆈 \033[0m \033[1;38;2;148;0;211m🅲 🅾 🅳 🅸 🅽 🅶 .\033[0m"' # Bold font
 

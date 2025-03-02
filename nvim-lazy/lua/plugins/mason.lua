@@ -54,7 +54,6 @@ return {
       "markuplint",
       "netcoredbg",
       "nginx-language-server",
-      -- "node-debug2-adapter",
       "nxls",
       "omnisharp",
       "omnisharp-mono",
@@ -104,7 +103,7 @@ return {
       "dot-language-server",
       "htmx-lsp",
       "mdx-analyzer",
-      -- "vint",
+      "vint",
       "asm-lsp",
       -- "arduino-language-server",
       "zls",
@@ -124,6 +123,19 @@ return {
       "jdtls",
       "vscode-java-decompiler",
       "google-java-format",
+      "stylelint",
+      "termux-language-server",
+      "shellharden",
+      "gersemi",
+      "cmakelint",
+      "cmakelang",
+      "neocmakelsp",
+      "cmake-language-server",
+      "sleek", -- sql
+      "eugene", -- sql
+      "dart-debug-adapter",
+      "dcm",
+      "kulala-fmt", -- http
     },
     ui = {
       icons = {

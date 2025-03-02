@@ -1,8 +1,8 @@
--- local svelte = require("lazyvim.plugins.extras.lang.svelte")
 return {
   {
     "neovim/nvim-lspconfig",
     dependencies = {
+      "saghen/blink.cmp",
       {
         "folke/neoconf.nvim",
         cmd = "Neoconf",
