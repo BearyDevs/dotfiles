@@ -41,13 +41,22 @@ return {
         local full_path = vim.api.nvim_buf_get_name(props.buf)
         local filename = vim.fn.fnamemodify(full_path, ":t")
         local parent = vim.fn.fnamemodify(full_path, ":h:t")
+        local grandparent = vim.fn.fnamemodify(full_path, ":h:h:t")
 
         -- Toggle between full path and short path
         if _G.InclineShowFullPath then
           filename = full_path
         else
-          if count_buffers_with_filename(filename) > 1 then
+          local buffer_count = count_buffers_with_filename(filename)
+
+          -- Show "parent/filename" if duplicate names exist
+          if buffer_count > 1 then
             filename = parent .. "/" .. filename
+          end
+
+          -- Show "grandparent/parent/filename" if deeply nested
+          if parent ~= "" and grandparent ~= "" then
+            filename = grandparent .. "/" .. parent .. "/" .. filename
           end
         end
 
