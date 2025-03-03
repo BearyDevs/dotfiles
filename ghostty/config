@@ -26,8 +26,21 @@ copy-on-select = clipboard
 mouse-scroll-multiplier = 2
 window-padding-balance = true
 window-save-state = always
-macos-titlebar-style = transparent
+window-padding-x = 10
+window-padding-y = 10
+window-decoration = false
+# macos-titlebar-style = transparent
+macos-titlebar-style = hidden
+macos-icon = custom-style
+macos-icon-frame = aluminum
+macos-icon-ghost-color = grey
+macos-icon-screen-color = dark grey,black
+macos-window-shadow = true
 theme = "solarized-osaka-night"
-macos-option-as-alt = left
+# macos-option-as-alt = left
+macos-option-as-alt = true
 keybind = alt+left=unbind
 keybind = alt+right=unbind
+clipboard-read = allow
+clipboard-write = allow
+shell-integration = zsh

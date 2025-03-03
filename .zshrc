@@ -138,6 +138,7 @@ eval "$(zoxide init zsh)"
 alias cd='z'
 
 alias home='cd ~'
+alias ..='cd ..'
 alias hh='home'
 # alias clr='clear; showinforandom;'
 # alias clr='clear; neofetch; showinfo'
@@ -415,7 +416,7 @@ source ~/.config/fzf-git.sh
 export PATH=$PATH:/opt/homebrew/bin/tmux
 
 # alias tm='if [ -z "$TMUX" ]; then tmux attach -t TMUX || tmux new -s TMUX; fi'
-# alias tm='tmux attach -t TMUX || tmux new -s TMUX'
+alias tm='tmux attach -t TMUX || tmux new -s TMUX'
 # alias tm="tmux new-session -A -s TMUX;"
 alias tmconfig="nvim ~/.tmux.conf"
 alias tm-sname="tmux rename-session -t"
@@ -433,14 +434,6 @@ exit() {
   fi
 }
 
-# ╭──────────────────────────────────────────────────────────╮
-# │ Function to handle tmux session                          │
-# ╰──────────────────────────────────────────────────────────╯
-function tm() {
-    if [ -z "$tmux" ]; then
-        tmux attach -t tmux || tmux new -s tmux
-    fi
-}
 
 # Function to kill a specific tmux window
 function tmkillw() {
@@ -478,7 +471,6 @@ function is_tmux_active() {
 
 # Alias to use the function
 alias tmux-active="is_tmux_active"
-alias tmux='tm'
 
 # ╭──────────────────────────────────────────────────────────╮
 # │ Check if inside a tmux session; if not, start one.       │
@@ -777,6 +769,7 @@ alias gre='git restore'
 alias grs='git reset'
 alias gmer='git merge'
 alias gdeploy='git status -s; git add .; git commit; git push'
+alias git-pull-all='for branch in $(git branch --format "%(refname:short)"); do git checkout $branch && git pull; done'
 # ╭──────────────────────────────────────────────────────────╮
 # │ Git Stash                                                │
 # ╰──────────────────────────────────────────────────────────╯
@@ -1080,6 +1073,11 @@ source /opt/homebrew/share/zsh-history-substring-search/zsh-history-substring-se
 # ╰──────────────────────────────────────────────────────────╯
 alias ws='open -na "WebStorm.app" .'
 alias wss='open -na "WebStorm.app"'
+
+# ╭──────────────────────────────────────────────────────────╮
+# │ Bat                                                      │
+# ╰──────────────────────────────────────────────────────────╯
+alias cat='bat'
 
 # ╭──────────────────────────────────────────────────────────╮
 # │ ClaudeCode                                               │
