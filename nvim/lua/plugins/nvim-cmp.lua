@@ -1,4 +1,3 @@
-
 return {
   "hrsh7th/nvim-cmp",
   version = false, -- last release is way too old
@@ -7,7 +6,6 @@ return {
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path",
-    "codeium.nvim",
   },
   -- Not all LSP servers add brackets when completing a function.
   -- To better deal with this, LazyVim adds a custom option to cmp,
