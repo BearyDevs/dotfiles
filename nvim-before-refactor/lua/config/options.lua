@@ -32,24 +32,15 @@ vim.opt.smarttab = true
 vim.opt.breakindent = true
 vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
+-- vim.opt.wrap = false -- No Wrap lines
 vim.opt.wrap = true -- Wrap lines
 vim.opt.backspace = { "start", "eol", "indent" }
 vim.opt.path:append({ "**" }) -- Finding files - Search down into subfolders
-vim.opt.wildignore:append({ "*/node_modules/*", "*/dist/*", "*/build/*", "*.so", "*.swp", "*.zip" })
+vim.opt.wildignore:append({ "*/node_modules/*" })
 vim.opt.splitbelow = true -- Put new windows below current
 vim.opt.splitright = true -- Put new windows right of current
 vim.opt.splitkeep = "cursor"
-
--- Performance related settings
-vim.opt.hidden = true
-vim.opt.history = 100
-vim.opt.updatetime = 250       -- Faster completion
-vim.opt.timeoutlen = 300       -- Faster keymap timeout
-vim.opt.redrawtime = 1500      -- Allow more time for redrawing
--- vim.opt.lazyredraw = true   -- Disabled - causes issues with noice-nvim
-vim.opt.synmaxcol = 240        -- Max column for syntax highlight
-vim.opt.ttimeoutlen = 10       -- Faster key response time
-vim.opt.ttyfast = true         -- Faster terminal connection
+-- vim.opt.mouse = "" -- Disable mouse
 
 -- Undercurl
 vim.cmd([[let &t_Cs = "\e[4:3m"]])

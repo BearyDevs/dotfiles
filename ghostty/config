@@ -21,20 +21,20 @@ background-blur-radius = 25
 keybind = cmd+r=reload_config
 keybind = cmd+t=unbind
 keybind = cmd+n=unbind
-window-colorspace = display-p3
+# window-colorspace = display-p3
 copy-on-select = clipboard
-mouse-scroll-multiplier = 2
+# mouse-scroll-multiplier = 2
 window-padding-balance = true
 window-save-state = always
 window-padding-x = 10
 window-padding-y = 10
-window-decoration = false
-# macos-titlebar-style = transparent
-macos-titlebar-style = hidden
-macos-icon = custom-style
-macos-icon-frame = aluminum
-macos-icon-ghost-color = grey
-macos-icon-screen-color = dark grey,black
+# window-decoration = false
+macos-titlebar-style = transparent
+# macos-titlebar-style = hidden
+# macos-icon = custom-style
+# macos-icon-frame = aluminum
+# macos-icon-ghost-color = grey
+# macos-icon-screen-color = dark grey,black
 macos-window-shadow = true
 theme = "solarized-osaka-night"
 # macos-option-as-alt = left

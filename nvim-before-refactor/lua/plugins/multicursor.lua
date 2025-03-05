@@ -34,10 +34,6 @@ return {
         mc.matchAddCursor(1)
       end, { desc = "Add Cursor Matching Below" })
 
-      set({ "n", "x" }, prefix .. "d", function()
-        mc.clearCursors()
-      end, { desc = "Clear All Cursors" })
-
       set({ "n", "x" }, prefix .. "s", function()
         mc.matchSkipCursor(1)
       end, { desc = "Skip Cursor Matching Below" })

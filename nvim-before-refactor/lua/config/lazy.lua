@@ -181,9 +181,6 @@ require("lazy").setup({
     },
     {
       "williamboman/mason.nvim",
-      lazy = true,
-      cmd = "Mason",
-      event = { "BufReadPre", "BufNewFile" },
       opts = {
         ensure_installed = {"flake8", "pyright", "bash-debug-adapter", "ast-grep", "autopep8", "beautysh", "biome", "chrome-debug-adapter", "clang-format", "clangd", "codelldb", "cortex-debug", "cpplint", "cpptools", "csharp-language-server", "csharpier", "css-lsp", "css-variables-language-server", "cssmodules-language-server", "debugpy", "docker-compose-language-service", "dockerfile-language-server", "emmet-language-server", "emmet-ls", "erb-lint", "eslint-lsp", "eslint_d", "firefox-debug-adapter", "fixjson", "glow", "go-debug-adapter", "graphql-language-service-cli", "hadolint", "html-lsp", "htmlbeautifier", "htmlhint", "jq", "js-debug-adapter", "json-lsp", "jsonlint", "lua-language-server", "luacheck", "marksman", "markuplint", "netcoredbg", "nginx-language-server", "nxls", "omnisharp", "omnisharp-mono", "prettier", "prettierd", "prisma-language-server", "prosemd-lsp", "pylint", "python-lsp-server", "ruff-lsp", "rust-analyzer", "rustywind", "selene", "shellcheck", "shfmt", "snyk", "some-sass-language-server", "sql-formatter", "sqlfluff", "sqlfmt", "sqlls", "stylua", "tailwindcss-language-server", "taplo", "trivy", "ts-standard", "typescript-language-server", "vim-language-server", "vtsls", "write-good", "yaml-language-server", "yamlfix", "yamlfmt", "yamllint", "circleci-yaml-language-server", "sonarlint-language-server", "cfn-lint", "gitlab-ci-ls", "zk", "markdown-oxide", "gopls", "bash-language-server", "java-debug-adapter", "dot-language-server", "htmx-lsp", "mdx-analyzer", "vint", "asm-lsp", "zls", "svelte-language-server", "gradle-language-server", "vetur-vls", "vue-language-server", "luau-lsp", "goimports", "gofumpt", "gomodifytags", "impl", "delve", "semgrep", "jdtls", "vscode-java-decompiler", "google-java-format", "stylelint", "termux-language-server", "shellharden", "gersemi", "cmakelint", "cmakelang", "neocmakelsp", "cmake-language-server", "sleek", "eugene", "dart-debug-adapter", "dcm", "kulala-fmt", "quick-lint-js",},
         ui = {
@@ -246,11 +243,9 @@ require("lazy").setup({
       { "nvim-treesitter/playground", cmd = "TSPlaygroundToggle" },
       {
         "nvim-treesitter/nvim-treesitter",
-        lazy = true,
-        event = { "BufReadPost", "BufNewFile" },
         opts = {
           ensure_installed = {"javascript", "typescript", "tsx", "vue", "html", "css", "scss", "json", "json5", "jsdoc", "c_sharp", "vim", "sql", "lua", "dockerfile", "yaml", "http", "graphql", "gitcommit", "gitignore", "go", "gomod", "gowork", "gosum", "bash", "prisma", "svelte", "java", "dart", "python",},
-          auto_install = false, -- Only install when needed
+          auto_install = true, -- Automatically install missing parsers
 
           matchup = {
             enable = true,
@@ -300,8 +295,9 @@ require("lazy").setup({
     { import = "plugins" },
   },
   defaults = {
-    -- Set custom plugins to lazy-load by default for better startup time
-    lazy = true,
+    -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.
+    -- If you know what you're doing, you can set this to `true` to have all your custom plugins lazy-loaded by default.
+    lazy = false,
     -- It's recommended to leave version=false for now, since a lot the plugin that support versioning,
     -- have outdated releases, which may break your Neovim install.
     version = false, -- always use the latest git commit
@@ -313,30 +309,18 @@ require("lazy").setup({
     notify = false, -- notify on update
   }, -- automatically check for plugin updates
   performance = {
-    reset_packpath = true,
     rtp = {
       -- disable some rtp plugins
       disabled_plugins = {
         "gzip",
-        "matchit",
-        "matchparen",
-        "netrwPlugin",
+        -- "matchit",
+        -- "matchparen",
+        -- "netrwPlugin",
         "tarPlugin",
         "tohtml",
         "tutor",
         "zipPlugin",
-        "rplugin",
-        "spellfile",
-        "editorconfig",
       },
-      paths = {},
-      reset = true,
-    },
-    cache = {
-      enabled = true,
-      path = vim.fn.stdpath("cache") .. "/lazy/cache",
-      config = { enabled = true },
-      readme = { enabled = false },
     },
   },
 })
