@@ -15,21 +15,6 @@ return {
         end,
       },
     },
-    keys = {
-      -- override of leader gd git diff view hunks
-      { "<leader>gd", function()
-          local lib = require("diffview.lib")
-          if lib.get_current_view() then
-            vim.cmd("DiffviewClose")
-          else
-            vim.cmd("DiffviewOpen")
-          end
-        end,
-        desc = "Toggle Diffview",
-      },
-      -- { "<leader>gdo", "<cmd>DiffviewOpen<cr>", desc = "Diffview: Open" },
-      -- { "<leader>gdc", "<cmd>DiffviewClose<cr>", desc = "Diffview: Close" },
-    },
   },
   {
     "neogitorg/neogit",

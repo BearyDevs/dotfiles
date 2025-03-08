@@ -7,44 +7,18 @@
 -- Or remove existing autocmds by their group name (which is prefixed with `lazyvim_` for the defaults)
 -- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
 
--- Performance optimization autocmds
-local perf_group = vim.api.nvim_create_augroup("performance_optimizations", { clear = true })
-
--- Optimize search performance
-vim.api.nvim_create_autocmd("CmdlineEnter", {
-  group = perf_group,
-  pattern = "/,\\?",
-  callback = function()
-    vim.opt_local.hlsearch = false
-    vim.opt_local.redrawtime = 500
-  end,
+-- Turn off paste mode when leaving insert
+vim.api.nvim_create_autocmd("InsertLeave", {
+  pattern = "*",
+  command = "set nopaste",
 })
 
-vim.api.nvim_create_autocmd("CmdlineLeave", {
-  group = perf_group,
-  pattern = "/,\\?",
+-- Disable the concealing in some file formats
+-- The default conceallevel is 3 in LazyVim
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "json", "jsonc", "markdown" },
   callback = function()
-    vim.opt_local.hlsearch = true
-    vim.opt_local.redrawtime = 1500
-  end,
-})
-
--- Only highlight line when in active window 
-vim.api.nvim_create_autocmd({ "WinLeave" }, {
-  group = perf_group,
-  callback = function()
-    if vim.bo.filetype ~= "neo-tree" then
-      vim.opt_local.cursorline = false
-    end
-  end,
-})
-
-vim.api.nvim_create_autocmd({ "WinEnter" }, {
-  group = perf_group,
-  callback = function()
-    if vim.bo.filetype ~= "neo-tree" then
-      vim.opt_local.cursorline = true
-    end
+    vim.opt.conceallevel = 0
   end,
 })
 
@@ -74,20 +48,5 @@ vim.api.nvim_create_autocmd({ "BufReadPre" }, {
         vim.opt_local.statuscolumn = ""
       end
     end
-  end,
-})
-
--- Turn off paste mode when leaving insert
-vim.api.nvim_create_autocmd("InsertLeave", {
-  pattern = "*",
-  command = "set nopaste",
-})
-
--- Disable the concealing in some file formats
--- The default conceallevel is 3 in LazyVim
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "json", "jsonc", "markdown" },
-  callback = function()
-    vim.opt.conceallevel = 0
   end,
 })

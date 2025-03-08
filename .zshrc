@@ -8,7 +8,9 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 # ╭──────────────────────────────────────────────────────────╮
 # │ Ai Api                                                   │
 # ╰──────────────────────────────────────────────────────────╯
-export OPENAI_API_KEY=''
+export OPENAI_API_KEY=
+
+export CODEIUM_API_KEY=
 
 # Check models that can use
 # $ curl https://api.openai.com/v1/models \ -H "Authorization: Bearer YOUR_OPENAI_API_KEY"
@@ -256,6 +258,7 @@ alias lg='lazygit'
 alias docklock='defaults write com.apple.Dock.plist prefersAllDisplays -bool false && echo lock-dock: main-screen'
 alias dockdefault='defaults write com.apple.Dock.plist prefersAllDisplays -bool true && echo lock-dock: default'
 alias coder='code-insiders .'
+alias code='code-insiders .'
 
 # Mac Cleanup
 # brew tap fwartner/tap
@@ -790,6 +793,59 @@ alias git-pull-all='for branch in $(git branch --format "%(refname:short)"); do 
 # ╰──────────────────────────────────────────────────────────╯
 # $ git checkout -b new-branch-name
 # $ git switch -c new-branch-name
+
+# ╭──────────────────────────────────────────────────────────╮
+# │ Fetch and pull specific branch from origin               │
+# ╰──────────────────────────────────────────────────────────╯
+# git fetch origin && git checkout -b developments/sit origin/developments/sit
+
+function gpb() {
+  if [ -z "$1" ]; then
+    echo "❌ Error: Please provide a branch name."
+    echo "Usage: gpb <branch-name>"
+    return 1
+  fi
+
+  git fetch origin && git checkout -b "$1" "origin/$1"
+}
+
+# Compare current file with the same file in another branch
+# $ git diff other-branch-name -- path/to/your/file
+
+# ╭──────────────────────────────────────────────────────────╮
+# │ Others Git command                                       │
+# ╰──────────────────────────────────────────────────────────╯
+# 1. git diff: Show file differences not yet staged.
+# 2. git commit -a -m "commit message": Commit all
+# tracked changes with a message.
+# 3. git status: Show the state of your working
+# directory.
+# 4. git add file_path:Add file(s) to the staging area.
+# 5. git checkout -b branch_name: Create and switch
+# to a new branch.
+# 6. git checkout branch_name: Switch to an existing
+# branch.
+# 7. git commit --amend:Modify the last commit.
+# 8. git push origin branch_name: Push a branch to a
+# remote.
+# 9. git pull: Fetch and merge remote changes.
+# 10. git rebase -i: Rebase interactively, rewrite
+# commit history.
+# 11. git clone: Create a local copy of a remote repo.
+# 12. git merge: Merge branches together.
+# 13. git log --stat: Show commit logs with stats.
+# 14. git stash: Stash changes for later.
+# 15. git stash pop: Apply and remove stashed
+# changes.
+# 16. git show commit_id: Show details about a
+# commit.
+# 17. git reset HEAD~1: Undo the last commit,
+# preserving changes locally.
+# 18. git format-patch -1 commit_id: Create a patch file
+# for a specific commit.
+# 19. git apply patch _file_name: Apply changes from a
+# patch file.
+
 #
 # Move the Commit to the Correct Branch (Haven't Pushed)
 # $ git checkout correct-branch  # Or use `switch`

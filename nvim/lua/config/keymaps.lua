@@ -123,6 +123,26 @@ key.set({ "n", "v" }, "gm", function()
 end, { desc = "Format" })
 
 -- ╭─────────────────────────────────────────────────────────╮
+-- │ Explorer Toggle                                         │
+-- ╰─────────────────────────────────────────────────────────╯
+key.set("n", "<leader>o", function()
+  if vim.bo.filetype == "neo-tree" then
+    vim.cmd("wincmd p")
+  else
+    local winid = nil
+    for _, w in pairs(vim.api.nvim_list_wins()) do
+      if vim.api.nvim_buf_get_option(vim.api.nvim_win_get_buf(w), "filetype") == "neo-tree" then
+        winid = w
+        break
+      end
+    end
+    if winid then
+      vim.api.nvim_set_current_win(winid)
+    end
+  end
+end, { desc = "Toggle between neotree and buffer" })
+
+-- ╭─────────────────────────────────────────────────────────╮
 -- │ Code Fold keymap                                        │
 -- ╰─────────────────────────────────────────────────────────╯
 -- za - Toggle the current fold

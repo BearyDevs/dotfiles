@@ -21,13 +21,9 @@ require("lazy").setup({
       "LazyVim/LazyVim",
       import = "lazyvim.plugins",
       opts = {
-        -- colorscheme = "solarized-osaka",
+        colorscheme = "solarized-osaka",
         -- colorscheme = "tokyonight", -- default colorscheme
         -- colorscheme = "tokyonight-storm",
-        news = {
-          lazyvim = true,
-          neovim = true,
-        },
       },
     },
 
@@ -180,119 +176,52 @@ require("lazy").setup({
       end,
     },
     {
-      "williamboman/mason.nvim",
-      lazy = true,
-      cmd = "Mason",
-      event = { "BufReadPre", "BufNewFile" },
+      "nvim-neo-tree/neo-tree.nvim",
       opts = {
-        ensure_installed = {"flake8", "pyright", "bash-debug-adapter", "ast-grep", "autopep8", "beautysh", "biome", "chrome-debug-adapter", "clang-format", "clangd", "codelldb", "cortex-debug", "cpplint", "cpptools", "csharp-language-server", "csharpier", "css-lsp", "css-variables-language-server", "cssmodules-language-server", "debugpy", "docker-compose-language-service", "dockerfile-language-server", "emmet-language-server", "emmet-ls", "erb-lint", "eslint-lsp", "eslint_d", "firefox-debug-adapter", "fixjson", "glow", "go-debug-adapter", "graphql-language-service-cli", "hadolint", "html-lsp", "htmlbeautifier", "htmlhint", "jq", "js-debug-adapter", "json-lsp", "jsonlint", "lua-language-server", "luacheck", "marksman", "markuplint", "netcoredbg", "nginx-language-server", "nxls", "omnisharp", "omnisharp-mono", "prettier", "prettierd", "prisma-language-server", "prosemd-lsp", "pylint", "python-lsp-server", "ruff-lsp", "rust-analyzer", "rustywind", "selene", "shellcheck", "shfmt", "snyk", "some-sass-language-server", "sql-formatter", "sqlfluff", "sqlfmt", "sqlls", "stylua", "tailwindcss-language-server", "taplo", "trivy", "ts-standard", "typescript-language-server", "vim-language-server", "vtsls", "write-good", "yaml-language-server", "yamlfix", "yamlfmt", "yamllint", "circleci-yaml-language-server", "sonarlint-language-server", "cfn-lint", "gitlab-ci-ls", "zk", "markdown-oxide", "gopls", "bash-language-server", "java-debug-adapter", "dot-language-server", "htmx-lsp", "mdx-analyzer", "vint", "asm-lsp", "zls", "svelte-language-server", "gradle-language-server", "vetur-vls", "vue-language-server", "luau-lsp", "goimports", "gofumpt", "gomodifytags", "impl", "delve", "semgrep", "jdtls", "vscode-java-decompiler", "google-java-format", "stylelint", "termux-language-server", "shellharden", "gersemi", "cmakelint", "cmakelang", "neocmakelsp", "cmake-language-server", "sleek", "eugene", "dart-debug-adapter", "dcm", "kulala-fmt", "quick-lint-js",},
-        ui = {
-          icons = {
-            package_installed = "",
-            package_pending = "",
-            package_uninstalled = "",
+        filesystem = {
+          window = {
+            -- width = 35,
+            -- position = "right",
           },
         },
-      },
-      -- ╭─────────────────────────────────────────────────────────╮
-      -- │ Manual Install with cmd :MasonInstallAll                │
-      -- ╰─────────────────────────────────────────────────────────╯
-      config = function(_, opts)
-        require("mason").setup(opts)
-
-        -- Remove auto-install behavior
-        -- Instead, define a manual command for installing all ensure_installed packages
-        vim.api.nvim_create_user_command("MasonInstallAll", function()
-          local mr = require("mason-registry")
-          mr.refresh(function()
-            for _, tool in ipairs(opts.ensure_installed) do
-              local p = mr.get_package(tool)
-              if not p:is_installed() then
-                p:install()
-              end
-            end
-          end)
-        end, { desc = "Manually install all Mason tools from ensure_installed" })
-      end,
-
-      -- ╭─────────────────────────────────────────────────────────╮
-      -- │ Auto-Install                                            │
-      -- ╰─────────────────────────────────────────────────────────╯
-      ------@param opts MasonSettings | {ensure_installed: string[]}
-      ---config = function(_, opts)
-      ---  require("mason").setup(opts)
-      ---  local mr = require("mason-registry")
-      ---  mr:on("package:install:success", function()
-      ---    vim.defer_fn(function()
-      ---      -- trigger FileType event to possibly load this newly installed LSP server
-      ---      require("lazy.core.handler.event").trigger({
-      ---        event = "FileType",
-      ---        buf = vim.api.nvim_get_current_buf(),
-      ---      })
-      ---    end, 100)
-      ---  end)
-      ---
-      ---  mr.refresh(function()
-      ---    for _, tool in ipairs(opts.ensure_installed) do
-      ---      local p = mr.get_package(tool)
-      ---      if not p:is_installed() then
-      ---        p:install()
-      ---      end
-      ---    end
-      ---  end)
-      ---end,
-    },
-    {
-      { "nvim-treesitter/playground", cmd = "TSPlaygroundToggle" },
-      {
-        "nvim-treesitter/nvim-treesitter",
-        lazy = true,
-        event = { "BufReadPost", "BufNewFile" },
-        opts = {
-          ensure_installed = {"javascript", "typescript", "tsx", "vue", "html", "css", "scss", "json", "json5", "jsdoc", "c_sharp", "vim", "sql", "lua", "dockerfile", "yaml", "http", "graphql", "gitcommit", "gitignore", "go", "gomod", "gowork", "gosum", "bash", "prisma", "svelte", "java", "dart", "python",},
-          auto_install = false, -- Only install when needed
-
-          matchup = {
-            enable = true,
+        event_handlers = {
+          {
+            event = "file_opened",
+            handler = function()
+              require("neo-tree.command").execute({ action = "close" })
+            end,
           },
-
-          -- https://github.com/nvim-treesitter/playground#query-linter
-          query_linter = {
-            enable = true,
-            use_virtual_text = true,
-            lint_events = { "BufWrite", "CursorHold" },
-          },
-
-          playground = {
-            enable = true,
-            disable = {},
-            updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
-            persist_queries = true, -- Whether the query persists across vim sessions
-            keybindings = {
-              toggle_query_editor = "o",
-              toggle_hl_groups = "i",
-              toggle_injected_languages = "t",
-              toggle_anonymous_nodes = "a",
-              toggle_language_display = "I",
-              focus_language = "f",
-              unfocus_language = "F",
-              update = "R",
-              goto_node = "<cr>",
-              show_help = "?",
-            },
-          },
+          -- {
+          --   event = "neo_tree_window_after_close",
+          --   handler = function()
+          --     vim.schedule(function()
+          --       vim.cmd("wincmd p")
+          --     end)
+          --   end,
+          -- },
+          -- {
+          --   event = "neo_tree_window_after_open",
+          --   handler = function(args)
+          --     vim.cmd("wincmd p")
+          --     if args.position == "left" or args.position == "right" then
+          --       vim.cmd("wincmd p")
+          --     end
+          --   end,
+          -- },
+          -- {
+          --   event = "neo_tree_buffer_leave",
+          --   handler = function()
+          --     -- Faster delay before closing
+          --     vim.defer_fn(function()
+          --       -- Only close if we're still not in the Neotree buffer
+          --       if vim.bo.filetype ~= "neo-tree" then
+          --         require("neo-tree.command").execute({ action = "close" })
+          --       end
+          --     end, 200) -- 200ms delay
+          --   end,
+          -- },
         },
-        config = function(_, opts)
-          require("nvim-treesitter.configs").setup(opts)
-
-          -- MDX
-          vim.filetype.add({
-            extension = {
-              mdx = "mdx",
-            },
-          })
-          vim.treesitter.language.register("markdown", "mdx")
-        end,
+        close_if_last_window = true,
       },
     },
 
@@ -300,8 +229,9 @@ require("lazy").setup({
     { import = "plugins" },
   },
   defaults = {
-    -- Set custom plugins to lazy-load by default for better startup time
-    lazy = true,
+    -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.
+    -- If you know what you're doing, you can set this to `true` to have all your custom plugins lazy-loaded by default.
+    lazy = false,
     -- It's recommended to leave version=false for now, since a lot the plugin that support versioning,
     -- have outdated releases, which may break your Neovim install.
     version = false, -- always use the latest git commit
@@ -313,30 +243,18 @@ require("lazy").setup({
     notify = false, -- notify on update
   }, -- automatically check for plugin updates
   performance = {
-    reset_packpath = true,
     rtp = {
       -- disable some rtp plugins
       disabled_plugins = {
         "gzip",
-        "matchit",
-        "matchparen",
-        "netrwPlugin",
+        -- "matchit",
+        -- "matchparen",
+        -- "netrwPlugin",
         "tarPlugin",
         "tohtml",
         "tutor",
         "zipPlugin",
-        "rplugin",
-        "spellfile",
-        "editorconfig",
       },
-      paths = {},
-      reset = true,
-    },
-    cache = {
-      enabled = true,
-      path = vim.fn.stdpath("cache") .. "/lazy/cache",
-      config = { enabled = true },
-      readme = { enabled = false },
     },
   },
 })
