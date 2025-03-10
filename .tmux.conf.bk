@@ -1,0 +1,173 @@
+set -g default-terminal "${TERM}"
+# set-option -g default-terminal "screen-256color"
+#
+set-option -ga terminal-overrides ",screen-256color:Tc"
+# set-option -ag terminal-overrides ",xterm-256color:RGB"
+
+# set-option -g cursor-style "bar"
+set-option -g cursor-style "block"
+set -g set-clipboard on
+set-window-option -q -g utf8 on
+
+# Increase scrollback history (default is 2000, this sets it to 100,000)
+set -g history-limit 100000
+
+# ╭──────────────────────────────────────────────────────────╮
+# │ Prefix                                                   │
+# ╰──────────────────────────────────────────────────────────╯
+set -g prefix C-s
+unbind C-b
+bind-key C-s send-prefix
+
+# ╭──────────────────────────────────────────────────────────╮
+# │ Mouse and Vim Mode                                       │
+# ╰──────────────────────────────────────────────────────────╯
+set -g mouse on
+set-window-option -g mode-keys vi
+
+# ╭──────────────────────────────────────────────────────────╮
+# │ Remove delay for exiting insert mode with ESC in Neovim  │
+# ╰──────────────────────────────────────────────────────────╯
+set -sg escape-time 10
+
+# ╭──────────────────────────────────────────────────────────╮
+# │ Undercurl                                                │
+# ╰──────────────────────────────────────────────────────────╯
+set -g default-terminal "${TERM}"
+set -as terminal-overrides ',_:Smulx=\E[4::%p1%dm' # undercurl support
+set -as terminal-overrides ',_:Setulc=\E[58::2::%p1%{65536}%/%d::%p1%{256}%/%{255}%&%d::%p1%{255}%&%d%;m' # underscore colours - needs tmux-3.0
+# Alacritty
+set -as terminal-features ",alacritty:RGB"
+
+# ╭──────────────────────────────────────────────────────────╮
+# │ Auto window name                                         │
+# ╰──────────────────────────────────────────────────────────╯
+set-option -g automatic-rename on
+set-option -g automatic-rename-format "#{b:pane_current_path}"
+# bind t command-prompt -I "rename-window " # disable because have automatic-rename by path
+unbind , # default rename-window is prefix + ,
+
+# ╭──────────────────────────────────────────────────────────╮
+# │ Split the window and set the path to the current path    │
+# ╰──────────────────────────────────────────────────────────╯
+unbind %
+bind = split-window -h -c "#{pane_current_path}"
+bind _ split-window -v -c "#{pane_current_path}"
+bind - split-window -v -l 7 -c "#{pane_current_path}" # Bind prefix + 0 to create a horizontal split with a height of 10 lines
+
+# ╭──────────────────────────────────────────────────────────╮
+# │ Reload tmux config                                       │
+# ╰──────────────────────────────────────────────────────────╯
+unbind r
+bind R source-file ~/.tmux.conf \; display-message "TMUX Configuration reloaded!"
+bind r command-prompt -I "#S" "rename-session '%%'"  # show current session name
+
+# ╭──────────────────────────────────────────────────────────╮
+# │ Bind key to reset tmux session                           │
+# ╰──────────────────────────────────────────────────────────╯
+bind-key T confirm-before -p "Are you sure you want to reset tmux?" kill-server \; new-session -A -s "tmux"
+
+# ╭──────────────────────────────────────────────────────────╮
+# │ Resize-pane                                              │
+# ╰──────────────────────────────────────────────────────────╯
+bind -r j resize-pane -D 2
+bind -r k resize-pane -U 2
+bind -r l resize-pane -R 2
+bind -r h resize-pane -L 2
+bind -r m resize-pane -Z # maximize pane
+
+# ╭──────────────────────────────────────────────────────────╮
+# │ Swap-pane                                                │
+# ╰──────────────────────────────────────────────────────────╯
+bind -r C-w swap-pane -D
+bind -r C-q swap-pane -U
+
+# ╭──────────────────────────────────────────────────────────╮
+# │ Delete window                                            │
+# ╰──────────────────────────────────────────────────────────╯
+bind x if-shell "[ $(tmux list-windows | wc -l) -eq 1 ]" "new-window; kill-window -a" "kill-window"
+
+# ╭──────────────────────────────────────────────────────────╮
+# │ Create Session                                           │
+# ╰──────────────────────────────────────────────────────────╯
+bind S command-prompt -p "New Session:" "new-session -A -s '%%'"
+
+# ╭──────────────────────────────────────────────────────────╮
+# │ Kill all Session                                         │
+# ╰──────────────────────────────────────────────────────────╯
+bind-key A confirm-before -p "Are you sure you want to kill all tmux sessions? (y/n)" kill-server
+
+# ╭──────────────────────────────────────────────────────────╮
+# │ Kill Session                                             │
+# ╰──────────────────────────────────────────────────────────╯
+unbind d # it exit tmux
+# bind d command-prompt -p "Kill session name:" "kill-session -t '%%'"
+bind d command-prompt -p "Kill session name:" "if-shell '[ #{session_name} != %1 ]' 'kill-session -t %1' 'display-message \"Cannot kill active session!\"'"
+
+# ╭──────────────────────────────────────────────────────────╮
+# │ Save and Detach Tmux                                     │
+# ╰──────────────────────────────────────────────────────────╯
+unbind D
+# bind D run-shell '~/.tmux/plugins/tmux-continuum/scripts/continuum_save.sh' \; display-message "Session saved!" \; detach-client
+bind D run-shell '~/.tmux/plugins/tmux-continuum/scripts/continuum_save.sh' \; display-message "Session saved!" \; run-shell "sleep 1" \; detach-client
+
+# ╭──────────────────────────────────────────────────────────╮
+# │ kill the current pane if there are multiple panes        │
+# ╰──────────────────────────────────────────────────────────╯
+bind \\ if-shell '[ "$(tmux list-panes | wc -l)" -gt 1 ]' \
+    'kill-pane' \
+    'display-message "Cannot kill pane: only one pane left"'
+
+# ╭──────────────────────────────────────────────────────────╮
+# │ Binding to kill a specific window                        │
+# ╰──────────────────────────────────────────────────────────╯
+bind W command-prompt -p "Kill window number:" "kill-window -t '%%'"
+
+# ╭──────────────────────────────────────────────────────────╮
+# │ Manually save the session                                │
+# ╰──────────────────────────────────────────────────────────╯
+bind v run-shell '~/.tmux/plugins/tmux-continuum/scripts/continuum_save.sh' \; display-message "Session saved successfully!"
+
+# ╭──────────────────────────────────────────────────────────╮
+# │ Tab Navigation                                           │
+# ╰──────────────────────────────────────────────────────────╯
+bind-key -r Tab next-window
+bind-key -r S-Tab previous-window
+bind-key -n S-Right next-window
+bind-key -n S-Left previous-window
+
+# ╭──────────────────────────────────────────────────────────╮
+# │ Vi Mode (Copy Mode)                                      │
+# ╰──────────────────────────────────────────────────────────╯
+# Ctrl + c to exit copy mode
+# Enter copy mode prefix + [
+#
+set-window-option -g mode-keys vi
+bind-key -T copy-mode-vi 'v' send -X begin-selection # start selecting text with "v"
+bind-key -T copy-mode-vi 'y' send -X copy-selection # copy text with "y"
+unbind -T copy-mode-vi MouseDragEnd1Pane # don't exit copy mode when dragging with mouse
+
+# ╭──────────────────────────────────────────────────────────╮
+# │ TPM Plugins                                              │
+# ╰──────────────────────────────────────────────────────────╯
+set -g @plugins 'tmux-plugins/tpm'
+
+# ╭──────────────────────────────────────────────────────────╮
+# │ List of tmux-plugins                                     │
+# ╰──────────────────────────────────────────────────────────╯
+set -g @plugin 'christoomey/vim-tmux-navigator'
+set -g @plugin 'tmux-plugins/tmux-resurrect' # persist tmux sessions after computer restart
+set -g @plugin 'tmux-plugins/tmux-continuum' # automatically saves sessions for you every 15 minutes
+set -g @plugin 'wfxr/tmux-power'
+set -g @plugin 'tmux-plugins/tmux-cpu'
+set -g @plugin 'tmux-plugins/tmux-battery'
+set -g @plugin 'tmux-plugins/tmux-sensible'
+
+set -g @tmux_power_theme 'moon'
+set -g status-position bottom
+
+set -g @resurrect-capture-pane-contents 'on'
+set -g @continuum-restore 'on'
+
+
+run '~/.tmux/plugins/tpm/tpm'
