@@ -24,6 +24,10 @@ require("lazy").setup({
         colorscheme = "solarized-osaka",
         -- colorscheme = "tokyonight", -- default colorscheme
         -- colorscheme = "tokyonight-storm",
+        news = {
+          lazyvim = true,
+          neovim = true,
+        },
       },
     },
 

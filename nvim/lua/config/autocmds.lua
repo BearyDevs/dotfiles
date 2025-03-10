@@ -27,7 +27,7 @@ vim.api.nvim_create_autocmd({ "BufReadPre" }, {
   group = perf_group,
   callback = function(ev)
     local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(ev.buf))
-    if ok and stats and (stats.size > 5 * 1024 * 1024) then -- 5MB
+    if ok and stats and (stats.size > 1 * 1024 * 1024) then -- 1MB
       vim.cmd("syntax off")
       vim.opt_local.foldmethod = "manual"
       vim.notify("Very large file detected. Syntax highlighting disabled.", vim.log.levels.WARN)
@@ -40,7 +40,7 @@ vim.api.nvim_create_autocmd({ "BufReadPre" }, {
   group = perf_group,
   callback = function(ev)
     local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(ev.buf))
-    if ok and stats and (stats.size > 2 * 1024 * 1024) then -- 2MB
+    if ok and stats and (stats.size > 1 * 1024 * 1024) then -- 1MB
       -- Disable features that can be slow on large files
       vim.opt_local.foldmethod = "manual"
       vim.opt_local.spell = false

@@ -36,7 +36,8 @@ macos-titlebar-style = transparent
 # macos-icon-ghost-color = grey
 # macos-icon-screen-color = dark grey,black
 macos-window-shadow = true
-theme = "solarized-osaka-night"
+# theme = "solarized-osaka-night"
+theme = "Aura"
 # macos-option-as-alt = left
 macos-option-as-alt = true
 keybind = alt+left=unbind
