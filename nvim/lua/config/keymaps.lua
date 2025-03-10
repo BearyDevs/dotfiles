@@ -145,10 +145,10 @@ end, { desc = "Format" })
 -- ╭─────────────────────────────────────────────────────────╮
 -- │ Neotree                                                 │
 -- ╰─────────────────────────────────────────────────────────╯
-key.set("n", "<leader>r", function()
+key.set("n", "<leader>e", function()
   require("neo-tree.command").execute({ toggle = true, dir = vim.uv.cwd() })
 end, { desc = "Explorer NeoTree (cwd)" })
-key.set("n", "<leader>R", function()
+key.set("n", "<leader>E", function()
   require("neo-tree.command").execute({ toggle = true, dir = LazyVim.root() })
 end, { desc = "Explorer NeoTree (Root Dir)" })
 
