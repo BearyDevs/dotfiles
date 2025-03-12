@@ -867,6 +867,22 @@ function gpb() {
 # $ git push origin feature/display-promotion4.3-MBT295-MBT473
 # $ git checkout uat
 # $ git reset --hard HEAD~1  # Removes the last commit
+#
+# ╭──────────────────────────────────────────────────────────╮
+# │ To copy a specific file from one branch to another in Git│
+# ╰──────────────────────────────────────────────────────────╯
+## First, make sure you're on the develop branch
+# $ git checkout develop
+
+# Then, checkout just that specific file from the other branch
+# $ git checkout feature/guest-mode -- /components/Button/Boq/indev.vue
+
+# Now the file is in your working directory, so you can commit it
+# $ git add /components/Button/Boq/indev.vue
+# $ git commit -m "Copy indev.vue from feature/guest-mode branch"
+
+# Push your changes if needed
+# $ git push origin develop
 
 
 alias inkdrop-keymap='nvim /Users/techflow015/Library/Application\ Support/inkdrop/keymap.json'

@@ -96,9 +96,6 @@ require("lazy").setup({
           theme = "tokyonight",
         })
 
-        -- codeium
-        table.insert(opts.sections.lualine_x, 2, LazyVim.lualine.cmp_source("codeium"))
-
         opts.sections.lualine_c[4] = {
           LazyVim.lualine.pretty_path({
             length = 0,

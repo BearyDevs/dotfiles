@@ -17,14 +17,6 @@ return {
   -- }
   -- ```
   opts = function(_, opts)
--- ╭─────────────────────────────────────────────────────────╮
--- │ codeium                                                 │
--- ╰─────────────────────────────────────────────────────────╯
-    table.insert(opts.sources, 1, {
-      name = "codeium",
-      group_index = 1,
-      priority = 100,
-    })
 
     vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
     local cmp = require("cmp")
