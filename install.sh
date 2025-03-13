@@ -189,3 +189,4 @@ cp ~/dotfile/install.sh ~/.config/ && echo "\033[1;36m **install.sh backup succe
 cp ~/dotfile/fzf-git.sh ~/.config/ && chmod +x ~/.config/fzf-git.sh && echo "\033[1;36m **fzf-git.sh installed success\033[0m"
 cp ~/dotfile/fzf_listoldfiles.sh ~/.config/ && chmod +x ~/.config/fzf_listoldfiles.sh && echo "\033[1;36m **fzf_listoldfiles.sh installed success\033[0m"
 cp ~/dotfile/zoxide_openfiles_nvim.sh ~/.config/ && chmod +x ~/.config/zoxide_openfiles_nvim.sh && echo "\033[1;36m **zoxide_openfiles_nvim installed success\033[0m"
+chmod +x ~/.tmux/ && echo "\033[1;36m **permission .tmux folder success\033[0m"
