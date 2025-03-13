@@ -671,6 +671,7 @@ alias bknvim-lazy-old='cp -rvf ~/.config/nvim-lazy/ ~/dotfile/nvim-lazy/ && echo
 
 alias bkp10='cp -rvf ~/.p10k.zsh ~/dotfile/ && echo "\033[1;36m **.p10k.zsh copy success\033[0m"'
 alias bktmux='cp -rvf ~/.tmux.conf ~/dotfile/ && cp -rvf ~/.tmux.conf.bk ~/dotfile/ && echo "\033[1;36m **.tmux.conf copy success\033[0m"'
+alias bktmuxfolder='cp -rvf ~/.tmux/ ~/dotfile/.tmux/ && cp -rvf ~/.tmux.conf.bk ~/dotfile/ && echo "\033[1;36m **.tmux.conf copy success\033[0m"'
 alias bkzsh='cp -rvf ~/.zshrc ~/dotfile/ && echo "\033[1;36m **.zshrc copy success\033[0m"'
 alias bkzshenv='cp -rvf ~/.zshenv ~/dotfile/ && echo "\033[1;36m **.zshenv copy success\033[0m"'
 alias bkwakatime='cp -rvf ~/.wakatime ~/dotfile/ && echo "\033[1;36m **.wakatime copy success\033[0m"'
