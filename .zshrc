@@ -782,6 +782,7 @@ alias git-pull-all='for branch in $(git branch --format "%(refname:short)"); do 
 #
 # $ git stash apply stash@{0} -- Apply the Stash Without Removing It
 # $ git stash pop stash@{0} -- Apply and Remove the Stash (Recommended if You Don’t Need It Again)
+# $ git stash drop stash@{0} -- Remove the Stash
 
 # ╭──────────────────────────────────────────────────────────╮
 # │ Git Clean                                                │
@@ -813,6 +814,24 @@ function gpb() {
 
 # Compare current file with the same file in another branch
 # $ git diff other-branch-name -- path/to/your/file
+
+# ╭──────────────────────────────────────────────────────────╮
+# │ Remove Branch                                            │
+# ╰──────────────────────────────────────────────────────────╯
+# Delete all local branches except the current one:
+# $ git branch | grep -v "^*" | xargs git branch -D
+
+# Delete all local branches that have been merged into main/master:
+# $ git branch --merged main | grep -v "^\*\|main" | xargs git branch -d
+
+# Delete all local branches except main/master:
+# $ git branch | grep -v "main" | xargs git branch -D
+
+# Delete all remote branches that have been merged into main/master:
+# $ git branch -r --merged main | grep -v "main" | sed 's/origin\///' | xargs git push origin --delete
+
+# Delete all local branches that have been deleted on the remote:
+# $ git fetch --prune
 
 # ╭──────────────────────────────────────────────────────────╮
 # │ Others Git command                                       │
