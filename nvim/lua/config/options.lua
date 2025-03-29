@@ -17,11 +17,11 @@ vim.opt.iskeyword:append("_") -- Append word when delete or select hello-Hello <
 
 vim.opt.title = true
 vim.opt.autoindent = true
-vim.g.autoformat = false -- autoformat
+vim.g.autoformat = false -- autoformat on save
 vim.opt.smartindent = true
 vim.opt.hlsearch = true
 vim.opt.incsearch = true
-vim.opt.maxmempattern = 2000 -- Increase pattern matching memory limit
+-- vim.opt.maxmempattern = 2000 -- Increase pattern matching memory limit
 vim.opt.backup = false
 vim.opt.showcmd = true
 vim.opt.cmdheight = 1
@@ -44,15 +44,15 @@ vim.opt.splitright = true -- Put new windows right of current
 vim.opt.splitkeep = "cursor"
 
 -- Performance related settings
-vim.opt.hidden = true
-vim.opt.history = 100
-vim.opt.updatetime = 250 -- Faster completion
-vim.opt.timeoutlen = 300 -- Faster keymap timeout
-vim.opt.redrawtime = 1500 -- Allow more time for redrawing
+-- vim.opt.hidden = true
+-- vim.opt.history = 100
+-- vim.opt.updatetime = 250 -- Faster completion
+-- vim.opt.timeoutlen = 300 -- Faster keymap timeout
+-- vim.opt.redrawtime = 1500 -- Allow more time for redrawing
 -- vim.opt.lazyredraw = true   -- Disabled - causes issues with noice-nvim
-vim.opt.synmaxcol = 240 -- Max column for syntax highlight
-vim.opt.ttimeoutlen = 10 -- Faster key response time
-vim.opt.ttyfast = true -- Faster terminal connection
+-- vim.opt.synmaxcol = 240 -- Max column for syntax highlight
+-- vim.opt.ttimeoutlen = 10 -- Faster key response time
+-- vim.opt.ttyfast = true -- Faster terminal connection
 
 -- Undercurl
 vim.cmd([[let &t_Cs = "\e[4:3m"]])
@@ -64,12 +64,8 @@ vim.opt.formatoptions:append({ "r" })
 vim.cmd([[au BufNewFile,BufRead *.astro setf astro]])
 vim.cmd([[au BufNewFile,BufRead Podfile setf ruby]])
 
--- if vim.fn.has("nvim-0.8") == 1 then
---   vim.opt.cmdheight = 0
--- end
-
 -- ╭─────────────────────────────────────────────────────────╮
--- │ Todo Comment                                            │
+-- │ Todo Comment Demo                                       │
 -- ╰─────────────────────────────────────────────────────────╯
 -- NOTE:
 -- PERF:

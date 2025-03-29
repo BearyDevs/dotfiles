@@ -64,7 +64,7 @@ return {
       set("n", "mW", mc.operator)
 
       -- Add all matches in the document
-      set({ "n", "x" }, "<leader>A", mc.matchAllAddCursors)
+      set({ "n", "x" }, "<leader>mA", mc.matchAllAddCursors, { desc = "matchAllAddCursors" })
 
       -- You can also add cursors with any motion you prefer:
       -- set("n", "<right>", function()
@@ -79,7 +79,7 @@ return {
       set({ "n", "x" }, "<right>", mc.prevCursor)
 
       -- Delete the main cursor.
-      set({ "n", "x" }, "<leader>x", mc.deleteCursor)
+      set({ "n", "x" }, "<leader>mx", mc.deleteCursor, { desc = "deleteCursor" })
 
       -- Add and remove cursors with control + left click.
       set("n", "<c-leftmouse>", mc.handleMouse)
@@ -103,10 +103,10 @@ return {
       end)
 
       -- bring back cursors if you accidentally clear them
-      set("n", "<leader>gv", mc.restoreCursors)
+      set("n", "<leader>mgv", mc.restoreCursors, { desc = "restoreCursors" })
 
       -- Align cursor columns.
-      set("n", "<leader>a", mc.alignCursors)
+      set("n", "<leader>ma", mc.alignCursors, { desc = "alignCursors" })
 
       -- Split visual selections by regex.
       set("x", "S", mc.splitCursors)
@@ -119,12 +119,12 @@ return {
       set("x", "M", mc.matchCursors)
 
       -- Rotate visual selection contents.
-      set("x", "<leader>t", function()
+      set("x", "<leader>mt", function()
         mc.transposeCursors(1)
-      end)
-      set("x", "<leader>T", function()
+      end, { desc = "transposeCursors" })
+      set("x", "<leader>mT", function()
         mc.transposeCursors(-1)
-      end)
+      end, { desc = "transposeCursors" })
 
       -- Jumplist support
       set({ "x", "n" }, "<c-i>", mc.jumpForward)
