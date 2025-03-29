@@ -4,12 +4,27 @@ return {
     local SymbolKind = vim.lsp.protocol.SymbolKind
 
     require("lsp-lens").setup({
-      include_declaration = false, -- Reference include declaration
+      enable = false,
+      include_declaration = true, -- Reference include declaration
       sections = { -- Enable / Disable specific request, formatter example looks 'Format Requests'
-        definition = false,
-        references = true,
-        implements = true,
-        git_authors = true,
+        -- definition = false,
+        -- references = true,
+        -- implements = true,
+        -- git_authors = true,
+
+        -- Override format
+        definition = function(count)
+          return " Def: " .. count
+        end,
+        references = function(count)
+          return " Ref: " .. count
+        end,
+        implements = function(count)
+          return "󱑟 Imp: " .. count
+        end,
+        git_authors = function(latest_author, count)
+          return " " .. latest_author .. (count - 1 == 0 and "" or (" + " .. count - 1))
+        end,
       },
       ignore_filetype = {
         "prisma",
