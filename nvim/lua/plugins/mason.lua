@@ -88,7 +88,7 @@ return {
       "sonarlint-language-server",
       "cfn-lint",
       "gitlab-ci-ls",
-      "zk",
+      -- "zk",
       "markdown-oxide",
       "gopls",
       "java-debug-adapter",
@@ -125,7 +125,7 @@ return {
       "dart-debug-adapter",
       "dcm",
       "kulala-fmt",
-      "quick-lint-js",
+      -- "quick-lint-js",
     },
     ui = {
       icons = {
