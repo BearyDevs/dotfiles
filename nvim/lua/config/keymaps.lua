@@ -152,6 +152,14 @@ key.set("n", "<leader>E", function()
   require("neo-tree.command").execute({ toggle = true, dir = LazyVim.root(), reveal = true })
 end, { desc = "Explorer NeoTree (Root Dir)" })
 
+-- ╭─────────────────────────────────────────────────────────╮
+-- │ Diffview                                                │
+-- ╰─────────────────────────────────────────────────────────╯
+key.set('n', '<leader>gO', '<cmd>DiffviewOpen<cr>', { noremap = true, silent = true })
+key.set('n', '<leader>gC', '<cmd>DiffviewClose<cr>', { noremap = true, silent = true })
+key.set('n', '<leader>gF', '<cmd>DiffviewFocusFiles<cr>', { noremap = true, silent = true })
+key.set('n', '<leader>gH', '<cmd>DiffviewFileHistory<cr>', { noremap = true, silent = true })
+
 
 -- ╭─────────────────────────────────────────────────────────╮
 -- │ Code Fold keymap                                        │
