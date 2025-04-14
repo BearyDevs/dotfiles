@@ -259,7 +259,6 @@ alias lg='lazygit'
 alias docklock='defaults write com.apple.Dock.plist prefersAllDisplays -bool false && echo lock-dock: main-screen'
 alias dockdefault='defaults write com.apple.Dock.plist prefersAllDisplays -bool true && echo lock-dock: default'
 alias coder='code-insiders .'
-alias code='code-insiders .'
 
 # Mac Cleanup
 # brew tap fwartner/tap

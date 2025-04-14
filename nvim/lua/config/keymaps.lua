@@ -115,32 +115,20 @@ key.set("n", "<leader>cL", "<cmd>LspLensToggle<CR>", { desc = "LspLensToggle" })
 -- ╰─────────────────────────────────────────────────────────╯
 vim.api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-n>", { noremap = true, silent = true })
 
+key.set("n", "<leader>fL", function()
+  Snacks.terminal(nil, { win = { position = "left" } })
+end, { desc = "Terminal left" })
+
+key.set("n", "<leader>fR", function()
+  Snacks.terminal(nil, { win = { position = "right" } })
+end, { desc = "Terminal right" })
+
 -- ╭─────────────────────────────────────────────────────────╮
 -- │ Formatting                                              │
 -- ╰─────────────────────────────────────────────────────────╯
 key.set({ "n", "v" }, "gm", function()
   LazyVim.format({ force = true })
 end, { desc = "Format" })
-
--- ╭─────────────────────────────────────────────────────────╮
--- │ Explorer Toggle                                         │
--- ╰─────────────────────────────────────────────────────────╯
--- key.set("n", "<leader>o", function()
---   if vim.bo.filetype == "neo-tree" then
---     vim.cmd("wincmd p")
---   else
---     local winid = nil
---     for _, w in pairs(vim.api.nvim_list_wins()) do
---       if vim.api.nvim_buf_get_option(vim.api.nvim_win_get_buf(w), "filetype") == "neo-tree" then
---         winid = w
---         break
---       end
---     end
---     if winid then
---       vim.api.nvim_set_current_win(winid)
---     end
---   end
--- end, { desc = "Toggle between neotree and buffer" })
 
 -- ╭─────────────────────────────────────────────────────────╮
 -- │ Neotree                                                 │
@@ -155,11 +143,10 @@ end, { desc = "Explorer NeoTree (Root Dir)" })
 -- ╭─────────────────────────────────────────────────────────╮
 -- │ Diffview                                                │
 -- ╰─────────────────────────────────────────────────────────╯
-key.set('n', '<leader>gO', '<cmd>DiffviewOpen<cr>', { noremap = true, silent = true })
-key.set('n', '<leader>gC', '<cmd>DiffviewClose<cr>', { noremap = true, silent = true })
-key.set('n', '<leader>gF', '<cmd>DiffviewFocusFiles<cr>', { noremap = true, silent = true })
-key.set('n', '<leader>gH', '<cmd>DiffviewFileHistory<cr>', { noremap = true, silent = true })
-
+key.set("n", "<leader>gO", "<cmd>DiffviewOpen<cr>", { noremap = true, silent = true })
+key.set("n", "<leader>gC", "<cmd>DiffviewClose<cr>", { noremap = true, silent = true })
+key.set("n", "<leader>gF", "<cmd>DiffviewFocusFiles<cr>", { noremap = true, silent = true })
+key.set("n", "<leader>gH", "<cmd>DiffviewFileHistory<cr>", { noremap = true, silent = true })
 
 -- ╭─────────────────────────────────────────────────────────╮
 -- │ Code Fold keymap                                        │
