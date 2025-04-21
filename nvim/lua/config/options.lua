@@ -8,7 +8,7 @@ vim.opt.fileencoding = "utf-8"
 vim.scriptencoding = "utf-8"
 
 vim.opt.number = true
-vim.opt.relativenumber = false
+vim.opt.relativenumber = true
 
 vim.o.termguicolors = true
 

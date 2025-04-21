@@ -113,6 +113,9 @@ map("n", "<leader>cL", "<cmd>LspLensToggle<CR>", { desc = "LspLensToggle" })
 -- ╭─────────────────────────────────────────────────────────╮
 -- │ Terminal                                                │
 -- ╰─────────────────────────────────────────────────────────╯
+map("n", "<leader>T", function()
+  vim.cmd("tabnew | terminal")
+end, { desc = "Open Terminal in New Tab" })
 map("t", "<Esc>", "<C-\\><C-n>", { noremap = true, silent = true })
 map("n", "<c-/>", function() Snacks.terminal(nil, { cwd = LazyVim.root(), win = { height = 8 } }) end, { desc = "Terminal (Root Dir)" })
 map("n", "<c-_>", function() Snacks.terminal(nil, { cwd = LazyVim.root(), win = { height = 8 } }) end, { desc = "which_key_ignore" })
