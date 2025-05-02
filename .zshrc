@@ -43,6 +43,11 @@ alias npmgloballist='npm list -g --depth=0'
 # $ ncu -u
 # Or
 # $ npx npm-check-updates -u
+#
+# ╭──────────────────────────────────────────────────────────╮
+# │ Check version of specific dependencies                   │
+# ╰──────────────────────────────────────────────────────────╯
+# npm show <package_name> version
 
 # ╭──────────────────────────────────────────────────────────╮
 # │ YARN                                                     │
