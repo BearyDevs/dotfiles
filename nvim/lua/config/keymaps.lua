@@ -156,6 +156,22 @@ map("n", "<leader>gF", "<cmd>DiffviewFocusFiles<cr>", { noremap = true, silent =
 map("n", "<leader>gH", "<cmd>DiffviewFileHistory<cr>", { noremap = true, silent = true })
 
 -- ╭─────────────────────────────────────────────────────────╮
+-- │ Telescope                                               │
+-- ╰─────────────────────────────────────────────────────────╯
+map("n", "<leader>s?", function()
+  require("telescope.builtin").current_buffer_fuzzy_find({
+    layout_strategy = "horizontal",
+    layout_config = {
+      width = 0.8,  -- 80% of the screen width
+      height = 0.9, -- 90% of the screen height
+      -- preview_width = 0.5, -- 50% of the window for preview
+    },
+    winblend = 15, -- transparent 15%
+    previewer = false,
+  })
+end, { desc = "Search in Current Buffer with Telescope" })
+
+-- ╭─────────────────────────────────────────────────────────╮
 -- │ Code Fold keymap                                        │
 -- ╰─────────────────────────────────────────────────────────╯
 -- za - Toggle the current fold
