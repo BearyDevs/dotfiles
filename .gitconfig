@@ -15,6 +15,12 @@
   autocrlf = input
 	excludesfile = /Users/techflow015/.gitignore_global
 
+; [core]
+;   editor = code --wait
+
+; [core]
+;   editor = code-insiders --wait
+
 [init]
   defaultBranch = main
 
@@ -23,6 +29,19 @@
 
 [difftool "neovim"]
   cmd = "nvim -d $LOCAL $REMOTE"
+
+; [diff]
+;   tool = vscode
+
+; [difftool "vscode"]
+;   cmd = code --wait --diff $LOCAL $REMOTE
+
+
+; [diff]
+;   tool = vscode-insiders
+
+; [difftool "vscode-insiders"]
+;   cmd = code-insiders --wait --diff $LOCAL $REMOTE
 
 [merge]
   tool = p4merge

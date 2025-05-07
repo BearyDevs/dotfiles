@@ -164,12 +164,9 @@ alias reload='source ~/.zshrc'
 alias dotconfig='cd ~/.config'
 alias dotlocal='cd ~/.local'
 alias dotcache='cd ~/.cache'
-# alias vim='echo "Vim is deprecated, Use nvim instead"'
-# alias vim='nvim'
-alias vi='echo "Use vim instead"'
-alias vim='echo "Use nvim instead"'
+alias vim='nvim'
+alias vi='echo "Use vim or nvim instead"'
 # alias vide='neovide'
-# alias vimconfig='home; cd ~/.config/nvim'
 alias nvimconfig='home; cd ~/.config/nvim'
 alias nvimdata='home; cd ~/.local'
 alias nvimcache='cd ~/.cache'
@@ -781,6 +778,8 @@ alias grs='git reset'
 alias gmer='git merge'
 alias gdeploy='git status -s; git add .; git commit; git push'
 alias git-pull-all='for branch in $(git branch --format "%(refname:short)"); do git checkout $branch && git pull; done'
+alias gca='git commit -v -a' # commit and view all changes
+
 # ╭──────────────────────────────────────────────────────────╮
 # │ Git Stash                                                │
 # ╰──────────────────────────────────────────────────────────╯
