@@ -779,6 +779,24 @@ alias gmer='git merge'
 alias gdeploy='git status -s; git add .; git commit; git push'
 alias git-pull-all='for branch in $(git branch --format "%(refname:short)"); do git checkout $branch && git pull; done'
 alias gca='git commit -v -a' # commit and view all changes
+alias gdt='git difftool -y'
+
+# ╭──────────────────────────────────────────────────────────╮
+# │ Git Diff                                                 │
+# ╰──────────────────────────────────────────────────────────╯
+# - Compare the working directory with the last commit:
+#   ```zsh
+#   git difftool HEAD
+#   ```
+
+# - Compare two specific commits:
+#   ```zsh
+#   git difftool <commit1> <commit2>
+#   ```
+
+# - Compare a specific branch with the current branch:
+#   ```zsh
+#   git difftool <branch>
 
 # ╭──────────────────────────────────────────────────────────╮
 # │ Git Stash                                                │

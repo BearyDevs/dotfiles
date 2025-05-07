@@ -1,47 +1,38 @@
-; [user]
-;   email = teerapat.tech@gmail.com
-;   name = BEARYDEV
-
-; [user]
-;   email = teerapatwas@bitbucket.org
-;   name = Teerapat Wassavanich
-
 [user]
 	email = teerapat.was@techflow.asia
 	name = Teerapat Wassavanich
+;   email = teerapat.tech@gmail.com
+;   name = BEARYDEV
+;   email = teerapatwas@bitbucket.org
+;   name = Teerapat Wassavanich
 
 [core]
   editor = nvim
+  ; editor = code --wait
+  ; editor = code-insiders --wait
   autocrlf = input
 	excludesfile = /Users/techflow015/.gitignore_global
-
-; [core]
-;   editor = code --wait
-
-; [core]
-;   editor = code-insiders --wait
 
 [init]
   defaultBranch = main
 
 [diff]
   tool = neovim
+  ; tool = vscode
+  ; tool = vscode-insiders
 
 [difftool "neovim"]
   cmd = "nvim -d $LOCAL $REMOTE"
 
-; [diff]
-;   tool = vscode
-
 ; [difftool "vscode"]
 ;   cmd = code --wait --diff $LOCAL $REMOTE
 
-
-; [diff]
-;   tool = vscode-insiders
-
 ; [difftool "vscode-insiders"]
 ;   cmd = code-insiders --wait --diff $LOCAL $REMOTE
+
+; [difftool "sourcetree"]
+; 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+; 	path = 
 
 [merge]
   tool = p4merge
@@ -49,10 +40,6 @@
 [mergetool "p4merge"]
   path = /Applications/p4merge.app/Contents/MacOS/p4merge
 
-; [difftool "sourcetree"]
-; 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-; 	path = 
-;
 ; [mergetool "sourcetree"]
 ; 	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 ; 	trustExitCode = true
