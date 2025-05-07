@@ -7,8 +7,8 @@
 ;   name = Teerapat Wassavanich
 
 [user]
-  email = teerapat.was@techflow.asia
-  name = Teerapat Wassavanich
+	email = teerapat.was@techflow.asia
+	name = Teerapat Wassavanich
 
 [core]
   editor = nvim

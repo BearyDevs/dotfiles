@@ -7,9 +7,9 @@ return {
     { "f<C-l>", desc = "Clear Highlight" },
     { "f<Tab>", desc = "Find Highlight (similar to Telescope grep)" },
     -- They are derivated from the default keymaps, see README.md to github repo for documentation
-    -- { "nn", "<cmd>Hi><CR>", desc = "Next Recently Set Highlight" },
-    -- { "ng", "<cmd>Hi<<CR>", desc = "Previous Recently Set Highlight" },
-    -- { "n[", "<cmd>Hi{<CR>", desc = "Next Nearest Highlight" },
-    -- { "n]", "<cmd>Hi}<CR>", desc = "Previous Nearest Highlight" },
+    { "mm", "<cmd>Hi><CR>", desc = "Next Recently Set Highlight" },
+    { "mg", "<cmd>Hi<<CR>", desc = "Previous Recently Set Highlight" },
+    { "m[", "<cmd>Hi{<CR>", desc = "Next Nearest Highlight" },
+    { "m]", "<cmd>Hi}<CR>", desc = "Previous Nearest Highlight" },
   },
 }

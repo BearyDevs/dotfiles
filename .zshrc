@@ -165,8 +165,9 @@ alias dotconfig='cd ~/.config'
 alias dotlocal='cd ~/.local'
 alias dotcache='cd ~/.cache'
 # alias vim='echo "Vim is deprecated, Use nvim instead"'
-alias vim='nvim'
+# alias vim='nvim'
 alias vi='echo "Use vim instead"'
+alias vim='echo "Use nvim instead"'
 # alias vide='neovide'
 # alias vimconfig='home; cd ~/.config/nvim'
 alias nvimconfig='home; cd ~/.config/nvim'
@@ -683,6 +684,7 @@ alias bkgitconfig='cp -rvf ~/.gitconfig ~/dotfile/ && echo "\033[1;36m **.gitcon
 alias store-iterm2-all-config='cp ~/Library/Preferences/com.googlecode.iterm2.plist ~/dotfile/ && echo "\033[1;36m **com.googlecode.iterm2.plist copy success\033[0m"'
 
 alias store-sh='cp ~/.config/install.sh ~/dotfile/ && cp ~/.config/fzf-git.sh ~/dotfile/ && cp ~/.config/fzf_listoldfiles.sh ~/dotfile/ && cp ~/.config/zoxide_openfiles_nvim.sh ~/dotfile/ && echo "\033[1;36m **sh scripts copy success\033[0m"'
+alias store-ssh='cp -rvf ~/.ssh ~/dotfile/ && echo "\033[1;36m **.ssh copy success\033[0m"'
 
 alias afterStore='echo -e "\033[38;2;255;215;0mALL SCRIPT BACKUP IS DONE, @~/dotfile \033[0m"; sleep 2'
 alias afterDone='cd ~/dotfile; gs; gaa; sleep 1; cd ~/dotfile; cls; echo -e DOTFILE STORE SUCCESS, Please remove secret-key of .zshrc and push'
@@ -690,7 +692,7 @@ alias afterDone='cd ~/dotfile; gs; gaa; sleep 1; cd ~/dotfile; cls; echo -e DOTF
 alias restore-iterm2-config='cp ~/dotfile/com.googlecode.iterm2.plist ~/Library/Preferences/com.googlecode.iterm2.plist'
 alias dotfile='cd ~/dotfile/'
 
-alias store-dotfile='home; dlconfigfirst; bknvim; bknvim-lazy-old; bkalacritty; bkghostty; bkiterm2; bkyazi; bkasciilogo; bkp10; bktmux; bktmuxfolder; bkzsh; bkzshenv; bkwakatime; bkgitconfig; store-iterm2-all-config; store-sh; afterStore; afterDone'
+alias store-dotfile='home; dlconfigfirst; bknvim; bknvim-lazy-old; bkalacritty; bkghostty; bkiterm2; bkyazi; bkasciilogo; bkp10; bktmux; bktmuxfolder; bkzsh; store-ssh; bkzshenv; bkwakatime; bkgitconfig; store-iterm2-all-config; store-sh; afterStore; afterDone'
 
 alias minfo='echo -e "\033[1;31m🅷 🅸 \033[0m \033[1;38;2;255;215;0m🅱 🅴 🅰 🆁 🆈 , \033[38;2;255;105;180m🅷 🅰 🅿 🅿 🆈 \033[0m \033[1;38;2;148;0;211m🅲 🅾 🅳 🅸 🅽 🅶 .\033[0m"' # Bold font
 
