@@ -927,6 +927,11 @@ function gpb() {
 # Push your changes if needed
 # $ git push origin develop
 
+# ╭──────────────────────────────────────────────────────────╮
+# │ Delete commit                                            │
+# ╰──────────────────────────────────────────────────────────╯
+# $ git reset --hard HEAD~2 -- delete last 2 commits
+
 
 alias inkdrop-keymap='nvim /Users/techflow015/Library/Application\ Support/inkdrop/keymap.json'
 
