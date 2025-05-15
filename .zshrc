@@ -797,6 +797,16 @@ alias gdt='git difftool -y'
 # - Compare a specific branch with the current branch:
 #   ```zsh
 #   git difftool <branch>
+#
+# ╭──────────────────────────────────────────────────────────╮
+# │ Show diff between two commits in all files               │
+# ╰──────────────────────────────────────────────────────────╯
+# git difftool 6ef31283ed0546792a5ec925a8df1247c55ed101..deploy-dev
+#
+# ╭──────────────────────────────────────────────────────────╮
+# │ Show diff between two commits in specific files          │
+# ╰──────────────────────────────────────────────────────────╯
+# git difftool 6ef31283ed0546792a5ec925a8df1247c55ed101..deploy-dev -- file1.js file2.js
 
 # ╭──────────────────────────────────────────────────────────╮
 # │ Git Stash                                                │

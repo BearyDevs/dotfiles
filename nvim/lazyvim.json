@@ -37,7 +37,6 @@
     "lazyvim.plugins.extras.lsp.none-ls",
     "lazyvim.plugins.extras.test.core",
     "lazyvim.plugins.extras.ui.mini-indentscope",
-    "lazyvim.plugins.extras.ui.smear-cursor",
     "lazyvim.plugins.extras.util.mini-hipatterns",
     "lazyvim.plugins.extras.vscode"
   ],
