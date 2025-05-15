@@ -21,9 +21,10 @@ require("lazy").setup({
       "LazyVim/LazyVim",
       import = "lazyvim.plugins",
       opts = {
-        colorscheme = "solarized-osaka",
+        -- colorscheme = "solarized-osaka",
         -- colorscheme = "tokyonight", -- default colorscheme
         -- colorscheme = "tokyonight-storm",
+        colorscheme = "catppuccin",
         news = {
           lazyvim = true,
           neovim = true,
@@ -168,55 +169,55 @@ require("lazy").setup({
         })
       end,
     },
-    {
-      "nvim-neo-tree/neo-tree.nvim",
-      opts = {
-        filesystem = {
-          window = {
-            -- width = 35,
-            -- position = "right",
-          },
-        },
-        event_handlers = {
-          {
-            event = "file_opened",
-            handler = function()
-              require("neo-tree.command").execute({ action = "close" })
-            end,
-          },
-          -- {
-          --   event = "neo_tree_window_after_close",
-          --   handler = function()
-          --     vim.schedule(function()
-          --       vim.cmd("wincmd p")
-          --     end)
-          --   end,
-          -- },
-          -- {
-          --   event = "neo_tree_window_after_open",
-          --   handler = function(args)
-          --     vim.cmd("wincmd p")
-          --     if args.position == "left" or args.position == "right" then
-          --       vim.cmd("wincmd p")
-          --     end
-          --   end,
-          -- },
-          -- {
-          --   event = "neo_tree_buffer_leave",
-          --   handler = function()
-          --     -- Faster delay before closing
-          --     vim.defer_fn(function()
-          --       -- Only close if we're still not in the Neotree buffer
-          --       if vim.bo.filetype ~= "neo-tree" then
-          --         require("neo-tree.command").execute({ action = "close" })
-          --       end
-          --     end, 200) -- 200ms delay
-          --   end,
-          -- },
-        },
-        close_if_last_window = true,
-      },
-    },
+    -- {
+    --   "nvim-neo-tree/neo-tree.nvim",
+    --   opts = {
+    --     filesystem = {
+    --       window = {
+    --         -- width = 35,
+    --         -- position = "right",
+    --       },
+    --     },
+    --     event_handlers = {
+    --       {
+    --         event = "file_opened",
+    --         handler = function()
+    --           require("neo-tree.command").execute({ action = "close" })
+    --         end,
+    --       },
+    --       -- {
+    --       --   event = "neo_tree_window_after_close",
+    --       --   handler = function()
+    --       --     vim.schedule(function()
+    --       --       vim.cmd("wincmd p")
+    --       --     end)
+    --       --   end,
+    --       -- },
+    --       -- {
+    --       --   event = "neo_tree_window_after_open",
+    --       --   handler = function(args)
+    --       --     vim.cmd("wincmd p")
+    --       --     if args.position == "left" or args.position == "right" then
+    --       --       vim.cmd("wincmd p")
+    --       --     end
+    --       --   end,
+    --       -- },
+    --       -- {
+    --       --   event = "neo_tree_buffer_leave",
+    --       --   handler = function()
+    --       --     -- Faster delay before closing
+    --       --     vim.defer_fn(function()
+    --       --       -- Only close if we're still not in the Neotree buffer
+    --       --       if vim.bo.filetype ~= "neo-tree" then
+    --       --         require("neo-tree.command").execute({ action = "close" })
+    --       --       end
+    --       --     end, 200) -- 200ms delay
+    --       --   end,
+    --       -- },
+    --     },
+    --     close_if_last_window = true,
+    --   },
+    -- },
 
     -- import/override with your plugins
     { import = "plugins" },

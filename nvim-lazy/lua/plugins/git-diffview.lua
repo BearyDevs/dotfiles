@@ -2,7 +2,7 @@ return {
   {
     "sindrets/diffview.nvim",
     event = "VeryLazy",
-    cmd = { "DiffviewOpen" },
+    cmd = { "DiffviewOpen", "DiffviewClose", "DiffviewToggle" },
     opts = {
       enhanced_diff_hl = true,
       view = {
@@ -15,14 +15,9 @@ return {
         end,
       },
     },
-    keys = {
-      { "<leader>gD", desc = "Diffview" },
-      { "<leader>gDo", "<cmd>DiffviewOpen<cr>", desc = "Diffview: open" },
-      { "<leader>gDc", "<cmd>DiffviewClose<cr>", desc = "Diffview: close" },
-    },
   },
   {
-    "NeogitOrg/neogit",
+    "neogitorg/neogit",
     optional = true,
     opts = { integrations = { diffview = true } },
   },

@@ -20,23 +20,28 @@ return {
         ts_ls = {
           enabled = false,
         },
-        -- Volar for Vue.js and Nuxt.js with takeover mode
-        volar = {
-          filetypes = { "vue", "javascript", "typescript", "javascriptreact", "typescriptreact" },
-          init_options = {
-            vue = {
-              hybridMode = true, -- Enables Nuxt.js support
-            },
-            typescript = {
-              -- Point to your global TypeScript installation (adjust path as needed)
-              tsdk = vim.fn.expand("~/.nvm/versions/node/v20.11.0/lib/node_modules/typescript/lib"),
-            },
-          },
-        },
-        -- Keep vtsls for non-Vue projects (optional, can disable if only using Vue/Nuxt)
-        vtsls = {
-          filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact" }, -- Exclude "vue"
-        },
+-- ╭─────────────────────────────────────────────────────────╮
+-- │ Volar for Vue.js and Nuxt.js with takeover mode         │
+-- ╰─────────────────────────────────────────────────────────╯
+        -- volar = {
+        --   filetypes = { "vue", "javascript", "typescript", "javascriptreact", "typescriptreact" },
+        --   init_options = {
+        --     vue = {
+        --       hybridMode = true, -- Enables Nuxt.js support
+        --     },
+        --     typescript = {
+        --       -- Point to your global TypeScript installation (adjust path as needed)
+        --       tsdk = vim.fn.expand("~/.nvm/versions/node/v20.11.0/lib/node_modules/typescript/lib"),
+        --     },
+        --   },
+        -- },
+-- ╭─────────────────────────────────────────────────────────╮
+-- │ Keep vtsls for non-Vue projects (optional, can disable  │
+-- │ if only using Vue/Nuxt)                                 │
+-- ╰─────────────────────────────────────────────────────────╯
+        -- vtsls = {
+        --   filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact" }, -- Exclude "vue"
+        -- },
         prismals = {},
         jsonls = {
           -- lazy-load schemastore when needed
@@ -250,19 +255,19 @@ return {
       },
     },
   },
-  {
-    "neovim/nvim-lspconfig",
-    opts = function(_, opts)
-      table.insert(opts.servers.vtsls.filetypes, "vue")
-      LazyVim.extend(opts.servers.vtsls, "settings.vtsls.tsserver.globalPlugins", {
-        {
-          name = "@vue/typescript-plugin",
-          location = LazyVim.get_pkg_path("vue-language-server", "/node_modules/@vue/language-server"),
-          languages = { "vue" },
-          configNamespace = "typescript",
-          enableForWorkspaceTypeScriptVersions = true,
-        },
-      })
-    end,
-  },
+  -- {
+  --   "neovim/nvim-lspconfig",
+  --   opts = function(_, opts)
+  --     table.insert(opts.servers.vtsls.filetypes, "vue")
+  --     LazyVim.extend(opts.servers.vtsls, "settings.vtsls.tsserver.globalPlugins", {
+  --       {
+  --         name = "@vue/typescript-plugin",
+  --         location = LazyVim.get_pkg_path("vue-language-server", "/node_modules/@vue/language-server"),
+  --         languages = { "vue" },
+  --         configNamespace = "typescript",
+  --         enableForWorkspaceTypeScriptVersions = true,
+  --       },
+  --     })
+  --   end,
+  -- },
 }

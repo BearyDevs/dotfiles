@@ -1,7 +1,6 @@
 -- Keymaps are automatically loaded on the VeryLazy event
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
---
 local map = LazyVim.safe_keymap_set
 local opts = { noremap = true, silent = true, nowait = true }
 
@@ -117,8 +116,12 @@ map("n", "<leader>T", function()
   vim.cmd("tabnew | terminal")
 end, { desc = "Open Terminal in New Tab" })
 map("t", "<Esc>", "<C-\\><C-n>", { noremap = true, silent = true })
-map("n", "<c-/>", function() Snacks.terminal(nil, { cwd = LazyVim.root(), win = { height = 8 } }) end, { desc = "Terminal (Root Dir)" })
-map("n", "<c-_>", function() Snacks.terminal(nil, { cwd = LazyVim.root(), win = { height = 8 } }) end, { desc = "which_key_ignore" })
+map("n", "<c-/>", function()
+  Snacks.terminal(nil, { cwd = LazyVim.root(), win = { height = 8 } })
+end, { desc = "Terminal (Root Dir)" })
+map("n", "<c-_>", function()
+  Snacks.terminal(nil, { cwd = LazyVim.root(), win = { height = 8 } })
+end, { desc = "which_key_ignore" })
 map("t", "<C-/>", "<cmd>close<cr>", { desc = "Hide Terminal" })
 map("t", "<c-_>", "<cmd>close<cr>", { desc = "which_key_ignore" })
 
@@ -138,16 +141,6 @@ map({ "n", "v" }, "gm", function()
 end, { desc = "Format" })
 
 -- ╭─────────────────────────────────────────────────────────╮
--- │ Neotree                                                 │
--- ╰─────────────────────────────────────────────────────────╯
-vim.keymap.set("n", "<leader>e", function()
-  require("neo-tree.command").execute({ toggle = true, dir = vim.uv.cwd(), reveal = true })
-end, { desc = "Explorer NeoTree (cwd)" })
-vim.keymap.set("n", "<leader>E", function()
-  require("neo-tree.command").execute({ toggle = true, dir = LazyVim.root(), reveal = true })
-end, { desc = "Explorer NeoTree (Root Dir)" })
-
--- ╭─────────────────────────────────────────────────────────╮
 -- │ Diffview                                                │
 -- ╰─────────────────────────────────────────────────────────╯
 map("n", "<leader>gO", "<cmd>DiffviewOpen<cr>", { noremap = true, silent = true })
@@ -162,7 +155,7 @@ map("n", "<leader>s?", function()
   require("telescope.builtin").current_buffer_fuzzy_find({
     layout_strategy = "horizontal",
     layout_config = {
-      width = 0.8,  -- 80% of the screen width
+      width = 0.8, -- 80% of the screen width
       height = 0.9, -- 90% of the screen height
       -- preview_width = 0.5, -- 50% of the window for preview
     },
