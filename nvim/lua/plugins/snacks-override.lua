@@ -6,7 +6,7 @@ return {
       sources = {
         explorer = {
           auto_close = true,
-          -- hidden = true,
+          hidden = false,
         },
       },
     },

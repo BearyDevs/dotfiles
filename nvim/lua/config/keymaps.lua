@@ -165,6 +165,26 @@ map("n", "<leader>s?", function()
 end, { desc = "Search in Current Buffer with Telescope" })
 
 -- ╭─────────────────────────────────────────────────────────╮
+-- │ GitGraph                                                │
+-- ╰─────────────────────────────────────────────────────────╯
+map("n", "<Leader>g|", function()
+  require("gitgraph").draw({}, { all = true, max_count = 5000 })
+end, { desc = "GitGraph" })
+
+-- ╭─────────────────────────────────────────────────────────╮
+-- │ NVCheatSheet                                            │
+-- ╰─────────────────────────────────────────────────────────╯
+map("n", "<F1>", function()
+  require("nvcheatsheet").toggle()
+end, { desc = "Cheatsheet" })
+map("v", "<F1>", function()
+  require("nvcheatsheet").toggle()
+end, { desc = "Cheatsheet" })
+map("x", "<F1>", function()
+  require("nvcheatsheet").toggle()
+end, { desc = "Cheatsheet" })
+
+-- ╭─────────────────────────────────────────────────────────╮
 -- │ Code Fold keymap                                        │
 -- ╰─────────────────────────────────────────────────────────╯
 -- za - Toggle the current fold
