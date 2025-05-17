@@ -22,9 +22,9 @@ require("lazy").setup({
       import = "lazyvim.plugins",
       opts = {
         -- colorscheme = "solarized-osaka",
-        -- colorscheme = "tokyonight", -- default colorscheme
+        colorscheme = "tokyonight", -- default colorscheme
         -- colorscheme = "tokyonight-storm",
-        colorscheme = "catppuccin",
+        -- colorscheme = "catppuccin",
         news = {
           lazyvim = true,
           neovim = true,

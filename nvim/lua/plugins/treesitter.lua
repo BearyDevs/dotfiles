@@ -22,7 +22,6 @@ return {
         "lua",
         "dockerfile",
         "yaml",
-        "http",
         "graphql",
         "gitcommit",
         "gitignore",
