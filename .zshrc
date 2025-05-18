@@ -780,6 +780,20 @@ alias gdeploy='git status -s; git add .; git commit; git push'
 alias git-pull-all='for branch in $(git branch --format "%(refname:short)"); do git checkout $branch && git pull; done'
 alias gca='git commit -v -a' # commit and view all changes
 alias gdt='git difftool -y'
+alias git-clean-branches='git branch | grep -v "^*" | xargs git branch -D' # Remove all local branches except current branch
+
+git-clean-except() {
+  # usage 
+  # $ git-clean-except branch1 branch2 branch3
+  local branches=("$@")
+  local pattern="^\*"
+  
+  for branch in "${branches[@]}"; do
+    pattern="${pattern}|${branch}"
+  done
+  
+  git branch | grep -v -E "$pattern" | xargs git branch -D
+}
 
 # ╭──────────────────────────────────────────────────────────╮
 # │ Git Diff                                                 │
@@ -942,6 +956,17 @@ function gpb() {
 # ╰──────────────────────────────────────────────────────────╯
 # $ git reset --hard HEAD~2 -- delete last 2 commits
 
+# ╭──────────────────────────────────────────────────────────╮
+# │ Reset to the commit before this series                   │
+# ╰──────────────────────────────────────────────────────────╯
+# $ git reset --hard <commit-id>^
+# example git reset --hard 222b3a6131418127c6956aa934767d6e479046d8^
+
+# ╭──────────────────────────────────────────────────────────╮
+# │ Create a new revert commit that undoes all changes       │
+# ╰──────────────────────────────────────────────────────────╯
+# $ git revert --no-commit 73c6e262ded2d23c4b3bd5516926054d1864bcf7..222b3a6131418127c6956aa934767d6e479046d8
+# $ git commit -m "Revert changes made for promotion discount display"
 
 alias inkdrop-keymap='nvim /Users/techflow015/Library/Application\ Support/inkdrop/keymap.json'
 
