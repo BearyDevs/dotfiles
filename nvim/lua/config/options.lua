@@ -12,6 +12,7 @@ vim.opt.iskeyword:append("_") -- Append word when delete or select hello-Hello <
 
 vim.opt.number = true
 vim.opt.relativenumber = false
+vim.g.autoformat = false
 
 vim.opt.title = true
 vim.opt.autoindent = true
