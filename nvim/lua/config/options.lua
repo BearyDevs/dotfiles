@@ -40,7 +40,7 @@ vim.opt.splitbelow = true -- Put new windows below current
 vim.opt.splitright = true -- Put new windows right of current
 vim.opt.splitkeep = "cursor"
 -- vim.opt.mouse = ""
-vim.opt.mouse = "a" -- Enable mouse scroll and mouse drag
+vim.opt.mouse = "a" -- Enable mouse all mode
 
 -- Undercurl
 vim.cmd([[let &t_Cs = "\e[4:3m"]])
