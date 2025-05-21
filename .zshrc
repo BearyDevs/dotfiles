@@ -779,8 +779,21 @@ alias gmer='git merge'
 alias gdeploy='git status -s; git add .; git commit; git push'
 alias git-pull-all='for branch in $(git branch --format "%(refname:short)"); do git checkout $branch && git pull; done'
 alias gca='git commit -v -a' # commit and view all changes
-alias gdt='git difftool -y'
+alias gdt='git difftool'
+alias gdtn='git difftool --no-prompt'
+alias gdtd='git difftool --dir-diff'
+alias gdtc='git difftool --cached'
 alias git-clean-branches='git branch | grep -v "^*" | xargs git branch -D' # Remove all local branches except current branch
+
+# ╭──────────────────────────────────────────────────────────╮
+# │ Enhanced git diff with Diffview.nvim                     │
+# ╰──────────────────────────────────────────────────────────╯
+nvim-diff() {
+  nvim -c "DiffviewOpen $*"
+}
+alias gdv='nvim-diff'
+# gdv HEAD~3..HEAD       -- View changes in last 3 commits
+# gdv branch1...branch2  --  View changes between branches
 
 git-clean-except() {
   # usage 
@@ -794,6 +807,17 @@ git-clean-except() {
   
   git branch | grep -v -E "$pattern" | xargs git branch -D
 }
+
+# ╭──────────────────────────────────────────────────────────╮
+# │ Git DiffTool                                             │
+# ╰──────────────────────────────────────────────────────────╯
+# $ git difftool -- View differences in unstaged files
+# $ git difftool --staged -- View differences in staged files
+# $ git difftool path/to/file -- View differences for a specific file
+# $ git difftool commit1 commit2 -- View differences between commits
+# $ git difftool commit1^ commit1 -- View differences for a specific commit
+# $ git difftool --no-prompt -- View all differences without prompting for each file
+# $ git difftool --dir-diff commit1^ commit1 -- View differences for a specific commit with detailed information
 
 # ╭──────────────────────────────────────────────────────────╮
 # │ Git Diff                                                 │
