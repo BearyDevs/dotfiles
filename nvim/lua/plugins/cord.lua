@@ -19,7 +19,7 @@ return {
     display = {
       show_time = true, -- Display start timestamp
       show_repository = true, -- Display 'View repository' button linked to repository url, if any
-      show_cursor_position = false, -- Display line and column number of cursor's position
+      show_cursor_position = true, -- Display line and column number of cursor's position
       -- swap_fields = false, -- If enabled, workspace is displayed first
       -- swap_icons = false, -- If enabled, editor is displayed on the main image
       swap_fields = true, -- If enabled, workspace is displayed first
@@ -43,57 +43,48 @@ return {
     -- ╭─────────────────────────────────────────────────────────╮
     -- │ Manual config to display the current file being edited  │
     -- ╰─────────────────────────────────────────────────────────╯
-    -- text = {
-    --   --          ╭─────────────────────────────────────────────────────────╮
-    --   --          │                      2 Steps path                       │
-    --   --          ╰─────────────────────────────────────────────────────────╯
-    --   editing = function()
-    --     local full_path = vim.fn.expand("%:p")
-    --     local path_parts = vim.split(full_path, "/")
-    --     if #path_parts >= 2 then
-    --       return string.format("Editing %s/%s", path_parts[#path_parts - 1], path_parts[#path_parts])
-    --     end
-    --     return "Editing " .. vim.fn.expand("%:t")
-    --   end,
-    -- },
     text = {
       --          ╭─────────────────────────────────────────────────────────╮
-      --          │                      3 Steps path                       │
+      --          │      Alternative: 3 Steps path + line info format       │
       --          ╰─────────────────────────────────────────────────────────╯
       editing = function()
         local full_path = vim.fn.expand("%:p")
         local path_parts = vim.split(full_path, "/")
+        local line_num = vim.fn.line(".")
+        local total_lines = vim.fn.line("$")
 
+        local path_display = ""
         -- Show 3 levels: grandparent/parent/filename
         if #path_parts >= 3 then
-          return string.format(
-            "Editing %s/%s/%s",
-            path_parts[#path_parts - 2],
-            path_parts[#path_parts - 1],
-            path_parts[#path_parts]
-          )
+          path_display =
+            string.format("%s/%s/%s", path_parts[#path_parts - 2], path_parts[#path_parts - 1], path_parts[#path_parts])
         elseif #path_parts >= 2 then
-          return string.format("Editing %s/%s", path_parts[#path_parts - 1], path_parts[#path_parts])
+          path_display = string.format("%s/%s", path_parts[#path_parts - 1], path_parts[#path_parts])
+        else
+          path_display = vim.fn.expand("%:t")
         end
-        return "Editing " .. vim.fn.expand("%:t")
+
+        return string.format("✏️ Editing: %s - Line: %d of %d", path_display, line_num, total_lines)
       end,
 
       viewing = function()
         local full_path = vim.fn.expand("%:p")
         local path_parts = vim.split(full_path, "/")
+        local line_num = vim.fn.line(".")
+        local total_lines = vim.fn.line("$")
 
+        local path_display = ""
         -- Show 3 levels: grandparent/parent/filename
         if #path_parts >= 3 then
-          return string.format(
-            "Viewing %s/%s/%s",
-            path_parts[#path_parts - 2],
-            path_parts[#path_parts - 1],
-            path_parts[#path_parts]
-          )
+          path_display =
+            string.format("%s/%s/%s", path_parts[#path_parts - 2], path_parts[#path_parts - 1], path_parts[#path_parts])
         elseif #path_parts >= 2 then
-          return string.format("Viewing %s/%s", path_parts[#path_parts - 1], path_parts[#path_parts])
+          path_display = string.format("%s/%s", path_parts[#path_parts - 1], path_parts[#path_parts])
+        else
+          path_display = vim.fn.expand("%:t")
         end
-        return "Viewing " .. vim.fn.expand("%:t")
+
+        return string.format("Viewing %s\nLine %d of %d", path_display, line_num, total_lines)
       end,
     },
     buttons = {
