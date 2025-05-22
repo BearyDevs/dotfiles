@@ -50,8 +50,8 @@ return {
       editing = function()
         local full_path = vim.fn.expand("%:p")
         local path_parts = vim.split(full_path, "/")
-        local line_num = vim.fn.line(".")
-        local total_lines = vim.fn.line("$")
+        -- local line_num = vim.fn.line(".")
+        -- local total_lines = vim.fn.line("$")
 
         local path_display = ""
         -- Show 3 levels: grandparent/parent/filename
@@ -64,14 +64,15 @@ return {
           path_display = vim.fn.expand("%:t")
         end
 
-        return string.format("✏️ Editing: %s - Line: %d of %d", path_display, line_num, total_lines)
+        -- return string.format("✏️  Editing: %s - Line: %d of %d", path_display, line_num, total_lines)
+        return string.format("✏️  Editing - %s", path_display)
       end,
 
       viewing = function()
         local full_path = vim.fn.expand("%:p")
         local path_parts = vim.split(full_path, "/")
-        local line_num = vim.fn.line(".")
-        local total_lines = vim.fn.line("$")
+        -- local line_num = vim.fn.line(".")
+        -- local total_lines = vim.fn.line("$")
 
         local path_display = ""
         -- Show 3 levels: grandparent/parent/filename
@@ -84,7 +85,8 @@ return {
           path_display = vim.fn.expand("%:t")
         end
 
-        return string.format("Viewing %s\nLine %d of %d", path_display, line_num, total_lines)
+        -- return string.format("Viewing %s\nLine %d of %d", path_display, line_num, total_lines)
+        return string.format("Viewing %s", path_display)
       end,
     },
     buttons = {
