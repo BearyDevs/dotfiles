@@ -1,59 +1,106 @@
 return {
-  -- "vyfor/cord.nvim",
-  -- build = "./build || .\\build",
-  -- event = "VeryLazy",
-  -- opts = {
-  --   usercmds = true, -- Enable user commands
-  --   log_level = "error", -- One of 'trace', 'debug', 'info', 'warn', 'error', 'off'
-  --   timer = {
-  --     interval = 1500, -- Interval between presence updates in milliseconds (min 500)
-  --     reset_on_idle = false, -- Reset start timestamp on idle
-  --     reset_on_change = false, -- Reset start timestamp on presence change
-  --   },
-  --   editor = {
-  --     image = nil, -- Image ID or URL in case a custom client id is provided
-  --     client = "neovim", -- vim, neovim, lunarvim, nvchad, astronvim or your application's client id
-  --     tooltip = "VSCode Suck!", -- Text to display when hovering over the editor's image
-  --   },
-  --   display = {
-  --     show_time = true, -- Display start timestamp
-  --     show_repository = true, -- Display 'View repository' button linked to repository url, if any
-  --     show_cursor_position = false, -- Display line and column number of cursor's position
-  --     swap_fields = false, -- If enabled, workspace is displayed first
-  --     swap_icons = false, -- If enabled, editor is displayed on the main image
-  --     workspace_blacklist = {}, -- List of workspace names that will hide rich presence
-  --   },
-  --   lsp = {
-  --     show_problem_count = false, -- Display number of diagnostics problems
-  --     severity = 1, -- 1 = Error, 2 = Warning, 3 = Info, 4 = Hint
-  --     scope = "workspace", -- buffer or workspace
-  --   },
-  --   idle = {
-  --     enable = false, -- Enable idle status
-  --     show_status = false, -- Display idle status, disable to hide the rich presence on idle
-  --     timeout = 300000, -- Timeout in milliseconds after which the idle status is set, 0 to display immediately
-  --     disable_on_focus = false, -- Do not display idle status when neovim is focused
-  --     text = "Idle", -- Text to display when idle
-  --     tooltip = "💤", -- Text to display when hovering over the idle image
-  --   },
-  --   text = {
-  --     viewing = "Viewing {}", -- Text to display when viewing a readonly file
-  --     editing = "Editing {}", -- Text to display when editing a file
-  --     file_browser = "Browsing files in {}", -- Text to display when browsing files (Empty string to disable)
-  --     plugin_manager = "Managing plugins in {}", -- Text to display when managing plugins (Empty string to disable)
-  --     lsp_manager = "Configuring LSP in {}", -- Text to display when managing LSP servers (Empty string to disable)
-  --     vcs = "Committing changes in {}", -- Text to display when using Git or Git-related plugin (Empty string to disable)
-  --     workspace = "In {}", -- Text to display when in a workspace (Empty string to disable)
-  --   },
-  --   buttons = {
-  --     {
-  --       label = "View Repository", -- Text displayed on the button
-  --       url = "https://youtu.be/dQw4w9WgXcQ?si=hHKS2KdpoGCjg61f", -- URL where the button leads to ('git' = automatically fetch Git repository URL)
-  --     },
-  --     -- {
-  --     --   label = 'View Plugin',
-  --     --   url = 'https://github.com/vyfor/cord.nvim',
-  --     -- }
-  --   },
-  -- },
+  "vyfor/cord.nvim",
+  build = ":Cord update",
+  event = "VeryLazy",
+  opts = {
+    usercmds = true, -- Enable user commands
+    log_level = "error", -- One of 'trace', 'debug', 'info', 'warn', 'error', 'off'
+    timer = {
+      interval = 1500, -- Interval between presence updates in milliseconds (min 500)
+      reset_on_idle = false, -- Reset start timestamp on idle
+      reset_on_change = false, -- Reset start timestamp on presence change
+    },
+    editor = {
+      -- image = nil, -- Image ID or URL in case a custom client id is provided
+      client = "neovim", -- vim, neovim, lunarvim, nvchad, astronvim or your application's client id
+      -- tooltip = "VSCode Suck!", -- Text to display when hovering over the editor's image
+      tooltip = "Ultimate Superior Editor",
+    },
+    display = {
+      show_time = true, -- Display start timestamp
+      show_repository = true, -- Display 'View repository' button linked to repository url, if any
+      show_cursor_position = false, -- Display line and column number of cursor's position
+      -- swap_fields = false, -- If enabled, workspace is displayed first
+      -- swap_icons = false, -- If enabled, editor is displayed on the main image
+      swap_fields = true, -- If enabled, workspace is displayed first
+      swap_icons = true, -- If enabled, editor is displayed on the main image
+      workspace_blacklist = {}, -- List of workspace names that will hide rich presence
+    },
+    lsp = {
+      -- show_problem_count = false, -- Display number of diagnostics problems
+      show_problem_count = true, -- Display number of diagnostics problems
+      severity = 1, -- 1 = Error, 2 = Warning, 3 = Info, 4 = Hint
+      scope = "workspace", -- buffer or workspace
+    },
+    idle = {
+      enable = false, -- Enable idle status
+      show_status = false, -- Display idle status, disable to hide the rich presence on idle
+      timeout = 300000, -- Timeout in milliseconds after which the idle status is set, 0 to display immediately
+      disable_on_focus = false, -- Do not display idle status when neovim is focused
+      text = "Idle", -- Text to display when idle
+      tooltip = "💤", -- Text to display when hovering over the idle image
+    },
+    -- ╭─────────────────────────────────────────────────────────╮
+    -- │ Manual config to display the current file being edited  │
+    -- ╰─────────────────────────────────────────────────────────╯
+    -- text = {
+    --   --          ╭─────────────────────────────────────────────────────────╮
+    --   --          │                      2 Steps path                       │
+    --   --          ╰─────────────────────────────────────────────────────────╯
+    --   editing = function()
+    --     local full_path = vim.fn.expand("%:p")
+    --     local path_parts = vim.split(full_path, "/")
+    --     if #path_parts >= 2 then
+    --       return string.format("Editing %s/%s", path_parts[#path_parts - 1], path_parts[#path_parts])
+    --     end
+    --     return "Editing " .. vim.fn.expand("%:t")
+    --   end,
+    -- },
+    text = {
+      --          ╭─────────────────────────────────────────────────────────╮
+      --          │                      3 Steps path                       │
+      --          ╰─────────────────────────────────────────────────────────╯
+      editing = function()
+        local full_path = vim.fn.expand("%:p")
+        local path_parts = vim.split(full_path, "/")
+
+        -- Show 3 levels: grandparent/parent/filename
+        if #path_parts >= 3 then
+          return string.format(
+            "Editing %s/%s/%s",
+            path_parts[#path_parts - 2],
+            path_parts[#path_parts - 1],
+            path_parts[#path_parts]
+          )
+        elseif #path_parts >= 2 then
+          return string.format("Editing %s/%s", path_parts[#path_parts - 1], path_parts[#path_parts])
+        end
+        return "Editing " .. vim.fn.expand("%:t")
+      end,
+
+      viewing = function()
+        local full_path = vim.fn.expand("%:p")
+        local path_parts = vim.split(full_path, "/")
+
+        -- Show 3 levels: grandparent/parent/filename
+        if #path_parts >= 3 then
+          return string.format(
+            "Viewing %s/%s/%s",
+            path_parts[#path_parts - 2],
+            path_parts[#path_parts - 1],
+            path_parts[#path_parts]
+          )
+        elseif #path_parts >= 2 then
+          return string.format("Viewing %s/%s", path_parts[#path_parts - 1], path_parts[#path_parts])
+        end
+        return "Viewing " .. vim.fn.expand("%:t")
+      end,
+    },
+    buttons = {
+      {
+        label = "Motivated", -- Text displayed on the button
+        url = "https://youtu.be/Yfu6G3f8Xxc?si=YKOHEK6WAwVAmug7", -- URL where the button leads to ('git' = automatically fetch Git repository URL)
+      },
+    },
+  },
 }

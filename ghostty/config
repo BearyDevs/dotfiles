@@ -5,8 +5,8 @@ shell-integration-features = no-cursor,sudo,no-title
 font-family = "ComicShannsMono Nerd Font"
 # font-family = "JetBrainsMono Nerd Font"
 font-size = 16
-window-height=1600
-window-width=2560
+# window-height=1600
+# window-width=2560
 background-opacity = 0.85
 background = #001419
 foreground = #cbe0f0
@@ -25,10 +25,10 @@ keybind = cmd+n=unbind
 # window-colorspace = display-p3
 copy-on-select = clipboard
 # mouse-scroll-multiplier = 2
-window-padding-balance = true
+# window-padding-balance = true
 window-save-state = always
-window-padding-x = 0
-window-padding-y = 0
+# window-padding-x = 0
+# window-padding-y = 0
 # window-decoration = false
 macos-titlebar-style = transparent
 # macos-titlebar-style = hidden
@@ -41,8 +41,8 @@ macos-window-shadow = true
 theme = "Aura"
 # macos-option-as-alt = left
 macos-option-as-alt = true
-keybind = alt+left=unbind
-keybind = alt+right=unbind
+# keybind = alt+left=unbind
+# keybind = alt+right=unbind
 clipboard-read = allow
 clipboard-write = allow
 shell-integration = zsh
