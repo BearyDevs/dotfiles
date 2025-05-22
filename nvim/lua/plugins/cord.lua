@@ -65,7 +65,7 @@ return {
         end
 
         -- return string.format("✏️  Editing: %s - Line: %d of %d", path_display, line_num, total_lines)
-        return string.format("✏️  Editing - %s", path_display)
+        return string.format("Editing - %s", path_display)
       end,
 
       viewing = function()

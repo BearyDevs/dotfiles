@@ -759,6 +759,7 @@ alias gbr='git branch -r' # view all remote branches
 alias gsw='git switch'
 alias gc='git commit'
 alias gpu='git pull'
+alias gpuo='git pull origin'
 alias gf='git fetch --all'
 alias gll='git log'
 alias glls='git log --stat'
@@ -784,6 +785,7 @@ alias gdtn='git difftool --no-prompt'
 alias gdtd='git difftool --dir-diff'
 alias gdtc='git difftool --cached'
 alias git-clean-branches='git branch | grep -v "^*" | xargs git branch -D' # Remove all local branches except current branch
+alias gpo='git push origin $(git branch --show-current)' # Push current branch to origin
 
 # ╭──────────────────────────────────────────────────────────╮
 # │ Enhanced git diff with Diffview.nvim                     │

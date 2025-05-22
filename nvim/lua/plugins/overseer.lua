@@ -45,8 +45,7 @@ return {
   keys = {
     { "<leader>ow", "<cmd>OverseerToggle<cr>",      desc = "Task list" },
     { "<leader>or", "<cmd>OverseerRun<cr>",         desc = "Run task" },
-    { "<leader>oo", "<cmd>OverseerOpen<cr>",         desc = "Overseer Open" },
-    { "<leader>oc", "<cmd>OverseerClose<cr>",         desc = "Overseer Close" },
+    { "<leader>oo", "<cmd>OverseerToggle<cr>",         desc = "Overseer Toggle" },
     { "<leader>oq", "<cmd>OverseerQuickAction<cr>", desc = "Action recent task" },
     { "<leader>oi", "<cmd>OverseerInfo<cr>",        desc = "Overseer Info" },
     { "<leader>ob", "<cmd>OverseerBuild<cr>",       desc = "Task builder" },
