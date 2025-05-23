@@ -60,7 +60,7 @@ require("lazy").setup({
       },
     },
     {
-      "snacks.nvim",
+      "folke/snacks.nvim",
       opts = {
         scroll = { enabled = false },
         dashboard = {
@@ -74,6 +74,10 @@ require("lazy").setup({
 ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝
    ]],
           },
+        },
+        picker = {
+          hidden = true,
+          ignored = true,
         },
       },
     },

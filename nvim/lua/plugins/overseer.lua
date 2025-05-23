@@ -16,6 +16,7 @@ return {
     "OverseerClearCache",
   },
   opts = {
+    templates = { "builtin", "user.yarn", "user.bun" },
     dap = false,
     task_list = {
       bindings = {

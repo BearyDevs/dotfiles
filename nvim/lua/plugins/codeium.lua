@@ -8,7 +8,7 @@ return {
     keys = {
       -- Normal mode mapping
       -- { "<Leader>;", "<Cmd>CodeiumToggle<CR>", desc = "Toggle Codeium active" },
-      { "<Leader>;", function()
+      { "<leader>|", function()
           vim.cmd("CodeiumToggle")
           local is_active = vim.g.codeium_enabled -- Assuming this variable holds the state
           if is_active then
