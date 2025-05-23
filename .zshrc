@@ -994,6 +994,17 @@ function gpb() {
 # $ git revert --no-commit 73c6e262ded2d23c4b3bd5516926054d1864bcf7..222b3a6131418127c6956aa934767d6e479046d8
 # $ git commit -m "Revert changes made for promotion discount display"
 
+
+# ╭──────────────────────────────────────────────────────────╮
+# │ List all specific files:                                 │
+# ╰──────────────────────────────────────────────────────────╯
+# $ ls *.md
+
+# ╭──────────────────────────────────────────────────────────╮
+# │ copy all specific files to another folder                │
+# ╰──────────────────────────────────────────────────────────╯
+# $ cp *.md ./folderMd/
+
 alias inkdrop-keymap='nvim /Users/techflow015/Library/Application\ Support/inkdrop/keymap.json'
 
 # ╭──────────────────────────────────────────────────────────╮

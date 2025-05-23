@@ -167,22 +167,46 @@ end, { desc = "Search in Current Buffer with Telescope" })
 -- ╭─────────────────────────────────────────────────────────╮
 -- │ GitGraph                                                │
 -- ╰─────────────────────────────────────────────────────────╯
-map("n", "<Leader>g|", function()
+map("n", "<leader>g|", function()
   require("gitgraph").draw({}, { all = true, max_count = 5000 })
 end, { desc = "GitGraph" })
 
 -- ╭─────────────────────────────────────────────────────────╮
--- │ NVCheatSheet                                            │
+-- │ Cord Nvim                                               │
 -- ╰─────────────────────────────────────────────────────────╯
-map("n", "<F1>", function()
-  require("nvcheatsheet").toggle()
-end, { desc = "Cheatsheet" })
-map("v", "<F1>", function()
-  require("nvcheatsheet").toggle()
-end, { desc = "Cheatsheet" })
-map("x", "<F1>", function()
-  require("nvcheatsheet").toggle()
-end, { desc = "Cheatsheet" })
+local function toggle_cord()
+  -- Check if Cord is available
+  if vim.fn.exists(":Cord") == 0 then
+    vim.notify("Cord.nvim not loaded", vim.log.levels.WARN, { title = "Cord.nvim" })
+    return
+  end
+
+  -- Alternative method: Check if Cord module is loaded and has timer running
+  local cord_ok, cord = pcall(require, "cord")
+  if not cord_ok then
+    vim.notify("Could not access Cord module", vim.log.levels.ERROR, { title = "Cord.nvim" })
+    return
+  end
+
+  vim.cmd("Cord toggle")
+
+  -- Wait a bit for the toggle to take effect, then check status
+  vim.defer_fn(function()
+    -- Try to detect if cord is active by checking if timer exists
+    -- This is a bit hacky but should work
+    local success, result = pcall(function()
+      return cord.timer ~= nil and cord.timer:is_active()
+    end)
+
+    if success and result then
+      vim.notify("Discord Rich Presence Enabled", vim.log.levels.INFO, { title = "🎮 Cord.nvim" })
+    else
+      vim.notify("Discord Rich Presence Disabled", vim.log.levels.INFO, { title = "🎮 Cord.nvim" })
+    end
+  end, 100) -- Wait 100ms for toggle to complete
+end
+
+map("n", "<leader>dd", toggle_cord, { desc = "Toggle Discord Rich Presence" })
 
 -- ╭─────────────────────────────────────────────────────────╮
 -- │ Code Fold keymap                                        │
