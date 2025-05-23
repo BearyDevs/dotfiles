@@ -143,8 +143,24 @@ end, { desc = "Format" })
 -- ╭─────────────────────────────────────────────────────────╮
 -- │ Diffview                                                │
 -- ╰─────────────────────────────────────────────────────────╯
-map("n", "<leader>gO", "<cmd>DiffviewOpen<cr>", { noremap = true, silent = true })
-map("n", "<leader>gC", "<cmd>DiffviewClose<cr>", { noremap = true, silent = true })
+local function toggle_diffview()
+  local view = require("diffview.lib").get_current_view()
+  if view then
+    -- If a view is open, close it
+    vim.cmd("DiffviewClose")
+  else
+    -- If no view is open, open it
+    vim.cmd("DiffviewOpen")
+  end
+end
+
+-- map("n", "<leader>gO", "<cmd>DiffviewOpen<cr>", { noremap = true, silent = true })
+-- map("n", "gO", "<cmd>DiffviewOpen<cr>", { noremap = true, silent = true })
+-- map("n", "<leader>gC", "<cmd>DiffviewClose<cr>", { noremap = true, silent = true })
+-- map("n", "gC", "<cmd>DiffviewClose<cr>", { noremap = true, silent = true })
+
+map("n", "<leader>gC", toggle_diffview, { noremap = true, silent = true, desc = "Toggle Diffview" })
+map("n", "gC", toggle_diffview, { noremap = true, silent = true, desc = "Toggle Diffview" })
 map("n", "<leader>gF", "<cmd>DiffviewFocusFiles<cr>", { noremap = true, silent = true })
 map("n", "<leader>gH", "<cmd>DiffviewFileHistory<cr>", { noremap = true, silent = true })
 
