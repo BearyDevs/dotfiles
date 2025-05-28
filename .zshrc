@@ -165,7 +165,8 @@ alias dotconfig='cd ~/.config'
 alias dotlocal='cd ~/.local'
 alias dotcache='cd ~/.cache'
 alias vim='nvim'
-alias vi='echo "Use vim or nvim instead"'
+# alias vi='echo "Use vim or nvim instead"'
+alias vi='nvim'
 # alias vide='neovide'
 alias nvimconfig='home; cd ~/.config/nvim'
 alias nvimdata='home; cd ~/.local'
@@ -257,7 +258,7 @@ alias ios-boot='xcrun simctl boot'
 alias ios-showtouch='defaults write com.apple.iphonesimulator ShowSingleTouches 1'
 alias ios-hidetouch='defaults write com.apple.iphonesimulator ShowSingleTouches 0'
 
-alias lg='lazygit'
+alias gg='lazygit'
 alias docklock='defaults write com.apple.Dock.plist prefersAllDisplays -bool false && echo lock-dock: main-screen'
 alias dockdefault='defaults write com.apple.Dock.plist prefersAllDisplays -bool true && echo lock-dock: default'
 alias coder='code-insiders .'
@@ -757,8 +758,6 @@ alias gb='git branch'
 alias gbr='git branch -r' # view all remote branches
 alias gsw='git switch'
 alias gc='git commit'
-alias gpu='git pull'
-alias gpuo='git pull origin'
 alias gf='git fetch --all'
 alias gll='git log'
 alias glls='git log --stat'
@@ -785,6 +784,7 @@ alias gdtd='git difftool --dir-diff'
 alias gdtc='git difftool --cached'
 alias git-clean-branches='git branch | grep -v "^*" | xargs git branch -D' # Remove all local branches except current branch
 alias gpo='git push origin $(git branch --show-current)' # Push current branch to origin
+alias gpu='git pull origin $(git branch --show-current)' # Pull current branch from origin
 
 # ╭──────────────────────────────────────────────────────────╮
 # │ Enhanced git diff with Diffview.nvim                     │

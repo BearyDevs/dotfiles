@@ -42,14 +42,14 @@ return {
     vim.api.nvim_set_hl(0, "TreesitterContextLineNumber", { link = "LineNr" })
     vim.api.nvim_set_hl(0, "TreesitterContext", { bg = "NONE" })
     vim.api.nvim_set_hl(0, "TreesitterContextLineNumber", { bg = "NONE" })
-    -- vim.api.nvim_set_hl(0, "TreesitterContextBottom", { sp = "#3DBFFF", underline = false })
+    vim.api.nvim_set_hl(0, "TreesitterContextBottom", { sp = "#3DBFFF", underline = false })
 
     -- Add a ColorScheme autocmd to ensure these highlights persist
     vim.api.nvim_create_autocmd("ColorScheme", {
       callback = function()
         vim.api.nvim_set_hl(0, "TreesitterContext", { bg = "NONE" })
         vim.api.nvim_set_hl(0, "TreesitterContextLineNumber", { bg = "NONE" })
-        -- vim.api.nvim_set_hl(0, "TreesitterContextBottom", { sp = "#3DBFFF", underline = false })
+        vim.api.nvim_set_hl(0, "TreesitterContextBottom", { sp = "#3DBFFF", underline = false })
       end,
     })
 
@@ -57,7 +57,7 @@ return {
       mode = "cursor",
       max_lines = 3,
       -- Custom separators instead of background color
-      -- separator = "─", -- Use a nice separator line
+      separator = "─", -- Use a nice separator line
     }
   end,
 }

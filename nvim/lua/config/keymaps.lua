@@ -63,9 +63,9 @@ map("n", "<leader>'", function()
   Snacks.picker.pick("files", {
     hidden = true, -- Include hidden files (dotfiles)
     no_ignore = true, -- Include files ignored by .gitignore
-    root = false, -- Use the current working directory
+    root = true, -- Use the current working directory
   })
-end, { desc = "Find files (including hidden)" })
+end, { desc = "Find files (Root Dir) (including hidden)" })
 
 -- ╭─────────────────────────────────────────────────────────╮
 -- │ Avante                                                  │
