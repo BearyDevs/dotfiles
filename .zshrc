@@ -258,7 +258,6 @@ alias ios-boot='xcrun simctl boot'
 alias ios-showtouch='defaults write com.apple.iphonesimulator ShowSingleTouches 1'
 alias ios-hidetouch='defaults write com.apple.iphonesimulator ShowSingleTouches 0'
 
-alias gg='lazygit'
 alias docklock='defaults write com.apple.Dock.plist prefersAllDisplays -bool false && echo lock-dock: main-screen'
 alias dockdefault='defaults write com.apple.Dock.plist prefersAllDisplays -bool true && echo lock-dock: default'
 alias coder='code-insiders .'
@@ -749,6 +748,7 @@ alias showinforandom='show_info_random'
 
 # type gg to use git gui
 alias lg='lazygit'
+alias gg='lazygit'
 alias g='git'
 alias gs='git status -s'
 alias gaa='git add .'
@@ -785,6 +785,9 @@ alias gdtc='git difftool --cached'
 alias git-clean-branches='git branch | grep -v "^*" | xargs git branch -D' # Remove all local branches except current branch
 alias gpo='git push origin $(git branch --show-current)' # Push current branch to origin
 alias gpu='git pull origin $(git branch --show-current)' # Pull current branch from origin
+
+# Checkout branch from origin
+# git checkout -b branch-name origin/branch-name
 
 # ╭──────────────────────────────────────────────────────────╮
 # │ Enhanced git diff with Diffview.nvim                     │
@@ -850,6 +853,18 @@ git-clean-except() {
 # ╭──────────────────────────────────────────────────────────╮
 # │ Git Stash                                                │
 # ╰──────────────────────────────────────────────────────────╯
+# $ git stash list -- view all stathes
+# $ git stash show stash@{0} -- view the details of the stash
+# $ git stash pop stash@{0} -- apply the stash and remove it
+# $ git stash drop stash@{0} -- remove the stash
+# $ git stash drop -- remove the last stash
+# $ git stash clear -- remove all stashes
+# $ git stash -- Save Your Local Changes to a New Stash
+# $ git stash apply stash@{0} -- Apply the Stash Without Removing It
+# $ git stash pop stash@{0} -- Apply and Remove the Stash (Recommended if You Don’t Need It Again)
+# $ git stash drop stash@{0} -- Remove the Stash
+#
+#
 # git stash -- Save Your Local Changes to a New Stash
 #
 # $ git stash apply stash@{0} -- Apply the Stash Without Removing It
@@ -1287,6 +1302,12 @@ alias cat='bat'
 #   You can see all available models by running:
 #   claude --help
 
+
+# ╭──────────────────────────────────────────────────────────╮
+# │ NESTCLI                                                  │
+# ╰──────────────────────────────────────────────────────────╯
+# CREATE DTO
+# nest g cl order/dto/order-action-tracking.dto --no-spec
 
 update_tmux_window() {
   [ -n "$TMUX" ] && tmux rename-window "$(basename "$PWD")"
