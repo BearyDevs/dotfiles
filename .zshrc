@@ -1008,6 +1008,18 @@ function gpb() {
 # $ git revert --no-commit 73c6e262ded2d23c4b3bd5516926054d1864bcf7..222b3a6131418127c6956aa934767d6e479046d8
 # $ git commit -m "Revert changes made for promotion discount display"
 
+# ╭──────────────────────────────────────────────────────────╮
+# │ Git Sub modules                                          │
+# ╰──────────────────────────────────────────────────────────╯
+# From your dotfiles root directory
+# $ git submodule add https://github.com/tmux-plugins/tmux-battery.git .tmux/plugins/tmux-battery
+# $ git submodule add https://github.com/tmux-plugins/tmux-continuum.git .tmux/plugins/tmux-continuum
+# $ git submodule add https://github.com/tmux-plugins/tmux-cpu.git .tmux/plugins/tmux-cpu
+# $ git submodule add https://github.com/tmux-plugins/tmux-power.git .tmux/plugins/tmux-power
+# $ git submodule add https://github.com/tmux-plugins/tmux-resurrect.git .tmux/plugins/tmux-resurrect
+#
+# git add .gitmodules
+# git commit -m "Add tmux plugins as submodules"
 
 # ╭──────────────────────────────────────────────────────────╮
 # │ List all specific files:                                 │
