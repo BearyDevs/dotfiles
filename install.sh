@@ -88,6 +88,7 @@ brew install supabase/tap/supabase
 brew install cocoapods
 brew install mas
 brew install httpie
+brew install git-delta
 
 ### dev things
 brew install node
@@ -191,3 +192,4 @@ cp ~/dotfile/fzf_listoldfiles.sh ~/.config/ && chmod +x ~/.config/fzf_listoldfil
 cp ~/dotfile/zoxide_openfiles_nvim.sh ~/.config/ && chmod +x ~/.config/zoxide_openfiles_nvim.sh && echo "\033[1;36m **zoxide_openfiles_nvim installed success\033[0m"
 cp ~/dotfile/.ssh ~/. && echo "\033[1;36m **ssh folder backup success\033[0m"
 chmod +x ~/.tmux/ && echo "\033[1;36m **permission .tmux folder success\033[0m"
+echo "Config from dotfile complete!"

@@ -749,6 +749,10 @@ alias showinforandom='show_info_random'
 # type gg to use git gui
 alias lg='lazygit'
 alias gg='lazygit'
+alias lgconfig='nvim ~/.config/lazygit/config.yml'
+
+export LAZYGIT_CONFIG_FILE="$HOME/.config/lazygit/config.yml"
+
 alias g='git'
 alias gs='git status -s'
 alias gaa='git add .'
@@ -1288,6 +1292,11 @@ source /opt/homebrew/share/zsh-history-substring-search/zsh-history-substring-se
 # $ npm i -g vetur && npm i -g vti
 
 # ╭──────────────────────────────────────────────────────────╮
+# │ diff so fancy                                            │
+# ╰──────────────────────────────────────────────────────────╯
+# $ npm install -g diff-so-fancy
+
+# ╭──────────────────────────────────────────────────────────╮
 # │ Jetbrain WebStorm                                        │
 # ╰──────────────────────────────────────────────────────────╯
 alias ws='open -na "WebStorm.app" .'
@@ -1320,6 +1329,13 @@ alias cat='bat'
 # ╰──────────────────────────────────────────────────────────╯
 # CREATE DTO
 # nest g cl order/dto/order-action-tracking.dto --no-spec
+
+# ╭──────────────────────────────────────────────────────────╮
+# │ WebStorm ideavim                                         │
+# ╰──────────────────────────────────────────────────────────╯
+alias ideavimrc='nvim ~/.ideavimrc'
+
+alias delta-test='git log -p -1 | delta'
 
 update_tmux_window() {
   [ -n "$TMUX" ] && tmux rename-window "$(basename "$PWD")"

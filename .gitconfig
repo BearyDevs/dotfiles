@@ -12,6 +12,7 @@
   ; editor = code-insiders --wait
   autocrlf = input
 	excludesfile = /Users/techflow015/.gitignore_global
+	pager = delta --dark --paging=never
 
 [init]
   defaultBranch = main
@@ -43,3 +44,11 @@
 ; [mergetool "sourcetree"]
 ; 	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 ; 	trustExitCode = true
+
+[interactive]
+	diffFilter = delta --color-only
+
+[delta]
+	navigate = true
+	light = false
+	side-by-side = true

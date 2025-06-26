@@ -107,7 +107,25 @@ map("n", "<leader>\\", "<cmd>LazyExtras<CR>", { desc = "LazyExtras" })
 -- │ LspLens (link JetBrain that show implementatino and     │
 -- │ reference)                                              │
 -- ╰─────────────────────────────────────────────────────────╯
-map("n", "<leader>cL", "<cmd>LspLensToggle<CR>", { desc = "LspLensToggle" })
+-- map("n", "<leader>cL", "<cmd>LspLensToggle<CR>", { desc = "LspLensToggle" })
+
+local lsplens_state = false -- Track state manually (assumes starts disabled)
+
+local function toggle_lsplens()
+  vim.cmd("LspLensToggle")
+
+  -- Toggle our tracked state
+  lsplens_state = not lsplens_state
+
+  local message = lsplens_state and "LspLens enable !" or "LspLens disable !"
+
+  vim.notify(message, vim.log.levels.INFO, {
+    title = "🔍 LspLens",
+    timeout = 2000,
+  })
+end
+
+map("n", "<leader>cL", toggle_lsplens, { desc = "Toggle LspLens" })
 
 -- ╭─────────────────────────────────────────────────────────╮
 -- │ Terminal                                                │
