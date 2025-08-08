@@ -206,15 +206,10 @@ return {
       dockerls = {},
       docker_compose_language_service = {},
       marksman = {},
-      bashls = {
-        on_attach = function(client, bufnr)
-          local filename = vim.api.nvim_buf_get_name(bufnr)
-          if filename:match("%.env") then
-            vim.lsp.buf_detach_client(bufnr, client.id)
-            return
-          end
-        end,
-      },
+      bashls = {},
+      -- bashls = {
+      --   enabled = false,
+      -- },
     },
     setup = {
       --- @deprecated -- tsserver renamed to ts_ls but not yet released, so keep this for now

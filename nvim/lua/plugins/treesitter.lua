@@ -35,7 +35,7 @@ return {
         "dart",
         "python",
       },
-      auto_install = false, -- Only install when needed
+      auto_install = true, -- Only install when needed
 
       matchup = {
         enable = true,
