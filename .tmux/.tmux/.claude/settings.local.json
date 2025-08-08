@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep:*)",
+      "Bash(tmux display-message:*)",
+      "Bash(tmux show-options:*)",
+      "Bash(tmux source-file:*)",
+      "Bash(~/.tmux/plugins/tpm/scripts/install_plugins.sh)",
+      "Bash(ls:*)",
+      "Bash(bash:*)",
+      "Bash(tmux show:*)",
+      "Bash(tmux list-keys:*)"
+    ],
+    "deny": []
+  }
+}
