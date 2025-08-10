@@ -281,11 +281,27 @@ alias getip='ipconfig getifaddr en0'
 alias hollywoodapp='docker run --rm -it bcbcarl/hollywood'
 
 killport() {
-if [[-z "$1"]]; then
-echo "Usage: killport <port_number>"
-return 1
-fi
-kill -9 $(lsof -ti tcp:"$1")
+    if [[ -z "$1" ]]; then
+        echo "Usage: killport <port_number>"
+        return 1
+    fi
+    
+    local pids=$(lsof -ti tcp:"$1")
+    
+    if [[ -z "$pids" ]]; then
+        echo "No process found on port $1"
+        return 1
+    fi
+    
+    echo "Killing process(es) on port $1: $pids"
+    kill -9 $pids
+    
+    if [[ $? -eq 0 ]]; then
+        echo "Successfully killed process(es) on port $1"
+    else
+        echo "Failed to kill process(es) on port $1"
+        return 1
+    fi
 }
 
 # demo => killport 3000
@@ -300,7 +316,32 @@ function checkport() {
         echo "Usage: checkport <port_number>"
         return 1
     fi
-    sudo lsof -i :$1
+    
+    # Check if port number is valid
+    if ! [[ "$1" =~ ^[0-9]+$ ]] || [[ "$1" -lt 1 ]] || [[ "$1" -gt 65535 ]]; then
+        echo "Error: '$1' is not a valid port number (1-65535)"
+        return 1
+    fi
+    
+    echo "Checking port $1..."
+    
+    # Try without sudo first (most processes you own don't need sudo to view)
+    local result=$(lsof -i :$1 2>/dev/null)
+    
+    if [[ -n "$result" ]]; then
+        echo "$result"
+    else
+        # Try with sudo if no results found
+        echo "No processes found without elevated privileges, trying with sudo..."
+        local sudo_result=$(sudo lsof -i :$1 2>/dev/null)
+        
+        if [[ -n "$sudo_result" ]]; then
+            echo "$sudo_result"
+        else
+            echo "No processes found listening on port $1"
+            return 1
+        fi
+    fi
 }
 
 # To sglpat-jKt6ofxaDTsUhirQqMYCet default password of user ubuntu

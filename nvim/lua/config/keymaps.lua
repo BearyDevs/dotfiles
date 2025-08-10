@@ -242,6 +242,35 @@ end
 
 map("n", "<leader>dd", toggle_cord, { desc = "Toggle Discord Rich Presence" })
 
+-- Dynamic search and replace with <leader>sR
+vim.keymap.set("n", "<leader>sR", function()
+  vim.ui.input({ prompt = "Search: " }, function(search)
+    if search and search ~= "" then
+      vim.ui.input({ prompt = "Replace: " }, function(replace)
+        if replace then
+          local cmd = string.format("%%s/%s/%s/gc", vim.fn.escape(search, "/\\"), vim.fn.escape(replace or "", "/\\"))
+          vim.cmd(cmd)
+        end
+      end)
+    end
+  end)
+end, { desc = "Dynamic search and replace" })
+
+-- Visual mode version
+vim.keymap.set("v", "<leader>sR", function()
+  vim.ui.input({ prompt = "Search: " }, function(search)
+    if search and search ~= "" then
+      vim.ui.input({ prompt = "Replace: " }, function(replace)
+        if replace then
+          local cmd =
+            string.format("'<,'>s/%s/%s/gc", vim.fn.escape(search, "/\\"), vim.fn.escape(replace or "", "/\\"))
+          vim.cmd(cmd)
+        end
+      end)
+    end
+  end)
+end, { desc = "Dynamic search and replace in selection" })
+
 -- ╭─────────────────────────────────────────────────────────╮
 -- │ Code Fold keymap                                        │
 -- ╰─────────────────────────────────────────────────────────╯

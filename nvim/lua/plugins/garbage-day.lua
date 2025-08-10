@@ -7,4 +7,5 @@ return {
   dependencies = "neovim/nvim-lspconfig",
   event = "VeryLazy",
   opts = {},
+  enabled = false,
 }
