@@ -272,6 +272,64 @@ vim.keymap.set("v", "<leader>sR", function()
   end)
 end, { desc = "Dynamic search and replace in selection" })
 
+
+-- Show all active Mason tools for current buffer
+map("n", "<leader>gM", function()
+  local mason_ok, mason_registry = pcall(require, "mason-registry")
+  if not mason_ok then
+    vim.notify("Mason not available", vim.log.levels.WARN)
+    return
+  end
+
+  local filetype = vim.bo.filetype
+  local lsp_clients = vim.lsp.get_clients({ bufnr = 0 })
+  local installed_packages = mason_registry.get_installed_packages()
+
+  local active_tools = {}
+  local lsp_names = {}
+
+  -- Get active LSP clients
+  for _, client in ipairs(lsp_clients) do
+    table.insert(lsp_names, client.name)
+  end
+
+  -- Find related Mason packages for this filetype
+  for _, pkg in ipairs(installed_packages) do
+    local pkg_name = pkg.name
+    -- Common patterns for different filetypes
+    if filetype == "lua" and (pkg_name:match("lua") or pkg_name == "selene" or pkg_name == "luacheck") then
+      table.insert(active_tools, pkg_name)
+    elseif
+      filetype == "javascript"
+      or filetype == "typescript"
+        and (pkg_name:match("js") or pkg_name:match("ts") or pkg_name:match("eslint") or pkg_name == "prettier" or pkg_name == "biome")
+    then
+      table.insert(active_tools, pkg_name)
+    elseif filetype == "go" and (pkg_name:match("go") or pkg_name == "gopls") then
+      table.insert(active_tools, pkg_name)
+    elseif filetype == "python" and (pkg_name:match("py") or pkg_name == "ruff") then
+      table.insert(active_tools, pkg_name)
+    end
+  end
+
+  local info = {
+    "Mason Tools for " .. filetype .. ":",
+    "─────────────────────────",
+    "Active LSP clients: " .. table.concat(lsp_names, ", "),
+    "Related Mason packages:",
+  }
+
+  for _, tool in ipairs(active_tools) do
+    table.insert(info, "  • " .. tool)
+  end
+
+  if #active_tools == 0 then
+    table.insert(info, "  (none found)")
+  end
+
+  vim.notify(table.concat(info, "\n"), vim.log.levels.INFO, { title = "Mason Tools", timeout = 2000 })
+end, { desc = "Show Mason tools for current buffer" })
+
 -- ╭─────────────────────────────────────────────────────────╮
 -- │ Code Fold keymap                                        │
 -- ╰─────────────────────────────────────────────────────────╯
