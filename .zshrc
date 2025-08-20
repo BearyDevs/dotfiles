@@ -12,6 +12,7 @@ export OPENAI_API_KEY=
 export CODEIUM_API_KEY=
 export GEMINI_API_KEY=
 export ANTHROPIC_API_KEY=
+export GITHUB_COPILOT_TOKEN=
 
 # Check models that can use
 # $ curl https://api.openai.com/v1/models \ -H "Authorization: Bearer YOUR_OPENAI_API_KEY"
@@ -157,7 +158,8 @@ alias dl='home; cd Downloads'
 # alias cls='clear; neofetch; showinforandom;'
 # alias cls='clear; neofetch --source ~/neofetch-custom2.txt;'
 # alias cls='clear; neofetch --source ~/neofetch-bearydev-logo.txt'
-alias cls='clear; neofetch'
+# alias cls='clear; neofetch'
+alias cls='clear'
 # alias cls='clear; echo -e "$(cat ~/neofetch-custom2.txt)"; showinforandom;'
 alias nf='neofetch'
 alias zshrc='nvim ~/.zshrc'
@@ -1085,6 +1087,21 @@ function gpb() {
 # git commit -m "Add tmux plugins as submodules"
 
 # ╭──────────────────────────────────────────────────────────╮
+# │ Git Tag                                                  │
+# ╰──────────────────────────────────────────────────────────╯
+# $ git tag v0.0.4-sit
+# $ git push origin v0.0.4-sit  # to push the tag to remote
+
+# ╭──────────────────────────────────────────────────────────╮
+# │ Git remove Tag                                           │
+# ╰──────────────────────────────────────────────────────────╯
+# Remove locally
+# $ git tag -d v0.0.5-sit
+
+# Remove from origin
+# $ git push origin :refs/tags/v0.0.5-sit
+
+# ╭──────────────────────────────────────────────────────────╮
 # │ List all specific files:                                 │
 # ╰──────────────────────────────────────────────────────────╯
 # $ ls *.md
@@ -1540,6 +1557,11 @@ compinit
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 cls
+
+# ╭──────────────────────────────────────────────────────────╮
+# │ NetBird                                                  │
+# ╰──────────────────────────────────────────────────────────╯
+# $ netbird routes list -- view list
 
 # bun completions
 [ -s "/Users/teerapat/.bun/_bun" ] && source "/Users/teerapat/.bun/_bun"

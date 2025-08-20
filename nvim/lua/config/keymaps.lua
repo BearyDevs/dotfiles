@@ -185,7 +185,8 @@ map("n", "<leader>gH", "<cmd>DiffviewFileHistory<cr>", { noremap = true, silent 
 -- ╭─────────────────────────────────────────────────────────╮
 -- │ Telescope                                               │
 -- ╰─────────────────────────────────────────────────────────╯
-map("n", "<leader>s?", function()
+-- map("n", "<leader>s?", function()
+map("n", "?", function()
   require("telescope.builtin").current_buffer_fuzzy_find({
     layout_strategy = "horizontal",
     layout_config = {
@@ -196,7 +197,7 @@ map("n", "<leader>s?", function()
     winblend = 15, -- transparent 15%
     previewer = false,
   })
-end, { desc = "Search in Current Buffer with Telescope" })
+end, { noremap = true, silent = true, desc = "Search in Current Buffer with Telescope" })
 
 -- ╭─────────────────────────────────────────────────────────╮
 -- │ GitGraph                                                │

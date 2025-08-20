@@ -2,16 +2,16 @@ return {
   "nvim-neo-tree/neo-tree.nvim",
   keys = {
     {
-      -- "<leader>fE",
-      "<leader>R",
+      "<leader>fE",
+      -- "<leader>R",
       function()
         require("neo-tree.command").execute({ toggle = true, dir = LazyVim.root(), focus = false })
       end,
       desc = "Explorer NeoTree (Root Dir)",
     },
     {
-      -- "<leader>fe",
-      "<leader>r",
+      "<leader>fe",
+      -- "<leader>r",
       function()
         require("neo-tree.command").execute({ toggle = true, dir = vim.uv.cwd(), focus = false })
       end,
@@ -23,9 +23,9 @@ return {
   opts = {
     filesystem = {
       window = {
-        -- width = 35,
+        width = 40,
         -- position = "float",
-        -- position = "right",
+        position = "right",
 
         -- position = "bottom",
         -- height = function()
