@@ -180,7 +180,8 @@ end
 map("n", "<leader>gC", toggle_diffview, { noremap = true, silent = true, desc = "Toggle Diffview" })
 map("n", "gC", toggle_diffview, { noremap = true, silent = true, desc = "Toggle Diffview" })
 map("n", "<leader>gF", "<cmd>DiffviewFocusFiles<cr>", { noremap = true, silent = true })
-map("n", "<leader>gH", "<cmd>DiffviewFileHistory<cr>", { noremap = true, silent = true })
+map("n", "<leader>gh", "<cmd>DiffviewFileHistory<cr>", { noremap = true, silent = true })
+map("n", "<leader>gH", "<cmd>DiffviewClose<cr>", { noremap = true, silent = true, desc = "Close Diffview" })
 
 -- ╭─────────────────────────────────────────────────────────╮
 -- │ Telescope                                               │

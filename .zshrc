@@ -144,7 +144,7 @@ alias ll="eza --color=always --long --icons=always --group-directories-first -a"
 
 # Zoxide (Fast to path with some text not full)
 eval "$(zoxide init zsh)"
-alias cd='z'
+# alias cd='z'
 
 alias home='cd ~'
 alias ..='cd ..'
