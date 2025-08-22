@@ -8,18 +8,19 @@ return {
     provider = "claude",
     -- provider = "gemini",
     providers = {
-      openai = {
-        endpoint = "https://api.openai.com/v1",
-        model = "gpt-4o", -- your desired model (or use gpt-4o, etc.)
-        timeout = 30000, -- timeout in milliseconds
-        extra_request_body = {
-          temperature = 0, -- adjust if needed
-        },
-        -- max_tokens = 4096,
-        -- reasoning_effort = "high" -- only supported for reasoning models (o1, etc.)
-      },
+      -- openai = {
+      --   endpoint = "https://api.openai.com/v1",
+      --   model = "gpt-4o", -- your desired model (or use gpt-4o, etc.)
+      --   timeout = 30000, -- timeout in milliseconds
+      --   extra_request_body = {
+      --     temperature = 0, -- adjust if needed
+      --   },
+      --   -- max_tokens = 4096,
+      --   -- reasoning_effort = "high" -- only supported for reasoning models (o1, etc.)
+      -- },
       claude = {
         endpoint = "https://api.anthropic.com",
+        -- model = "claude-3-7-sonnet-20250219",
         model = "claude-sonnet-4-20250514",
         timeout = 30000, -- Timeout in milliseconds
         extra_request_body = {
@@ -27,9 +28,35 @@ return {
           max_tokens = 20480,
         },
       },
-      gemini = {
-        model = "gemini-2.5-pro",
-      },
+      -- gemini = {
+      --   model = "gemini-2.5-pro",
+      -- },
+    },
+  },
+  keys = {
+    {
+      "<leader>aa",
+      function()
+        require("avante.api").ask()
+      end,
+      desc = "avante: ask",
+      mode = { "n", "v" },
+    },
+    {
+      "<leader>ar",
+      function()
+        require("avante.api").refresh()
+      end,
+      desc = "avante: refresh",
+      mode = "v",
+    },
+    {
+      "<leader>ae",
+      function()
+        require("avante.api").edit()
+      end,
+      desc = "avante: edit",
+      mode = "v",
     },
   },
   -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`

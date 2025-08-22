@@ -14,16 +14,16 @@ return {
 
         -- Override format
         definition = function(count)
-          return " Def: " .. count
+          return " Definition: " .. count
         end,
         references = function(count)
-          return " Ref: " .. count
+          return " References: " .. count
         end,
         implements = function(count)
-          return "󱑟 Imp: " .. count
+          return "󱑟 Implements: " .. count
         end,
         git_authors = function(latest_author, count)
-          return " " .. latest_author .. (count - 1 == 0 and "" or (" + " .. count - 1))
+          return " Authors: " .. latest_author .. (count - 1 == 0 and "" or (" + " .. count - 1))
         end,
       },
       ignore_filetype = {

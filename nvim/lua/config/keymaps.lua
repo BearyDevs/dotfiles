@@ -103,12 +103,6 @@ end, { desc = "Go to previous diagnostic" })
 
 map("n", "<leader>\\", "<cmd>LazyExtras<CR>", { desc = "LazyExtras" })
 
--- ╭─────────────────────────────────────────────────────────╮
--- │ LspLens (link JetBrain that show implementatino and     │
--- │ reference)                                              │
--- ╰─────────────────────────────────────────────────────────╯
--- map("n", "<leader>cL", "<cmd>LspLensToggle<CR>", { desc = "LspLensToggle" })
-
 local lsplens_state = false -- Track state manually (assumes starts disabled)
 
 local function toggle_lsplens()

@@ -53,17 +53,6 @@ vim.filetype.add({
   },
 })
 
-vim.lsp.config("custom-tailwindcss-lsp", {
-  cmd = {
-    "node",
-    "/Users/teerapat/.bun/install/global/node_modules/@tailwindcss/language-server/bin/css-language-server",
-    "--stdio",
-  },
-  filetypes = { "css", "scss", "less", "tailwindcss" },
-})
-
-vim.lsp.enable("custom-tailwindcss-lsp")
-
 -- ╭─────────────────────────────────────────────────────────╮
 -- │ Todo Comment Demo                                       │
 -- ╰─────────────────────────────────────────────────────────╯

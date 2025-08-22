@@ -144,7 +144,7 @@ alias ll="eza --color=always --long --icons=always --group-directories-first -a"
 
 # Zoxide (Fast to path with some text not full)
 eval "$(zoxide init zsh)"
-# alias cd='z'
+alias cd='z'
 
 alias home='cd ~'
 alias ..='cd ..'
@@ -176,7 +176,8 @@ alias nvimdata='home; cd ~/.local'
 alias lazypath='cd ~/.local/share/nvim/lazy/LazyVim'
 alias dl='home; cd Downloads'
 alias dt='home; cd Desktop'
-alias work='dl; cd Projects'
+# alias work='dl; cd Projects'
+alias work='home; cd Projects'
 alias neofetch-config='nvim ~/.config/neofetch/config.conf'
 alias sudonvim='sudo -E nvim' # NvChad
 alias neovide='neovide --maximized --frame transparent'
@@ -408,6 +409,7 @@ alias dockerrm-everything='docker system prune -af --volumes'
 # POST
 # curl -X POST -H "Content-Type: application/json" -d '{ "name": "morpheus", "job": "leader" }' https://reqres.in/api/users
 
+# export FZF_DEFAULT_OPTS="--height 100% --layout=default --border --color=hl:#2dd4bf --bind 'enter:execute(nvim {})+abort'"
 # ╭──────────────────────────────────────────────────────────╮
 # │ FZF                                                      │
 # ╰──────────────────────────────────────────────────────────╯
@@ -420,7 +422,7 @@ export FZF_ONLY_FOLDER_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git "
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_CTRL_R_COMMAND="$FZF_ONLY_FOLDER_COMMAND"
 
-export FZF_DEFAULT_OPTS="--height 50% --layout=default --border --color=hl:#2dd4bf"
+export FZF_DEFAULT_OPTS="--height 100% --layout=default --border --color=hl:#2dd4bf"
 
 # Setup fzf previews
 export FZF_CTRL_T_OPTS="--preview 'bat --color=always -n --line-range :500 {}'"
@@ -440,8 +442,34 @@ function fzf_nvim() {
     nvim "$file"
   fi
 }
-# bindkey -s '^T' 'fzf_nvim\n'
+bindkey -s '^T' 'fzf_nvim\n'
 alias fn='fzf_nvim'
+
+# ╭──────────────────────────────────────────────────────────╮
+# │ Function for finding and navigating to folders           │
+# ╰──────────────────────────────────────────────────────────╯
+function fzf_cd() {
+  local dir
+  dir=$(fd --type d --strip-cwd-prefix --exclude .git --exclude '.*' | fzf --preview 'eza --icons=always --tree --color=always {} | head -200')
+
+  if [[ -n "$dir" ]]; then
+    cd "$dir"
+  fi
+}
+
+function fzf_cd_hidden() {
+  local dir
+  dir=$(fd --type d --hidden --strip-cwd-prefix --exclude .git | fzf --preview 'eza --icons=always --tree --color=always {} | head -200')
+
+  if [[ -n "$dir" ]]; then
+    cd "$dir"
+  fi
+}
+
+bindkey -s '^f' 'fzf_cd\n'
+bindkey -s '^g' 'fzf_cd_hidden\n'
+alias fcd='fzf_cd'
+alias fcdh='fzf_cd_hidden'
 
 # ╭──────────────────────────────────────────────────────────╮
 # │ FZF GIT                                                  │
@@ -1243,6 +1271,8 @@ check() {
 alias lf="~/.config/fzf_listoldfiles.sh"
 alias lof="~/.config/zoxide_openfiles_nvim.sh"
 alias y='yazi'
+alias yh='yazi --show-hidden'
+alias yh='yazi --config-dir ~/.config/yazi-hidden'
 
 # ╭──────────────────────────────────────────────────────────╮
 # │ opens documentation through fzf (eg: git,zsh etc.)       │
@@ -1535,6 +1565,8 @@ case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
+
+# $ pnpm approve-builds
 # pnpm end
 
 
