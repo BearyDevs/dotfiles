@@ -2,6 +2,7 @@ return {
   "vyfor/cord.nvim",
   build = ":Cord update",
   event = "VeryLazy",
+  enabled = false,
   opts = {
     usercmds = true, -- Enable user commands
     log_level = "error", -- One of 'trace', 'debug', 'info', 'warn', 'error', 'off'
