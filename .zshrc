@@ -176,8 +176,8 @@ alias nvimdata='home; cd ~/.local'
 alias lazypath='cd ~/.local/share/nvim/lazy/LazyVim'
 alias dl='home; cd Downloads'
 alias dt='home; cd Desktop'
-# alias work='dl; cd Projects'
-alias work='home; cd Projects'
+# alias work='dl; cd @Projects'
+alias work='home; cd @Projects'
 alias neofetch-config='nvim ~/.config/neofetch/config.conf'
 alias sudonvim='sudo -E nvim' # NvChad
 alias neovide='neovide --maximized --frame transparent'
@@ -416,20 +416,20 @@ alias dockerrm-everything='docker system prune -af --volumes'
 # Set up fzf key bindings and fuzzy completion
 eval "$(fzf --zsh)"
 
-export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git "
-export FZF_ONLY_FOLDER_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git "
+# export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git "
+# export FZF_ONLY_FOLDER_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git "
 
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_CTRL_R_COMMAND="$FZF_ONLY_FOLDER_COMMAND"
+# export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+# export FZF_CTRL_R_COMMAND="$FZF_ONLY_FOLDER_COMMAND"
 
-export FZF_DEFAULT_OPTS="--height 100% --layout=default --border --color=hl:#2dd4bf"
+# export FZF_DEFAULT_OPTS="--height 100% --layout=default --border --color=hl:#2dd4bf"
 
 # Setup fzf previews
-export FZF_CTRL_T_OPTS="--preview 'bat --color=always -n --line-range :500 {}'"
-export FZF_CTRL_R_OPTS="--preview 'eza --icons=always --tree --color=always {} | head -200'"
+# export FZF_CTRL_T_OPTS="--preview 'bat --color=always -n --line-range :500 {}'"
+# export FZF_CTRL_R_OPTS="--preview 'eza --icons=always --tree --color=always {} | head -200'"
 
 # fzf preview for tmux
-export FZF_TMUX_OPTS=" -p90%,70% "
+# export FZF_TMUX_OPTS=" -p90%,70% "
 
 # ╭──────────────────────────────────────────────────────────╮
 # │ Function for opening files with Neovim using fzf (Ctrl+T)│
@@ -442,13 +442,13 @@ function fzf_nvim() {
     nvim "$file"
   fi
 }
-bindkey -s '^T' 'fzf_nvim\n'
 alias fn='fzf_nvim'
 
 # ╭──────────────────────────────────────────────────────────╮
 # │ Function for finding and navigating to folders           │
 # ╰──────────────────────────────────────────────────────────╯
 function fzf_cd() {
+  cd ~
   local dir
   dir=$(fd --type d --strip-cwd-prefix --exclude .git --exclude '.*' | fzf --preview 'eza --icons=always --tree --color=always {} | head -200')
 
@@ -458,6 +458,7 @@ function fzf_cd() {
 }
 
 function fzf_cd_hidden() {
+  cd ~
   local dir
   dir=$(fd --type d --hidden --strip-cwd-prefix --exclude .git | fzf --preview 'eza --icons=always --tree --color=always {} | head -200')
 
@@ -466,8 +467,6 @@ function fzf_cd_hidden() {
   fi
 }
 
-bindkey -s '^f' 'fzf_cd\n'
-bindkey -s '^g' 'fzf_cd_hidden\n'
 alias fcd='fzf_cd'
 alias fcdh='fzf_cd_hidden'
 
@@ -486,6 +485,14 @@ source ~/.config/fzf-git.sh
 # CTRL-G CTRL-L for reflogs
 # CTRL-G CTRL-W for Worktrees
 # CTRL-G CTRL-E for Each ref (git for-each-ref)
+
+# ╭──────────────────────────────────────────────────────────╮
+# │ BIND KEY                                                 │
+# ╰──────────────────────────────────────────────────────────╯
+bindkey -s '^T' 'fzf_nvim\n'
+bindkey -s '^f' 'fzf_cd\n'
+bindkey -s '^g' 'fzf_cd_hidden\n'
+bindkey -s '^y' 'yazi\n'
 
 # ╭──────────────────────────────────────────────────────────╮
 # │ TMUX │
@@ -1271,8 +1278,6 @@ check() {
 alias lf="~/.config/fzf_listoldfiles.sh"
 alias lof="~/.config/zoxide_openfiles_nvim.sh"
 alias y='yazi'
-alias yh='yazi --show-hidden'
-alias yh='yazi --config-dir ~/.config/yazi-hidden'
 
 # ╭──────────────────────────────────────────────────────────╮
 # │ opens documentation through fzf (eg: git,zsh etc.)       │
@@ -1597,3 +1602,5 @@ cls
 
 # bun completions
 [ -s "/Users/teerapat/.bun/_bun" ] && source "/Users/teerapat/.bun/_bun"
+
+alias claude="/Users/teerapat/.claude/local/claude"

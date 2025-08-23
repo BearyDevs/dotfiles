@@ -32,6 +32,10 @@ vim.filetype.add({
     [".env.development"] = "dotenv",
     [".env.production"] = "dotenv",
     [".env.test"] = "dotenv",
+    [".env.sit"] = "dotenv",
+    [".env.uat"] = "dotenv",
+    [".env.dev"] = "dotenv",
+    [".env.example"] = "dotenv",
   },
 })
 
