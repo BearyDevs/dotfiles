@@ -6,6 +6,7 @@ return {
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path",
+    { "roobert/tailwindcss-colorizer-cmp.nvim", opts = {} },
   },
   -- Not all LSP servers add brackets when completing a function.
   -- To better deal with this, LazyVim adds a custom option to cmp,
@@ -17,11 +18,17 @@ return {
   -- }
   -- ```
   opts = function(_, opts)
-
     vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
     local cmp = require("cmp")
     local defaults = require("cmp.config.default")()
     local auto_select = true
+
+    local format_kinds = opts.formatting.format
+    opts.formatting.format = function(entry, item)
+      format_kinds(entry, item) -- add icons
+      return require("tailwindcss-colorizer-cmp").formatter(entry, item)
+    end
+
     return {
       auto_brackets = {}, -- configure any filetype to auto add brackets
       completion = {

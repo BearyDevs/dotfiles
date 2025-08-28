@@ -24,6 +24,14 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 alias brewarchpath="export PATH=/usr/local/bin:${PATH}"
 
 # ╭──────────────────────────────────────────────────────────╮
+# │ AWS                                                      │
+# ╰──────────────────────────────────────────────────────────╯
+export AWS_PROFILE=bedrock
+export AWS_REGION=us-east-1
+export ANTHROPIC_MODEL='arn:aws:bedrock:us-east-1:978373393266:inference-profile/us.anthropic.claude-opus-4-1-20250805-v1:0'
+export CLAUDE_CODE_USE_BEDROCK=1
+
+# ╭──────────────────────────────────────────────────────────╮
 # │ Locale                                                   │
 # ╰──────────────────────────────────────────────────────────╯
 export LANG=en_US.UTF-8

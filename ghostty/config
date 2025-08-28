@@ -3,11 +3,11 @@
 
 shell-integration-features = no-cursor,sudo,no-title
 font-family = "ComicShannsMono Nerd Font"
-# font-family = "JetBrainsMono Nerd Font"
-font-size = 16
+font-size = 17
+# font-thicken = true # For low dpi screen
 # window-height=1600
 # window-width=2560
-background-opacity = 0.85
+background-opacity = 0.80
 background = #001419
 foreground = #cbe0f0
 cursor-color = #47ff9c
@@ -22,7 +22,7 @@ background-blur-radius = 25
 keybind = cmd+r=reload_config
 keybind = cmd+t=unbind
 keybind = cmd+n=unbind
-# window-colorspace = display-p3
+window-colorspace = display-p3
 copy-on-select = clipboard
 # mouse-scroll-multiplier = 2
 # window-padding-balance = true

@@ -11,6 +11,40 @@ return {
       ts_ls = {
         enabled = false,
       },
+      somesass_ls = {
+        settings = {
+          somesass = {
+            suggestAllFromOpenDocument = true,
+            scss = {
+              lint = {
+                unknownAtRules = "ignore",
+              },
+            },
+          },
+        },
+      },
+      cssls = {
+        settings = {
+          css = {
+            validate = true,
+            lint = {
+              unknownAtRules = "ignore",
+            },
+          },
+          scss = {
+            validate = true,
+            lint = {
+              unknownAtRules = "ignore",
+            },
+          },
+          less = {
+            validate = true,
+            lint = {
+              unknownAtRules = "ignore",
+            },
+          },
+        },
+      },
       vtsls = {
         -- explicitly add default filetypes, so that we can extend
         -- them in related extras
@@ -195,12 +229,36 @@ return {
         },
       },
       tailwindcss = {
-        -- exclude a filetype from the default_config
         filetypes_exclude = { "markdown" },
-        -- add additional filetypes to the default_config
         filetypes_include = {},
-        -- to fully override the default_config, change the below
-        -- filetypes = {}
+        settings = {
+          tailwindCSS = {
+            lint = {
+              cssConflict = "warning",
+              invalidApply = "error",
+              invalidConfigPath = "error",
+              invalidScreen = "error",
+              invalidTailwindDirective = "error",
+              invalidVariant = "error",
+              recommendedVariantOrder = "warning",
+            },
+            experimental = {
+              classRegex = {
+                "tw`([^`]*)",
+                'tw="([^"]*)',
+                'tw={"([^"}]*)',
+                "tw\\.\\w+`([^`]*)",
+                "tw\\(.*?\\)`([^`]*)",
+              },
+            },
+            validate = true,
+            includeLanguages = {
+              elixir = "html-eex",
+              eelixir = "html-eex",
+              heex = "html-eex",
+            },
+          },
+        },
       },
       prismals = {},
       dockerls = {},

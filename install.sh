@@ -35,6 +35,7 @@ curl -fsSL https://bun.sh/install | bash
 echo "Tapping Brew..."
 brew tap homebrew/cask-fonts
 brew tap FelixKratz/formulae
+brew tap fwartner/tap
 
 ## Formulae
 echo "Installing Brew Formulae..."
@@ -91,6 +92,7 @@ brew install httpie
 brew install git-delta
 brew install mermaid-cli
 brew install minio/stable/minio
+brew install fwartner/tap/mac-cleanup
 
 ### dev things
 brew install node
