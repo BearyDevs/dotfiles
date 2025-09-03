@@ -64,6 +64,7 @@ require("lazy").setup({
       opts = {
         scroll = { enabled = false },
         dashboard = {
+          enabled = false,
           preset = {
             header = [[ 
 __________         __         .__        __   _________            .___      

@@ -123,6 +123,7 @@ brew install javacc
 brew install glow
 brew install jq
 brew install java
+brew install redis
 
 ## Casks
 brew install --cask raycast

@@ -11,9 +11,7 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 export OPENAI_API_KEY=
 export CODEIUM_API_KEY=
 export GEMINI_API_KEY=
-export ANTHROPIC_API_KEY=
 export GITHUB_COPILOT_TOKEN=
-
 # Check models that can use
 # $ curl https://api.openai.com/v1/models \ -H "Authorization: Bearer YOUR_OPENAI_API_KEY"
 
@@ -22,14 +20,6 @@ export GITHUB_COPILOT_TOKEN=
 # ╰──────────────────────────────────────────────────────────╯
 eval "$(/opt/homebrew/bin/brew shellenv)"
 alias brewarchpath="export PATH=/usr/local/bin:${PATH}"
-
-# ╭──────────────────────────────────────────────────────────╮
-# │ AWS                                                      │
-# ╰──────────────────────────────────────────────────────────╯
-export AWS_PROFILE=bedrock
-export AWS_REGION=us-east-1
-export ANTHROPIC_MODEL='arn:aws:bedrock:us-east-1:978373393266:inference-profile/us.anthropic.claude-opus-4-1-20250805-v1:0'
-export CLAUDE_CODE_USE_BEDROCK=1
 
 # ╭──────────────────────────────────────────────────────────╮
 # │ Locale                                                   │
@@ -955,6 +945,7 @@ git-clean-except() {
 # │ Git Stash                                                │
 # ╰──────────────────────────────────────────────────────────╯
 # $ git stash list -- view all stathes
+# $ git stash list --date=local -- show stashes with date
 # $ git stash show stash@{0} -- view the details of the stash
 # $ git stash pop stash@{0} -- apply the stash and remove it
 # $ git stash drop stash@{0} -- remove the stash
@@ -1540,6 +1531,7 @@ alias cat='bat'
 # ╭──────────────────────────────────────────────────────────╮
 # │ ClaudeCode                                               │
 # ╰──────────────────────────────────────────────────────────╯
+alias claude="/Users/teerapat/.claude/local/claude"
 # For example:
 #   claude --model claude-3-5-sonnet-20240620
 #
@@ -1598,6 +1590,17 @@ compinit
 # brew install minio/stable/minio
 # minio server /data
 
+# ╭──────────────────────────────────────────────────────────╮
+# │ 1Mobby FRP                                               │
+# ╰──────────────────────────────────────────────────────────╯
+alias frpdir='cd ~/frp/'
+alias frp-start='~/frp/frpc -c frpc.ini'
+
+# ╭──────────────────────────────────────────────────────────╮
+# │ Redis                                                    │
+# ╰──────────────────────────────────────────────────────────╯
+# $ redis-cli -h localhost -p 6379
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
@@ -1610,5 +1613,3 @@ cls
 
 # bun completions
 [ -s "/Users/teerapat/.bun/_bun" ] && source "/Users/teerapat/.bun/_bun"
-
-alias claude="/Users/teerapat/.claude/local/claude"
