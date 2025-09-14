@@ -124,6 +124,7 @@ brew install glow
 brew install jq
 brew install java
 brew install redis
+brew install gemini-cli
 
 ## Casks
 brew install --cask raycast

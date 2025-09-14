@@ -11,6 +11,16 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 export OPENAI_API_KEY=
 export CODEIUM_API_KEY=
 export GEMINI_API_KEY=
+
+# ╭──────────────────────────────────────────────────────────╮
+# │ 1Mobby                                                   │
+# ╰──────────────────────────────────────────────────────────╯
+# export ANTHROPIC_API_KEY=
+# export AWS_PROFILE=bedrock
+# export AWS_REGION=us-east-1
+# export ANTHROPIC_MODEL='arn:aws:bedrock:us-east-1:978373393266:inference-profile/us.anthropic.claude-opus-4-1-20250805-v1:0'
+# export CLAUDE_CODE_USE_BEDROCK=1
+
 export GITHUB_COPILOT_TOKEN=
 # Check models that can use
 # $ curl https://api.openai.com/v1/models \ -H "Authorization: Bearer YOUR_OPENAI_API_KEY"
@@ -1594,7 +1604,23 @@ compinit
 # │ 1Mobby FRP                                               │
 # ╰──────────────────────────────────────────────────────────╯
 alias frpdir='cd ~/frp/'
-alias frp-start='~/frp/frpc -c frpc.ini'
+alias frp-start='~/frp/frpc -c frpc.json'
+
+# ╭──────────────────────────────────────────────────────────╮
+# │ Maguro UAT                                               │
+# ╰──────────────────────────────────────────────────────────╯
+alias ssh-maguro-uat='ssh -N maguro-bastion-limited-user'
+
+# ssh config
+#
+# Host maguro-bastion-limited-user
+#     HostName ec2-43-208-136-152.ap-southeast-7.compute.amazonaws.com
+#     Port 22
+#     User limited-user
+#     ServerAliveInterval 60
+#     LocalForward 5432 ip-192-168-58-151.ap-southeast-7.compute.internal:5432
+#     LocalForward 6380 ip-192-168-58-151.ap-southeast-7.compute.internal:6379
+#     IdentityFile ~/.ssh/id_ed25519
 
 # ╭──────────────────────────────────────────────────────────╮
 # │ Redis                                                    │
@@ -1610,6 +1636,12 @@ cls
 # │ NetBird                                                  │
 # ╰──────────────────────────────────────────────────────────╯
 # $ netbird routes list -- view list
+alias netbird-list='netbird routes list'
+
+# ╭──────────────────────────────────────────────────────────╮
+# │ KA app                                                   │
+# ╰──────────────────────────────────────────────────────────╯
+# yarn install --frozen-lockfile
 
 # bun completions
 [ -s "/Users/teerapat/.bun/_bun" ] && source "/Users/teerapat/.bun/_bun"
