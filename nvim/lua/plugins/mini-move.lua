@@ -1,5 +1,5 @@
 return {
-  "echasnovski/mini.move",
+  "nvim-mini/mini.move",
   config = function(_, opts)
     require("mini.move").setup(opts)
   end,

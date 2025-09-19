@@ -10,6 +10,7 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 # ╰──────────────────────────────────────────────────────────╯
 export OPENAI_API_KEY=
 export CODEIUM_API_KEY=
+# export GEMINI_API_KEY=
 export GEMINI_API_KEY=
 
 # ╭──────────────────────────────────────────────────────────╮
@@ -18,7 +19,7 @@ export GEMINI_API_KEY=
 # export ANTHROPIC_API_KEY=
 # export AWS_PROFILE=bedrock
 # export AWS_REGION=us-east-1
-# export ANTHROPIC_MODEL='arn:aws:bedrock:us-east-1:978373393266:inference-profile/us.anthropic.claude-opus-4-1-20250805-v1:0'
+# export ANTHROPIC_MODEL=
 # export CLAUDE_CODE_USE_BEDROCK=1
 
 export GITHUB_COPILOT_TOKEN=
@@ -166,8 +167,8 @@ alias dl='home; cd Downloads'
 # alias cls='clear; neofetch; showinforandom;'
 # alias cls='clear; neofetch --source ~/neofetch-custom2.txt;'
 # alias cls='clear; neofetch --source ~/neofetch-bearydev-logo.txt'
-# alias cls='clear; neofetch'
-alias cls='clear'
+alias cls='clear; neofetch'
+# alias cls='clear'
 # alias cls='clear; echo -e "$(cat ~/neofetch-custom2.txt)"; showinforandom;'
 alias nf='neofetch'
 alias zshrc='nvim ~/.zshrc'
@@ -1144,6 +1145,12 @@ function gpb() {
 
 # Remove from origin
 # $ git push origin :refs/tags/v0.0.5-sit
+
+# ╭──────────────────────────────────────────────────────────╮
+# │ Git reset previous commit with keep all changes to       │
+# │ staging area                                             │
+# ╰──────────────────────────────────────────────────────────╯
+# $ git reset --soft HEAD~1
 
 # ╭──────────────────────────────────────────────────────────╮
 # │ List all specific files:                                 │

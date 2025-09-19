@@ -1,12 +1,11 @@
 return {
   "mistricky/codesnap.nvim",
-  enabled = false,
   build = "make build_generator",
   event = "VeryLazy",
   opts = {
     mac_window_bar = true,
     -- title = "CodeSnap.nvim",
-    title = "Teerapat Wassavanich (BearyDevs)",
+    title = "Teerapat Wassavanich (PAT)",
     code_font_family = "ComicShannsMono Nerd Font",
     save_path = "~/Desktop",
     has_breadcrumbs = true,
@@ -19,7 +18,7 @@ return {
     -- bg_x_padding = 122,
     -- bg_y_padding = 82,
     -- bg_padding = nil
-    watermark = "teerapat@1moby.com",
+    watermark = "Teerapat Wassavanich (PAT) Email: teerapat@1moby.com",
     -- watermark_font_family = "Pacifico",
     -- watermark_font_family = "ComicShannsMono Nerd Font",
     watermark_font_family = "CaskaydiaCove Nerd Font",

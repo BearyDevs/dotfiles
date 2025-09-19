@@ -1,6 +1,6 @@
 ---@type LazySpec
 return {
-  "echasnovski/mini-git",
+  "nvim-mini/mini-git",
   main = "mini.git",
   event = "BufReadPre",
   cmd = "Git",
