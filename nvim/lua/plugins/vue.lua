@@ -5,7 +5,7 @@ return {
     LazyVim.extend(opts.servers.vtsls, "settings.vtsls.tsserver.globalPlugins", {
       {
         name = "@vue/typescript-plugin",
-        location = LazyVim.get_pkg_path("vue-language-server", "/node_modules/@vue/language-server"),
+        location = LazyVim.get_pkg_path("vue-language-server", "/node_modules/@vue/language-server/node_modules/@vue/typescript-plugin"),
         languages = { "vue" },
         configNamespace = "typescript",
         enableForWorkspaceTypeScriptVersions = true,

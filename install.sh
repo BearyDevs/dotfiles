@@ -93,6 +93,10 @@ brew install git-delta
 brew install mermaid-cli
 brew install minio/stable/minio
 brew install fwartner/tap/mac-cleanup
+brew install imagemagick ffmpeg
+brew install poppler
+brew install p7zip jq
+brew install uv
 
 ### dev things
 brew install node
@@ -125,6 +129,7 @@ brew install jq
 brew install java
 brew install redis
 brew install gemini-cli
+brew install opencode
 
 ## Casks
 brew install --cask raycast

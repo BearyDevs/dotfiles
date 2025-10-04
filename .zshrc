@@ -5,23 +5,6 @@ fi
 source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-# ╭──────────────────────────────────────────────────────────╮
-# │ Ai Api                                                   │
-# ╰──────────────────────────────────────────────────────────╯
-export OPENAI_API_KEY=
-export CODEIUM_API_KEY=
-# export GEMINI_API_KEY=
-export GEMINI_API_KEY=
-
-# ╭──────────────────────────────────────────────────────────╮
-# │ 1Mobby                                                   │
-# ╰──────────────────────────────────────────────────────────╯
-# export ANTHROPIC_API_KEY=
-# export AWS_PROFILE=bedrock
-# export AWS_REGION=us-east-1
-# export ANTHROPIC_MODEL=
-# export CLAUDE_CODE_USE_BEDROCK=1
-
 export GITHUB_COPILOT_TOKEN=
 # Check models that can use
 # $ curl https://api.openai.com/v1/models \ -H "Authorization: Bearer YOUR_OPENAI_API_KEY"
@@ -1545,10 +1528,6 @@ alias wss='open -na "WebStorm.app"'
 # ╰──────────────────────────────────────────────────────────╯
 alias cat='bat'
 
-# ╭──────────────────────────────────────────────────────────╮
-# │ ClaudeCode                                               │
-# ╰──────────────────────────────────────────────────────────╯
-alias claude="/Users/teerapat/.claude/local/claude"
 # For example:
 #   claude --model claude-3-5-sonnet-20240620
 #
@@ -1611,12 +1590,15 @@ compinit
 # │ 1Mobby FRP                                               │
 # ╰──────────────────────────────────────────────────────────╯
 alias frpdir='cd ~/frp/'
-alias frp-start='~/frp/frpc -c frpc.json'
+alias frp-start='frpdir; ./frpc -c frpc.json'
+#
+# export FRP_HOME="$HOME/frp"
+# alias frp-start='$FRP_HOME/frpc -c $FRP_HOME/frpc.json'
 
 # ╭──────────────────────────────────────────────────────────╮
 # │ Maguro UAT                                               │
 # ╰──────────────────────────────────────────────────────────╯
-alias ssh-maguro-uat='ssh -N maguro-bastion-limited-user'
+alias ssh-maguro='ssh -N maguro-bastion-limited-user'
 
 # ssh config
 #
@@ -1649,6 +1631,25 @@ alias netbird-list='netbird routes list'
 # │ KA app                                                   │
 # ╰──────────────────────────────────────────────────────────╯
 # yarn install --frozen-lockfile
+
+# ╭──────────────────────────────────────────────────────────╮
+# │ Disable auto changes input Mic volume                    │
+# ╰──────────────────────────────────────────────────────────╯
+# $ sudo defaults write com.apple.coreaudio.audiohald EnableAmbientNoisereduction -bool false
+# ╭──────────────────────────────────────────────────────────╮
+# │ Then restart your Mac or kill the audio process          │
+# ╰──────────────────────────────────────────────────────────╯
+# $ sudo killall coreaudiod
+# ╭──────────────────────────────────────────────────────────╮
+# │ Reset Core Audio (if other methods fail)                 │
+# ╰──────────────────────────────────────────────────────────╯
+# $ sudo launchctl unload /System/Library/LaunchDaemons/com.apple.audio.coreaudiod.plist
+# $ sudo launchctl load /System/Library/LaunchDaemons/com.apple.audio.coreaudiod.plist
+
+# ╭──────────────────────────────────────────────────────────╮
+# │ OpenCode                                                 │
+# ╰──────────────────────────────────────────────────────────╯
+alias ai='opencode'
 
 # bun completions
 [ -s "/Users/teerapat/.bun/_bun" ] && source "/Users/teerapat/.bun/_bun"

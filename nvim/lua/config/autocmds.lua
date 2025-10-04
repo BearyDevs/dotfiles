@@ -72,3 +72,20 @@ vim.api.nvim_create_autocmd("FileType", {
     ]])
   end,
 })
+
+-- ╭─────────────────────────────────────────────────────────╮
+-- │ Enhanced Recent Files Tracking                          │
+-- ╰─────────────────────────────────────────────────────────╯
+-- Automatically add files to recent list when opened
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = "*",
+  callback = function(args)
+    local file_path = vim.fn.expand("%:p")
+    -- Only track real files (not empty buffers, terminals, etc.)
+    if file_path and file_path ~= "" and vim.fn.filereadable(file_path) == 1 then
+      -- Add to Neovim's oldfiles list
+      vim.cmd("call histadd(':', 'edit ' . expand('%:p'))")
+    end
+  end,
+  desc = "Track recently opened files",
+})

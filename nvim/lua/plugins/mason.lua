@@ -5,6 +5,7 @@ return {
   event = { "BufReadPre", "BufNewFile" },
   opts = {
     ensure_installed = {
+      "angular-language-server",
       "markdownlint-cli2",
       "markdown-toc",
       "ast-grep",
@@ -69,7 +70,7 @@ return {
       "pgformatter",
       "postgrestools",
       "prettier",
-      -- "prettierd",
+      "prettierd",
       "prisma-language-server",
       "pyright",
       "quick-lint-js",
@@ -104,13 +105,14 @@ return {
       "vale-ls",
       "vetur-vls",
       "vim-language-server",
-      "vint",
+      -- "vint",
       "vscode-java-decompiler",
       "vtsls",
       "vue-language-server",
       "yaml-language-server",
       "yamlfmt",
       "debugpy",
+      "emmylua-codeformat",
     },
     ui = {
       icons = {
