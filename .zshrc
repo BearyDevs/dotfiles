@@ -5,10 +5,6 @@ fi
 source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-export GITHUB_COPILOT_TOKEN=
-# Check models that can use
-# $ curl https://api.openai.com/v1/models \ -H "Authorization: Bearer YOUR_OPENAI_API_KEY"
-
 # ╭──────────────────────────────────────────────────────────╮
 # │ BREW                                                     │
 # ╰──────────────────────────────────────────────────────────╯
@@ -261,6 +257,7 @@ alias coder='code-insiders .'
 # Mac Cleanup
 # brew tap fwartner/tap
 # brew install fwartner/tap/mac-cleanup
+# mac-cleanup
 alias mclean='mac-cleanup'
 
 # ╭──────────────────────────────────────────────────────────╮
