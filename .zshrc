@@ -253,6 +253,7 @@ alias ios-hidetouch='defaults write com.apple.iphonesimulator ShowSingleTouches 
 alias docklock='defaults write com.apple.Dock.plist prefersAllDisplays -bool false && echo lock-dock: main-screen'
 alias dockdefault='defaults write com.apple.Dock.plist prefersAllDisplays -bool true && echo lock-dock: default'
 alias coder='code-insiders .'
+alias cs='cursor .'
 
 # Mac Cleanup
 # brew tap fwartner/tap
@@ -493,6 +494,14 @@ export PATH=$PATH:/opt/homebrew/bin/tmux
 
 # alias tm='tmux attach -t TMUX || tmux new -s TMUX'
 function tm() {
+    SESSION_NAME="TMUX"
+    if tmux has-session -t "$SESSION_NAME" 2>/dev/null; then
+        tmux attach-session -t "$SESSION_NAME"
+    else
+        tmux new-session -s "$SESSION_NAME"
+    fi
+}
+function TMUX() {
     SESSION_NAME="TMUX"
     if tmux has-session -t "$SESSION_NAME" 2>/dev/null; then
         tmux attach-session -t "$SESSION_NAME"
@@ -1251,6 +1260,16 @@ alias ghosttyconfig='nvim ~/.config/ghostty/config'
 alias ghosttythemes='ghostty +list-themes'
 alias ghosttykeybinds='ghostty +list-keybinds'
 alias ghosttyfonts='ghostty +list-fonts'
+
+# ╭──────────────────────────────────────────────────────────╮
+# │ Kitty Terminal                                           │
+# ╰──────────────────────────────────────────────────────────╯
+alias kittyconfig='nvim ~/.config/kitty/kitty.conf'
+
+# Set Kitty window title
+if [[ "$TERM" == "xterm-kitty" ]]; then
+  echo -ne "\033]0;KITTY\007"
+fi
 
 # ╭──────────────────────────────────────────────────────────╮
 # │ Json Server                                              │

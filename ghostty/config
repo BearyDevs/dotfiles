@@ -16,7 +16,7 @@ cursor-style = block
 # cursor-style = underline
 cursor-style-blink = true
 cursor-text = #011423
-cursor-click-to-move
+cursor-click-to-move = true
 mouse-hide-while-typing
 background-blur-radius = 25
 keybind = cmd+r=reload_config
@@ -27,8 +27,8 @@ copy-on-select = clipboard
 # mouse-scroll-multiplier = 2
 # window-padding-balance = true
 window-save-state = always
-# window-padding-x = 0
-# window-padding-y = 0
+window-padding-x = 0
+window-padding-y = 0
 # window-decoration = false
 macos-titlebar-style = transparent
 # macos-titlebar-style = hidden
