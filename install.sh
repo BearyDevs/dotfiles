@@ -130,6 +130,7 @@ brew install java
 brew install redis
 brew install gemini-cli
 brew install opencode
+brew install gopls
 
 ## Casks
 brew install --cask raycast

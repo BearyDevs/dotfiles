@@ -378,7 +378,7 @@ return {
           -- https://github.com/golang/go/issues/54531#issuecomment-1464982242
           Snacks.util.lsp.on(function(_, client)
             if not client.server_capabilities.semanticTokensProvider then
-              local semantic = client.config.capabilities.textDocument.semanticTokens
+              local semantic = client.config.capabilities.textDocument and client.config.capabilities.textDocument.semanticTokens
               if semantic then
                 client.server_capabilities.semanticTokensProvider = {
                   full = true,
