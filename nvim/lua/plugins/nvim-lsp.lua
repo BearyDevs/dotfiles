@@ -319,7 +319,7 @@ return {
           return true
         end,
         vtsls = function(_, opts)
-          Snacks.util.lsp.on(function(client, buffer)
+          Snacks.util.lsp.on(function(buffer, client)
             client.commands["_typescript.moveToFileRefactoring"] = function(command, ctx)
               ---@type string, string, lsp.Range
               local action, uri, range = unpack(command.arguments)
@@ -376,17 +376,19 @@ return {
         gopls = function(_, opts)
           -- workaround for gopls not supporting semanticTokensProvider
           -- https://github.com/golang/go/issues/54531#issuecomment-1464982242
-          Snacks.util.lsp.on(function(client, _)
+          Snacks.util.lsp.on(function(_, client)
             if not client.server_capabilities.semanticTokensProvider then
               local semantic = client.config.capabilities.textDocument.semanticTokens
-              client.server_capabilities.semanticTokensProvider = {
-                full = true,
-                legend = {
-                  tokenTypes = semantic.tokenTypes,
-                  tokenModifiers = semantic.tokenModifiers,
-                },
-                range = true,
-              }
+              if semantic then
+                client.server_capabilities.semanticTokensProvider = {
+                  full = true,
+                  legend = {
+                    tokenTypes = semantic.tokenTypes,
+                    tokenModifiers = semantic.tokenModifiers,
+                  },
+                  range = true,
+                }
+              end
             end
           end, "gopls")
           -- end workaround
@@ -394,7 +396,7 @@ return {
         yamlls = function()
           -- Neovim < 0.10 does not have dynamic registration for formatting
           if vim.fn.has("nvim-0.10") == 0 then
-            Snacks.util.lsp.on(function(client, _)
+            Snacks.util.lsp.on(function(_, client)
               client.server_capabilities.documentFormattingProvider = true
             end, "yamlls")
           end
@@ -426,7 +428,7 @@ return {
           vim.list_extend(opts.filetypes, opts.filetypes_include or {})
         end,
         angularls = function()
-          Snacks.util.lsp.on(function(client)
+          Snacks.util.lsp.on(function(_, client)
             --HACK: disable angular renaming capability due to duplicate rename popping up
             client.server_capabilities.renameProvider = false
           end, "angularls")
