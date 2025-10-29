@@ -242,6 +242,9 @@ nvm install stable
 echo "Install Yarn"
 npm i -g yarn
 
+echo "Install npm-check-updates"
+npm i -g npm-check-updates
+
 echo "Install claude-code"
 npm i -g @anthropic-ai/claude-code
 

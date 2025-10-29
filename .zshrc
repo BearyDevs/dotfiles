@@ -1604,6 +1604,28 @@ esac
 # $ pnpm approve-builds
 # pnpm end
 
+# ╭──────────────────────────────────────────────────────────╮
+# │ Check lib latest version                                 │
+# ╰──────────────────────────────────────────────────────────╯
+# Check outdated packages
+# $ pnpm outdated
+
+# Check outdated with details
+# $ pnpm outdated --long
+
+# Update to latest within semver range
+# $ pnpm update
+
+# Update specific package to latest
+# $ pnpm update <package-name> --latest
+
+# Update all to latest (ignoring semver)
+# $ pnpm update --latest
+
+# Interactive update
+# $ pnpm update --interactive
+# $ pnpm update --interactive --latest
+
 
 # ╭──────────────────────────────────────────────────────────╮
 # │ The following lines have been added by Docker Desktop    │
