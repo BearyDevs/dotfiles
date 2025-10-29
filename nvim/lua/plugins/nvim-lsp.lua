@@ -319,7 +319,7 @@ return {
           return true
         end,
         vtsls = function(_, opts)
-          LazyVim.lsp.on_attach(function(client, buffer)
+          Snacks.util.lsp.on(function(client, buffer)
             client.commands["_typescript.moveToFileRefactoring"] = function(command, ctx)
               ---@type string, string, lsp.Range
               local action, uri, range = unpack(command.arguments)
@@ -376,7 +376,7 @@ return {
         gopls = function(_, opts)
           -- workaround for gopls not supporting semanticTokensProvider
           -- https://github.com/golang/go/issues/54531#issuecomment-1464982242
-          LazyVim.lsp.on_attach(function(client, _)
+          Snacks.util.lsp.on(function(client, _)
             if not client.server_capabilities.semanticTokensProvider then
               local semantic = client.config.capabilities.textDocument.semanticTokens
               client.server_capabilities.semanticTokensProvider = {
@@ -394,7 +394,7 @@ return {
         yamlls = function()
           -- Neovim < 0.10 does not have dynamic registration for formatting
           if vim.fn.has("nvim-0.10") == 0 then
-            LazyVim.lsp.on_attach(function(client, _)
+            Snacks.util.lsp.on(function(client, _)
               client.server_capabilities.documentFormattingProvider = true
             end, "yamlls")
           end
@@ -426,7 +426,7 @@ return {
           vim.list_extend(opts.filetypes, opts.filetypes_include or {})
         end,
         angularls = function()
-          LazyVim.lsp.on_attach(function(client)
+          Snacks.util.lsp.on(function(client)
             --HACK: disable angular renaming capability due to duplicate rename popping up
             client.server_capabilities.renameProvider = false
           end, "angularls")

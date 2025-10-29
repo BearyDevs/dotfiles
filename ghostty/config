@@ -4,7 +4,11 @@
 title = "Ghostty 👻"
 shell-integration-features = no-cursor,sudo,no-title
 font-family = "ComicShannsMono Nerd Font"
+# font-family = "CaskaydiaCove Nerd Font"
+# font-family = "FantasqueSansM Nerd Font"
 font-size = 16
+# font-style = Bold
+font-style = Regular
 # window-height=1600
 # window-width=2560
 background-opacity = 0.80

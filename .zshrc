@@ -16,6 +16,8 @@ alias brewarchpath="export PATH=/usr/local/bin:${PATH}"
 # ╰──────────────────────────────────────────────────────────╯
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
+export LANG=th_TH.UTF-8
+export LC_ALL=th_TH.UTF-8
 
 # Random Secret for Secure
 alias randomsecret='openssl rand -base64 32'
@@ -25,6 +27,8 @@ alias randomsecret='openssl rand -base64 32'
 # ╰──────────────────────────────────────────────────────────╯
 export PATH=/usr/local/share/npm/bin:$PATH
 alias npmgloballist='npm list -g --depth=0'
+
+# npm install --legacy-peer-deps
 
 # ╭──────────────────────────────────────────────────────────╮
 # │ Check update of all dependencies in project              │
@@ -146,8 +150,8 @@ alias dl='home; cd Downloads'
 # alias cls='clear; neofetch; showinforandom;'
 # alias cls='clear; neofetch --source ~/neofetch-custom2.txt;'
 # alias cls='clear; neofetch --source ~/neofetch-bearydev-logo.txt'
-alias cls='clear; neofetch'
-# alias cls='clear'
+# alias cls='clear; neofetch'
+alias cls='clear'
 # alias cls='clear; echo -e "$(cat ~/neofetch-custom2.txt)"; showinforandom;'
 alias nf='neofetch'
 alias zshrc='nvim ~/.zshrc'
@@ -1292,7 +1296,21 @@ check() {
 
 alias lf="~/.config/fzf_listoldfiles.sh"
 alias lof="~/.config/zoxide_openfiles_nvim.sh"
+
+# ╭──────────────────────────────────────────────────────────╮
+# │ Yazi                                                     │
+# ╰──────────────────────────────────────────────────────────╯
 alias y='yazi'
+
+# path to current directory when using yazi
+function yy() {
+    local tmp="$(mktemp -t "yazi-cwd.XXXXX")"
+    yazi "$@" --cwd-file="$tmp"
+    if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+        cd -- "$cwd"
+    fi
+    rm -f -- "$tmp"
+}
 
 # ╭──────────────────────────────────────────────────────────╮
 # │ opens documentation through fzf (eg: git,zsh etc.)       │
@@ -1666,6 +1684,7 @@ alias netbird-list='netbird routes list'
 # │ OpenCode                                                 │
 # ╰──────────────────────────────────────────────────────────╯
 alias ai='opencode'
+alias opencodeauth='opencode auth login'
 
 # bun completions
 [ -s "/Users/teerapat/.bun/_bun" ] && source "/Users/teerapat/.bun/_bun"
