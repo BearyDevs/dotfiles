@@ -1626,6 +1626,21 @@ esac
 # $ pnpm update --interactive
 # $ pnpm update --interactive --latest
 
+# ╭──────────────────────────────────────────────────────────╮
+# │ Check lib latest version with npm-check-updates          │
+# ╰──────────────────────────────────────────────────────────╯
+# Install npm-check-updates globally
+# $ npm install -g npm-check-updates
+
+# Update all packages in package.json to latest
+# $ ncu -u
+
+# Install the updated versions
+# $ pnpm install
+
+# Run audit
+# $ pnpm audit
+# $ pnpm audit --fix
 
 # ╭──────────────────────────────────────────────────────────╮
 # │ The following lines have been added by Docker Desktop    │

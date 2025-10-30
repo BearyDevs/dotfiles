@@ -57,6 +57,11 @@ return {
   },
   opts = {
     filesystem = {
+      filtered_items = {
+        visible = true, -- Show hidden files by default
+        hide_dotfiles = false,
+        hide_gitignored = false,
+      },
       window = {
         width = 40,
         -- position = "float",
@@ -71,12 +76,12 @@ return {
           ["O"] = function(state)
             local node = state.tree:get_node()
             local path = node:get_id()
-            
+
             -- If it's a file, get the directory containing it
             if node.type == "file" then
               path = vim.fn.fnamemodify(path, ":h")
             end
-            
+
             -- Open Finder with the path
             vim.fn.system("open '" .. path .. "'")
           end,

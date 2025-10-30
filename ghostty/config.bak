@@ -50,10 +50,9 @@ macos-option-as-alt = true
 clipboard-read = allow
 clipboard-write = allow
 shell-integration = zsh
-
 # Font rendering optimizations for external monitors
 # Uncomment these if you need thicker fonts
-font-thicken = false 
+font-thicken = false
 font-thicken-strength = 128
 
 # Better text rendering quality (especially for external monitors)
@@ -61,6 +60,7 @@ alpha-blending = linear-corrected
 
 # For Linux builds using FreeType (uncomment if needed):
 # freetype-load-flags = no-hinting
+
 # command = /bin/zsh -c "SESSION_NAME='TMUX'; if tmux has-session -t \$SESSION_NAME 2>/dev/null; then tmux attach-session -t \$SESSION_NAME; else tmux new-session -s \$SESSION_NAME -d && tmux attach-session -t \$SESSION_NAME; fi"
 command = /bin/zsh -c "tmux attach -t TMUX || tmux new -s TMUX"
 keybind = shift+enter=text:\x1b\r
