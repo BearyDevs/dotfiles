@@ -53,7 +53,7 @@ shell-integration = zsh
 
 # Font rendering optimizations for external monitors
 # Uncomment these if you need thicker fonts
-font-thicken = false 
+font-thicken = true 
 font-thicken-strength = 128
 
 # Better text rendering quality (especially for external monitors)

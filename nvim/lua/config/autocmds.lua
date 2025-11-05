@@ -54,6 +54,9 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "dotenv",
   callback = function()
+    -- Set commentstring for mini.comment to work properly
+    vim.bo.commentstring = "# %s"
+    
     -- Basic syntax highlighting for .env files
     vim.cmd([[
       syntax clear
