@@ -31,6 +31,34 @@ alias npmgloballist='npm list -g --depth=0'
 # npm install --legacy-peer-deps
 
 # ╭──────────────────────────────────────────────────────────╮
+# │ SNYK - Check for vulnerabilities of npm packages         │
+# ╰──────────────────────────────────────────────────────────╯
+# $ snyk test qrcode-generator@2.0.4
+# $ snyk test --package-manager=npm qrcode-generator
+
+# demo: $ checklib npm qrcode-generator
+checklib() {
+  # if [ -z "$1" ] || [ -z "$2" ]; then
+  if [ -z "$1" ]; then
+    echo -e "\033[1;31m❌ Error: \033[0mMissing required arguments"
+    echo -e "\033[1;33mUsage: \033[0mchecklib <package-manager> <package-name>"
+    echo -e "\033[1;36mExample: \033[0mchecklib npm qrcode-generator"
+    echo -e "\033[1;36mExample: \033[0mchecklib yarn lodash"
+    return 1
+  fi
+
+  # local package_manager="$1"
+  # local package_name="$2"
+
+  local package_manager="npm"
+  local package_name="$1"
+
+  # echo -e "\033[1;32m🔍 Checking \033[1;33m$package_name\033[1;32m using \033[1;33m$package_manager\033[0m..."
+  echo -e "\033[1;32m🔍 Checking package \033[1;33m$package_name\033[1;32m \033[1;33mvulnerabilities\033[0m..."
+  snyk test --package-manager="$package_manager" "$package_name"
+}
+
+# ╭──────────────────────────────────────────────────────────╮
 # │ Check update of all dependencies in project              │
 # ╰──────────────────────────────────────────────────────────╯
 # $ npm install -g npm-check-updates

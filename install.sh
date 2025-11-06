@@ -260,4 +260,7 @@ npm install -g @mermaid-js/mermaid-cli
 echo "Install live-server"
 npm install -g live-server
 
+echo "Install snyk" # Check for vulnerabilities of npm packages
+npm install -g snyk
+
 echo "Config from dotfile complete!"
