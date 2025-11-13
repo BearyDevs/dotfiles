@@ -51,3 +51,6 @@
 	navigate = true
 	light = false
 	side-by-side = true
+
+[pull]
+  rebase = false

@@ -1751,5 +1751,10 @@ alias netbird-list='netbird routes list'
 alias ai='opencode'
 alias opencodeauth='opencode auth login'
 
+# ╭──────────────────────────────────────────────────────────╮
+# │ Gemini                                                   │
+# ╰──────────────────────────────────────────────────────────╯
+# $ gemini
+
 # bun completions
 [ -s "/Users/teerapat/.bun/_bun" ] && source "/Users/teerapat/.bun/_bun"
