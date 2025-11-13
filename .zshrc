@@ -5,6 +5,7 @@ fi
 source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+
 # ╭──────────────────────────────────────────────────────────╮
 # │ BREW                                                     │
 # ╰──────────────────────────────────────────────────────────╯

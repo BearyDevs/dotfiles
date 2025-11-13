@@ -2,6 +2,17 @@ return {
   "vyfor/cord.nvim",
   build = ":Cord update",
   event = "VeryLazy",
+  -- Only load if Discord is running
+  cond = function()
+    -- Check if Discord process is running
+    local handle = io.popen("pgrep -x Discord 2>/dev/null")
+    if handle then
+      local result = handle:read("*a")
+      handle:close()
+      return result ~= ""
+    end
+    return false
+  end,
   opts = {
     usercmds = true, -- Enable user commands
     log_level = "error", -- One of 'trace', 'debug', 'info', 'warn', 'error', 'off'

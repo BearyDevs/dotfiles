@@ -39,7 +39,11 @@ return {
             require("neo-tree.command").execute({ action = "close" })
           else
             vim.api.nvim_set_current_win(neo_tree_win)
-            require("neo-tree.command").execute({ action = "focus" })
+            require("neo-tree.command").execute({
+              action = "focus",
+              reveal_file = vim.fn.expand("%:p"),
+              reveal_force_cwd = true,
+            })
           end
         else
           require("neo-tree.command").execute({

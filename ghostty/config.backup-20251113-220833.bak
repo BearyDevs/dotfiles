@@ -1,8 +1,5 @@
 # others command
 # $ ghostty +list-themes
-# 
-# BACKUP: Previous config backed up to config.backup-20251113-220833.bak
-# Applied Aardvark Blue theme from iTerm2 on 2025-11-13
 
 title = "Ghostty 👻"
 shell-integration-features = no-cursor,sudo,no-title
@@ -15,35 +12,14 @@ font-size = 16
 # window-height=1600
 # window-width=2560
 background-opacity = 0.80
-# Aardvark Blue Theme Colors (converted from iTerm2)
-background = #102040
-foreground = #dddddd
-cursor-color = #007acc
+background = #001419
+foreground = #cbe0f0
+cursor-color = #47ff9c
 cursor-style = block
 # cursor-style = bar
 # cursor-style = underline
 cursor-style-blink = true
-cursor-text = #bfdbfe
-selection-background = #bfdbfe
-selection-foreground = #000000
-
-# ANSI Colors
-# palette = 0=#191919
-# palette = 1=#aa342e
-# palette = 2=#4b8c0f
-# palette = 3=#dbba00
-# palette = 4=#1370d3
-# palette = 5=#c43ac2
-# palette = 6=#008eb0
-# palette = 7=#bebebe
-# palette = 8=#454545
-# palette = 9=#f05b50
-# palette = 10=#95dc55
-# palette = 11=#ffe763
-# palette = 12=#60a4ec
-# palette = 13=#e16be1
-# palette = 14=#60b6cb
-# palette = 15=#f7f7f7
+cursor-text = #011423
 cursor-click-to-move = true
 mouse-hide-while-typing
 background-blur-radius = 25
@@ -66,7 +42,7 @@ macos-titlebar-style = transparent
 # macos-icon-screen-color = dark grey,black
 macos-window-shadow = true
 # theme = "solarized-osaka-night"
-# theme = "Aura"  # Disabled to use Aardvark Blue custom colors
+theme = "Aura"
 # macos-option-as-alt = left
 macos-option-as-alt = true
 # keybind = alt+left=unbind
