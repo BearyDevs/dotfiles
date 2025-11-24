@@ -80,43 +80,43 @@ require("lazy").setup({
           hidden = true,
           ignored = true,
           sources = {
-            explorer = false
+            -- explorer = false
 
-            -- explorer = {
-            --   auto_close = true,
-            --   hidden = true,
-            --
-            --   -- ╭─────────────────────────────────────────────────────────╮
-            --   -- │ Normal Layout                                           │
-            --   -- ╰─────────────────────────────────────────────────────────╯
-            --   layout = {
-            --     layout = {
-            --       -- position = "right",
-            --       position = "left",
-            --     },
-            --   },
-            --
-            --   -- ╭─────────────────────────────────────────────────────────╮
-            --   -- │ Floating                                                │
-            --   -- ╰─────────────────────────────────────────────────────────╯
-            --   -- layout = {
-            --   --   { preview = true },
-            --   --   layout = {
-            --   --     box = "horizontal",
-            --   --     width = 0.8,
-            --   --     height = 0.95,
-            --   --     {
-            --   --       box = "vertical",
-            --   --       border = "rounded",
-            --   --       title = "{source} {live} {flags}",
-            --   --       title_pos = "center",
-            --   --       { win = "input", height = 1, border = "bottom" },
-            --   --       { win = "list", border = "none" },
-            --   --     },
-            --   --     { win = "preview", border = "rounded", width = 0.7, title = "{preview}" },
-            --   --   },
-            --   -- },
-            -- },
+            explorer = {
+              auto_close = true,
+              hidden = true,
+
+              -- ╭─────────────────────────────────────────────────────────╮
+              -- │ Normal Layout                                           │
+              -- ╰─────────────────────────────────────────────────────────╯
+              layout = {
+                layout = {
+                  -- position = "right",
+                  position = "left",
+                },
+              },
+
+              -- ╭─────────────────────────────────────────────────────────╮
+              -- │ Floating                                                │
+              -- ╰─────────────────────────────────────────────────────────╯
+              -- layout = {
+              --   { preview = true },
+              --   layout = {
+              --     box = "horizontal",
+              --     width = 0.8,
+              --     height = 0.95,
+              --     {
+              --       box = "vertical",
+              --       border = "rounded",
+              --       title = "{source} {live} {flags}",
+              --       title_pos = "center",
+              --       { win = "input", height = 1, border = "bottom" },
+              --       { win = "list", border = "none" },
+              --     },
+              --     { win = "preview", border = "rounded", width = 0.7, title = "{preview}" },
+              --   },
+              -- },
+            },
           },
         },
       },

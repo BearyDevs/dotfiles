@@ -15,11 +15,6 @@ vim.api.nvim_create_autocmd("InsertLeave", {
   command = "set nopaste",
 })
 
-vim.lsp.handlers["textDocument/publishDiagnostics"] = function(err, result, ctx)
-  require("ts-error-translator").translate_diagnostics(err, result, ctx)
-  vim.lsp.diagnostic.on_publish_diagnostics(err, result, ctx)
-end
-
 -- Add this to your init.lua or in a separate file like lua/config/filetypes.lua
 -- Override filetype detection for .env files
 vim.filetype.add({
@@ -56,7 +51,7 @@ vim.api.nvim_create_autocmd("FileType", {
   callback = function()
     -- Set commentstring for mini.comment to work properly
     vim.bo.commentstring = "# %s"
-    
+
     -- Basic syntax highlighting for .env files
     vim.cmd([[
       syntax clear
@@ -91,4 +86,9 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
     end
   end,
   desc = "Track recently opened files",
+})
+
+vim.api.nvim_create_autocmd("InsertLeave", {
+  pattern = "*",
+  command = "set nopaste",
 })

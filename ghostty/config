@@ -4,7 +4,7 @@
 # BACKUP: Previous config backed up to config.backup-20251113-220833.bak
 # Applied Aardvark Blue theme from iTerm2 on 2025-11-13
 
-title = "Ghostty 👻"
+title = "[Teerapat Wassavanich] - Software Engineer - teerapat@1moby.com (Pat) 💼 - Ghostty Terminal 👻"
 shell-integration-features = no-cursor,sudo,no-title
 font-family = "ComicShannsMono Nerd Font"
 # font-family = "CaskaydiaCove Nerd Font"
@@ -14,18 +14,27 @@ font-size = 16
 # font-style = Regular
 # window-height=1600
 # window-width=2560
-background-opacity = 0.80
+
+background-opacity = 0.9
+# background-opacity = 1
+
+background = #001419
+foreground = #cbe0f0
+cursor-color = #47ff9c
+
 # Aardvark Blue Theme Colors (converted from iTerm2)
-background = #102040
-foreground = #dddddd
-cursor-color = #007acc
+# background = #102040
+# foreground = #dddddd
+# cursor-color = #007acc
+
 cursor-style = block
 # cursor-style = bar
 # cursor-style = underline
 cursor-style-blink = true
-cursor-text = #bfdbfe
-selection-background = #bfdbfe
-selection-foreground = #000000
+
+# cursor-text = #bfdbfe
+# selection-background = #bfdbfe
+# selection-foreground = #000000
 
 # ANSI Colors
 # palette = 0=#191919
@@ -65,8 +74,7 @@ macos-titlebar-style = transparent
 # macos-icon-ghost-color = grey
 # macos-icon-screen-color = dark grey,black
 macos-window-shadow = true
-# theme = "solarized-osaka-night"
-# theme = "Aura"  # Disabled to use Aardvark Blue custom colors
+theme = "Aura"
 # macos-option-as-alt = left
 macos-option-as-alt = true
 # keybind = alt+left=unbind

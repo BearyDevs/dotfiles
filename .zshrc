@@ -5,7 +5,6 @@ fi
 source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-
 # ╭──────────────────────────────────────────────────────────╮
 # │ BREW                                                     │
 # ╰──────────────────────────────────────────────────────────╯
@@ -142,6 +141,12 @@ export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
 # │ C++                                                      │
 # ╰──────────────────────────────────────────────────────────╯
 export LDFLAGS="-L/opt/homebrew/opt/llvm/lib/c++ -Wl,-rpath,/opt/homebrew/opt/llvm/lib/c++"
+
+# ╭──────────────────────────────────────────────────────────╮
+# │ Oh-My-Zsh Configuration                                  │
+# ╰──────────────────────────────────────────────────────────╯
+# Disable Oh-My-Zsh auto title to let tmux handle window naming
+DISABLE_AUTO_TITLE="true"
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
 plugins=(git)
@@ -1749,8 +1754,10 @@ alias netbird-list='netbird routes list'
 # ╭──────────────────────────────────────────────────────────╮
 # │ OpenCode                                                 │
 # ╰──────────────────────────────────────────────────────────╯
+# curl -fsSL https://opencode.ai/install | bash
 alias ai='opencode'
 alias opencodeauth='opencode auth login'
+export PATH=/Users/teerapat/.opencode/bin:$PATH
 
 # ╭──────────────────────────────────────────────────────────╮
 # │ Gemini                                                   │

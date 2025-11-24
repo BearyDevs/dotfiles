@@ -172,6 +172,8 @@ map("n", "<leader>gF", "<cmd>DiffviewFocusFiles<cr>", { noremap = true, silent =
 map("n", "<leader>gh", "<cmd>DiffviewFileHistory<cr>", { noremap = true, silent = true })
 map("n", "<leader>gH", "<cmd>DiffviewClose<cr>", { noremap = true, silent = true, desc = "Close Diffview" })
 
+map("n", "<leader>U", "<cmd>Twilight<cr>", { noremap = true, silent = true, desc = "Toggle Twilight" })
+
 -- ╭─────────────────────────────────────────────────────────╮
 -- │ Telescope                                               │
 -- ╰─────────────────────────────────────────────────────────╯

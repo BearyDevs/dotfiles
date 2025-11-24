@@ -1,7 +1,6 @@
 return {
   "lukas-reineke/indent-blankline.nvim",
   event = "LazyFile",
-  enabled = false,
   opts = function()
     Snacks.toggle({
       name = "Indention Guides",
@@ -13,32 +12,33 @@ return {
       end,
     }):map("<leader>ug")
 
-    -- local highlight = {
-    --   "RainbowRed",
-    --   "RainbowYellow",
-    --   "RainbowBlue",
-    --   "RainbowOrange",
-    --   "RainbowGreen",
-    --   "RainbowViolet",
-    --   "RainbowCyan",
-    -- }
-    --
-    -- local hooks = require("ibl.hooks")
-    -- hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
-    --   vim.api.nvim_set_hl(0, "RainbowRed", { fg = "#E06C75" })
-    --   vim.api.nvim_set_hl(0, "RainbowYellow", { fg = "#E5C07B" })
-    --   vim.api.nvim_set_hl(0, "RainbowBlue", { fg = "#61AFEF" })
-    --   vim.api.nvim_set_hl(0, "RainbowOrange", { fg = "#D19A66" })
-    --   vim.api.nvim_set_hl(0, "RainbowGreen", { fg = "#98C379" })
-    --   vim.api.nvim_set_hl(0, "RainbowViolet", { fg = "#C678DD" })
-    --   vim.api.nvim_set_hl(0, "RainbowCyan", { fg = "#56B6C2" })
-    -- end)
+    local highlight = {
+      "RainbowRed",
+      "RainbowYellow",
+      "RainbowOrange",
+      "RainbowGreen",
+      "RainbowViolet",
+      "RainbowPink",
+      "RainbowGold",
+    }
+
+    local hooks = require("ibl.hooks")
+    hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
+      vim.api.nvim_set_hl(0, "RainbowRed", { fg = "#E06C75" })
+      vim.api.nvim_set_hl(0, "RainbowYellow", { fg = "#E5C07B" })
+      vim.api.nvim_set_hl(0, "RainbowOrange", { fg = "#D19A66" })
+      vim.api.nvim_set_hl(0, "RainbowGreen", { fg = "#FF6B6B" })
+      vim.api.nvim_set_hl(0, "RainbowViolet", { fg = "#C678DD" })
+      vim.api.nvim_set_hl(0, "RainbowPink", { fg = "#FF69B4" })
+      vim.api.nvim_set_hl(0, "RainbowGold", { fg = "#FFD700" })
+      -- vim.api.nvim_set_hl(0, "IblScope", { fg = "#47ff9c" })
+    end)
 
     return {
       indent = {
         char = "│",
         tab_char = "│",
-        -- highlight = highlight, -- Add the rainbow highlights here
+        highlight = highlight, -- Add the rainbow highlights here
       },
       scope = { show_start = true, show_end = true },
       exclude = {
