@@ -6,10 +6,12 @@
 
 title = "[Teerapat Wassavanich] - Software Engineer - teerapat@1moby.com (Pat) 💼 - Ghostty Terminal 👻"
 shell-integration-features = no-cursor,sudo,no-title
+# font-family = "JetBrains Mono Nerd Font"
 font-family = "ComicShannsMono Nerd Font"
 # font-family = "CaskaydiaCove Nerd Font"
 # font-family = "FantasqueSansM Nerd Font"
-font-size = 16
+font-size = 15
+
 # font-style = Bold
 # font-style = Regular
 # window-height=1600
@@ -74,7 +76,8 @@ macos-titlebar-style = transparent
 # macos-icon-ghost-color = grey
 # macos-icon-screen-color = dark grey,black
 macos-window-shadow = true
-theme = "Aura"
+# theme = "Aura"
+theme = "solarized-osaka"
 # macos-option-as-alt = left
 macos-option-as-alt = true
 # keybind = alt+left=unbind

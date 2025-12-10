@@ -17,24 +17,7 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
   spec = {
     -- add LazyVim and import its plugins
-    {
-      "LazyVim/LazyVim",
-      import = "lazyvim.plugins",
-      opts = {
-        -- colorscheme = "solarized-osaka",
-        colorscheme = "tokyonight", -- default colorscheme
-        -- colorscheme = "tokyonight-storm",
-        -- colorscheme = "catppuccin",
-        news = {
-          lazyvim = true,
-          neovim = true,
-        },
-      },
-    },
-
-    -- ╭─────────────────────────────────────────────────────────╮
-    -- │ Override defaults config                                │
-    -- ╰─────────────────────────────────────────────────────────╯
+    { "LazyVim/LazyVim", import = "lazyvim.plugins", opts = { colorscheme = "tokyonight-storm" } },
     {
       "folke/tokyonight.nvim",
       lazy = true,
@@ -47,194 +30,78 @@ require("lazy").setup({
       },
     },
     {
-      "akinsho/bufferline.nvim",
-      keys = {
-        { "<Tab>", "<Cmd>BufferLineCycleNext<CR>", desc = "Next tab" },
-        { "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", desc = "Prev tab" },
-      },
-      opts = {
-        options = {
-          show_buffer_close_icons = false,
-          show_close_icon = false,
-        },
-      },
-    },
-    {
       "folke/snacks.nvim",
       opts = {
         scroll = { enabled = false },
-        dashboard = {
-          enabled = false,
-          preset = {
-            header = [[
-███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗
-████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║
-██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║
-██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║
-██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║
-╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝
-]],
-          },
-        },
+        --         dashboard = {
+        --           enabled = false,
+        --           preset = {
+        --             header = [[
+        -- ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗
+        -- ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║
+        -- ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║
+        -- ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║
+        -- ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║
+        -- ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝
+        -- ]],
+        --           },
+        --         },
         picker = {
           hidden = true,
           ignored = true,
           sources = {
-            -- explorer = false
-
             explorer = {
               auto_close = true,
               hidden = true,
-
-              -- ╭─────────────────────────────────────────────────────────╮
-              -- │ Normal Layout                                           │
-              -- ╰─────────────────────────────────────────────────────────╯
               layout = {
                 layout = {
                   -- position = "right",
                   position = "left",
                 },
               },
-
-              -- ╭─────────────────────────────────────────────────────────╮
-              -- │ Floating                                                │
-              -- ╰─────────────────────────────────────────────────────────╯
-              -- layout = {
-              --   { preview = true },
-              --   layout = {
-              --     box = "horizontal",
-              --     width = 0.8,
-              --     height = 0.95,
-              --     {
-              --       box = "vertical",
-              --       border = "rounded",
-              --       title = "{source} {live} {flags}",
-              --       title_pos = "center",
-              --       { win = "input", height = 1, border = "bottom" },
-              --       { win = "list", border = "none" },
-              --     },
-              --     { win = "preview", border = "rounded", width = 0.7, title = "{preview}" },
-              --   },
-              -- },
             },
+          },
+        },
+        -- indent = {
+        --   enabled = true,
+        --   chunk = {
+        --     enabled = true,
+        --     char = {
+        --       corner_top = "╭",
+        --       corner_bottom = "╰",
+        --       horizontal = "─",
+        --       vertical = "│",
+        --       arrow = ">",
+        --     },
+        --   },
+        -- },
+      },
+      -- config = function(_, opts)
+      --   require("snacks").setup(opts)
+      --   -- vim.api.nvim_set_hl(0, "SnacksIndent", { fg = "#E06C75" })  -- Custom red
+      --   -- vim.api.nvim_set_hl(0, "SnacksIndentScope", { fg = "#E06C75" })  -- Custom red for scope
+      --   -- vim.api.nvim_set_hl(0, "SnacksIndent", { fg = "#E5C07B" })  -- Custom yellow
+      --   -- vim.api.nvim_set_hl(0, "SnacksIndentScope", { fg = "#E5C07B" })  -- Custom yellow for scope
+      --
+      --   -- vim.api.nvim_set_hl(0, "SnacksIndent", { fg = "#FFB3D9" })  -- Light pink
+      --   -- vim.api.nvim_set_hl(0, "SnacksIndentScope", { fg = "#FFB3D9" })  -- Light pink for scope
+      --   vim.api.nvim_set_hl(0, "SnacksIndent", { fg = "#47ff9c" })
+      --   vim.api.nvim_set_hl(0, "SnacksIndentScope", { fg = "#47ff9c" })
+      -- end,
+    },
+    {
+      "mason-org/mason.nvim",
+      lazy = true,
+      opts = {
+        ui = {
+          icons = {
+            package_installed = "",
+            package_pending = "",
+            package_uninstalled = "",
           },
         },
       },
     },
-    {
-      "nvim-lualine/lualine.nvim",
-      dependencies = { "nvim-tree/nvim-web-devicons" },
-      opts = function(_, opts)
-        local LazyVim = require("lazyvim.util")
-
-        -- Set lualine theme to 'solarized-osaka'
-        opts.options = vim.tbl_deep_extend("force", opts.options or {}, {
-          -- theme = "solarized-osaka",
-          theme = "tokyonight",
-        })
-
-        opts.sections.lualine_c[4] = {
-          LazyVim.lualine.pretty_path({
-            length = 0,
-            relative = "cwd",
-            modified_hl = "MatchParen",
-            directory_hl = "",
-            filename_hl = "Bold",
-            modified_sign = "",
-            readonly_icon = " 󰌾 ",
-          }),
-        }
-      end,
-      config = function()
-        local lualine = require("lualine")
-        local lazy_status = require("lazy.status") -- to configure lazy pending updates count
-
-        local colors = {
-          blue = "#65D1FF",
-          green = "#3EFFDC",
-          violet = "#FF61EF",
-          yellow = "#FFDA7B",
-          red = "#FF4A4A",
-          fg = "#c3ccdc",
-          bg = "#112638",
-          inactive_bg = "#2c3043",
-        }
-
-        local my_lualine_theme = {
-          normal = {
-            a = { bg = colors.blue, fg = colors.bg, gui = "bold" },
-            b = { bg = colors.bg, fg = colors.fg },
-            c = { bg = colors.bg, fg = colors.fg },
-          },
-          insert = {
-            a = { bg = colors.green, fg = colors.bg, gui = "bold" },
-            b = { bg = colors.bg, fg = colors.fg },
-            c = { bg = colors.bg, fg = colors.fg },
-          },
-          visual = {
-            a = { bg = colors.violet, fg = colors.bg, gui = "bold" },
-            b = { bg = colors.bg, fg = colors.fg },
-            c = { bg = colors.bg, fg = colors.fg },
-          },
-          command = {
-            a = { bg = colors.yellow, fg = colors.bg, gui = "bold" },
-            b = { bg = colors.bg, fg = colors.fg },
-            c = { bg = colors.bg, fg = colors.fg },
-          },
-          replace = {
-            a = { bg = colors.red, fg = colors.bg, gui = "bold" },
-            b = { bg = colors.bg, fg = colors.fg },
-            c = { bg = colors.bg, fg = colors.fg },
-          },
-          inactive = {
-            a = { bg = colors.inactive_bg, fg = colors.semilightgray, gui = "bold" },
-            b = { bg = colors.inactive_bg, fg = colors.semilightgray },
-            c = { bg = colors.inactive_bg, fg = colors.semilightgray },
-          },
-        }
-
-        -- configure lualine with modified theme
-        lualine.setup({
-          options = {
-            theme = my_lualine_theme,
-          },
-          sections = {
-            lualine_x = {
-              {
-                lazy_status.updates,
-                cond = lazy_status.has_updates,
-                color = { fg = "#ff9e64" },
-              },
-              { "encoding" },
-              { "fileformat" },
-              { "filetype" },
-            },
-          },
-        })
-      end,
-    },
-    -- {
-    --   "nvim-neo-tree/neo-tree.nvim",
-    --   opts = {
-    --     filesystem = {
-    --       window = {
-    --         -- width = 35,
-    --         -- position = "right",
-    --       },
-    --     },
-    --     event_handlers = {
-    --       {
-    --         event = "file_opened",
-    --         handler = function()
-    --           require("neo-tree.command").execute({ action = "close" })
-    --         end,
-    --       },
-    --     },
-    --     close_if_last_window = true,
-    --   },
-    -- },
-
-    -- import/override with your plugins
     { import = "plugins" },
   },
   defaults = {

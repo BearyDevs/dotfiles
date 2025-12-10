@@ -11,13 +11,6 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 eval "$(/opt/homebrew/bin/brew shellenv)"
 alias brewarchpath="export PATH=/usr/local/bin:${PATH}"
 
-# ╭──────────────────────────────────────────────────────────╮
-# │ Locale                                                   │
-# ╰──────────────────────────────────────────────────────────╯
-export LANG=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
-export LANG=th_TH.UTF-8
-export LC_ALL=th_TH.UTF-8
 
 # Random Secret for Secure
 alias randomsecret='openssl rand -base64 32'
@@ -196,6 +189,7 @@ alias dotcache='cd ~/.cache'
 alias vim='nvim'
 # alias vi='echo "Use vim or nvim instead"'
 alias vi='nvim'
+alias v='nvim'
 # alias vide='neovide'
 alias nvimconfig='home; cd ~/.config/nvim'
 alias nvimdata='home; cd ~/.local'
@@ -874,6 +868,7 @@ alias showinforandom='show_info_random'
 # type gg to use git gui
 alias lg='lazygit'
 alias gg='lazygit'
+# alias gg='nvim -c "lua require(\"snacks\").lazygit.open()"'
 alias lgconfig='nvim ~/.config/lazygit/config.yml'
 
 export LAZYGIT_CONFIG_FILE="$HOME/.config/lazygit/config.yml"
@@ -1334,7 +1329,8 @@ alias lof="~/.config/zoxide_openfiles_nvim.sh"
 # ╭──────────────────────────────────────────────────────────╮
 # │ Yazi                                                     │
 # ╰──────────────────────────────────────────────────────────╯
-alias y='yazi'
+# alias y='yazi'
+alias y='yy'
 
 # path to current directory when using yazi
 function yy() {
@@ -1369,7 +1365,7 @@ alias fman="compgen -c | fzf | xargs man"
 # ╰──────────────────────────────────────────────────────────╯
 # Guide from https://www.youtube.com/watch?v=ESi3pj1iznQ
 #
-# $ ssh-keygen -t rsa -b 4096 -C "teerapat.was@techflow.asia"
+# $ ssh-keygen -t rsa -b 4096 -C "teerapat@1moby.com"
 # or
 # $ ssh-keygen -t Ed25519 -b 256
 
@@ -1379,6 +1375,13 @@ alias fman="compgen -c | fzf | xargs man"
 # Add your SSH key to the SSH agent
 # $ eval "$(ssh-agent -s)"
 # $ ssh-add ~/.ssh/id_ed25519
+
+
+# ╭──────────────────────────────────────────────────────────╮
+# │ SSH Gitlab                                               │
+# ╰──────────────────────────────────────────────────────────╯
+# $ ssh-keygen -t ed25519 -C "teerapat@1moby.com"
+# $ ssh-keygen -t rsa -b 2048 -C "teerapat@1moby.com"
 
 # Function to generate a 4096-bit RSA SSH key
 # Usage: ssh-gen <email_for_comment> [output_filename_base]
@@ -1721,11 +1724,6 @@ alias ssh-maguro='ssh -N maguro-bastion-limited-user'
 # ╰──────────────────────────────────────────────────────────╯
 # $ redis-cli -h localhost -p 6379
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-cls
-
 # ╭──────────────────────────────────────────────────────────╮
 # │ NetBird                                                  │
 # ╰──────────────────────────────────────────────────────────╯
@@ -1766,3 +1764,9 @@ export PATH=/Users/teerapat/.opencode/bin:$PATH
 
 # bun completions
 [ -s "/Users/teerapat/.bun/_bun" ] && source "/Users/teerapat/.bun/_bun"
+export PATH="$HOME/.local/bin:$PATH"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+cls

@@ -4,10 +4,6 @@ return {
     require("mini.move").setup(opts)
   end,
   keys = {
-    -- { "<C-l>", mode = { "n", "v" } },
-    -- { "<C-k>", mode = { "n", "v" } },
-    -- { "<C-j>", mode = { "n", "v" } },
-    -- { "<C-h>", mode = { "n", "v" } },
     { "<C-l>", mode = { "v" } },
     { "<C-k>", mode = { "v" } },
     { "<C-j>", mode = { "v" } },
@@ -15,16 +11,10 @@ return {
   },
   opts = {
     mappings = {
-      -- Move visual selection in Visual mode. Defaults are Clt (Meta) + hjkl.
       left = "<C-h>",
       right = "<C-l>",
       down = "<C-j>",
       up = "<C-k>",
-      -- Move current line in Normal mode
-      -- line_left = "<M-h>",
-      -- line_right = "<M-l>",
-      -- line_down = "<M-j>",
-      -- line_up = "<M-k>",
     },
   },
 }

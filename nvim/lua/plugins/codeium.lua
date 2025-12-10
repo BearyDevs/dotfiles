@@ -8,8 +8,6 @@ return {
       end, { desc = "Open Codeium Chat" })
     end,
     keys = {
-      -- Normal mode mapping
-      -- { "<Leader>;", "<Cmd>CodeiumToggle<CR>", desc = "Toggle Codeium active" },
       {
         "<leader>|",
         function()
@@ -23,7 +21,6 @@ return {
         end,
         desc = "Toggle Codeium active",
       },
-      -- Insert mode mappings
       {
         "<C-g>",
         function()
