@@ -6,6 +6,23 @@ source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # ╭──────────────────────────────────────────────────────────╮
+# │ BedRock                                                  │
+# ╰──────────────────────────────────────────────────────────╯
+export AWS_PROFILE=bedrock
+export AWS_REGION=us-east-1
+# export ANTHROPIC_MODEL='arn:aws:bedrock:us-east-1:978373393266:inference-profile/us.anthropic.claude-opus-4-5-20251101-v1:0'
+export ANTHROPIC_MODEL='arn:aws:bedrock:us-east-1:978373393266:inference-profile/us.anthropic.claude-sonnet-4-5-20250929-v1:0'
+
+# export ANTHROPIC_MODEL='arn:aws:bedrock:us-east-1:978373393266:inference-profile/us.anthropic.claude-opus-4-1-20250805-v1:0'
+export CLAUDE_CODE_USE_BEDROCK=1
+
+# opencode models 2>&1 | head -50
+
+export GITHUB_COPILOT_TOKEN=
+# Check models that can use
+# $ curl https://api.openai.com/v1/models \ -H "Authorization: Bearer YOUR_OPENAI_API_KEY"
+
+# ╭──────────────────────────────────────────────────────────╮
 # │ BREW                                                     │
 # ╰──────────────────────────────────────────────────────────╯
 eval "$(/opt/homebrew/bin/brew shellenv)"
@@ -209,69 +226,6 @@ alias env='printenv'
 alias this='echo $0'
 
 alias neovideframe='nvim $HOME/.config/neovide/config.toml'
-
-
-# ╭──────────────────────────────────────────────────────────╮
-# │ Standard colors                                          │
-# ╰──────────────────────────────────────────────────────────╯
-alias echoblack='echo -e "\033[0;30mThis is black text\033[0m"'
-alias echored='echo -e "\033[0;31mThis is red text\033[0m"'
-alias echogreen='echo -e "\033[0;32mThis is green text\033[0m"'
-alias echoyellow='echo -e "\033[0;33mThis is yellow text\033[0m"'
-alias echoblue='echo -e "\033[0;34mThis is blue text\033[0m"'
-alias echomagenta='echo -e "\033[0;35mThis is magenta text\033[0m"'
-alias echocyan='echo -e "\033[0;36mThis is cyan text\033[0m"'
-alias echowhite='echo -e "\033[0;37mThis is white text\033[0m"'
-
-# ╭──────────────────────────────────────────────────────────╮
-# │ Bright colors                                            │
-# ╰──────────────────────────────────────────────────────────╯
-alias echobrightblack='echo -e "\033[1;30mThis is bright black text\033[0m"'
-alias echobrightred='echo -e "\033[1;31mThis is bright red text\033[0m"'
-alias echobrightgreen='echo -e "\033[1;32mThis is bright green text\033[0m"'
-alias echobrightyellow='echo -e "\033[1;33mThis is bright yellow text\033[0m"'
-alias echobrightblue='echo -e "\033[1;34mThis is bright blue text\033[0m"'
-alias echobrightmagenta='echo -e "\033[1;35mThis is bright magenta text\033[0m"'
-alias echobrightcyan='echo -e "\033[1;36mThis is bright cyan text\033[0m"'
-alias echobrightwhite='echo -e "\033[1;37mThis is bright white text\033[0m"'
-
-alias echodeepblue='echo -e "\033[38;5;21mThis is deep blue text\033[0m"'
-alias echowine='echo -e "\033[38;5;88mThis is wine red text\033[0m"'
-alias echoolive='echo -e "\033[38;5;100mThis is olive text\033[0m"'
-alias echogray='echo -e "\033[38;5;244mThis is gray text\033[0m"'
-alias echopink='echo -e "\033[38;2;255;105;180mThis is pink text\033[0m"'
-alias echoskyblue='echo -e "\033[38;2;135;206;235mThis is sky blue text\033[0m"'
-alias echogold='echo -e "\033[38;2;255;215;0mThis is gold text\033[0m"'
-alias echoteal='echo -e "\033[38;2;0;128;128mThis is teal text\033[0m"'
-
-function colors() {
-    echo -e "\033[0;30mThis is black text\033[0m"
-    echo -e "\033[0;31mThis is red text\033[0m"
-    echo -e "\033[0;32mThis is green text\033[0m"
-    echo -e "\033[0;33mThis is yellow text\033[0m"
-    echo -e "\033[0;34mThis is blue text\033[0m"
-    echo -e "\033[0;35mThis is magenta text\033[0m"
-    echo -e "\033[0;36mThis is cyan text\033[0m"
-    echo -e "\033[0;37mThis is white text\033[0m"
-    echo -e "\033[1;30mThis is bright black text\033[0m"
-    echo -e "\033[1;31mThis is bright red text\033[0m"
-    echo -e "\033[1;32mThis is bright green text\033[0m"
-    echo -e "\033[1;33mThis is bright yellow text\033[0m"
-    echo -e "\033[1;34mThis is bright blue text\033[0m"
-    echo -e "\033[1;35mThis is bright magenta text\033[0m"
-    echo -e "\033[1;36mThis is bright cyan text\033[0m"
-    echo -e "\033[1;37mThis is bright white text\033[0m"
-    echo -e "\033[38;5;21mThis is deep blue text\033[0m"
-    echo -e "\033[38;5;88mThis is wine red text\033[0m"
-    echo -e "\033[38;5;100mThis is olive text\033[0m"
-    echo -e "\033[38;5;244mThis is gray text\033[0m"
-    echo -e "\033[38;2;255;105;180mThis is pink text\033[0m"
-    echo -e "\033[38;2;135;206;235mThis is sky blue text\033[0m"
-    echo -e "\033[38;2;255;215;0mThis is gold text\033[0m"
-    echo -e "\033[38;2;0;128;128mThis is teal text\033[0m"
-}
-
-alias color='colors'
 
 alias ccp='pwd | pbcopy'
 alias vscode-repeat-key='defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false'
@@ -811,57 +765,6 @@ alias store-dotfile='hh; dlconfigfirst; bknvim; bknvim-lazy-old; bkalacritty; bk
 
 alias minfo='echo -e "\033[1;31m🅷 🅸 \033[0m \033[1;38;2;255;215;0m🅱 🅴 🅰 🆁 🆈 , \033[38;2;255;105;180m🅷 🅰 🅿 🅿 🆈 \033[0m \033[1;38;2;148;0;211m🅲 🅾 🅳 🅸 🅽 🅶 .\033[0m"' # Bold font
 
-function show_info() {
-  echo -e ""
-  echo -e "  \033[1m \033[1;36m🅲 🅾 🅼 🅿 🅰 🅽 🆈 : \033[0m \033[1m\033[38;2;255;215;0m🆃 🅾 🆈 🅻 🅰 🅱  🅲 🅾 .,🅻 🆃 🅳 .\033[0m\033[0m"
-  echo -e "  \033[1m \033[1;31m🅳 🅴 🆅 🅴 🅻 🅾 🅿 🅴 🆁 : \033[0m \033[1m\033[1;36m🆃 🅴 🅴 🆁 🅰 🅿 🅰 🆃 \033[0m \033[1;32m🆆 🅰 🆂 🆂 🅰 🆅 🅰 🅽 🅸 🅲 🅷 \033[0m \033[1m\033[38;5;244m(🅱 🅴 🅰 🆁 🆈 )\033[0m \033[0m "
-  echo -e "  \033[1m \033[1;35m🅴.🅼.🅰.🅸.🅻.: \033[0m \033[1m \033[38;2;135;206;235m🆃.🅴.🅴.🆁.🅰.🅿.🅰.🆃..🆃.🅴.🅲.🅷.@🅶.🅼.🅰.🅸.🅻..🅲.🅾.🅼.\033[0m \033[0m"
-  echo -e "  \033[1m 🅸.🅳.🅴.: \033[0;33m \033[1m🅽.🅴.🅾.🆅.🅸.🅼.\033[0m \033[0m"
-  echo -e "  \033[1m \033[38;2;255;105;180m🆁.🅾.🅻.🅴.:  \033[0m\033[1m\033[38;5;21m🆂.🅾.🅵.🆃.🆆.🅰.🆁.🅴. 🅳.🅴.🆅.,\033[0m \033[1m \033[38;5;88m🅲 🅴 🅳 \033[0m \033[0m"
-  echo -e ""
-  echo -e "  \033[1;31m 🅷 🅸 \033[0m \033[1;38;2;255;215;0m🅱 🅴 🅰 🆁 🆈 , \033[1m\033[0m\033[38;2;255;105;180m\033[1m 🅷 🅰 🅿 🅿 🆈 \033[0m \033[1m \033[1;38;2;148;0;211m🅲 🅾 🅳 🅸 🅽 🅶 .\033[0m"
-  echo -e ""
-}
-
-function show_info_random() {
-  # Generate random colors avoiding color code 0 (black)
-  company_color=$((1 + $RANDOM % 220))
-  company2_color=$((1 + $RANDOM % 220))
-  developer_color=$((1 + $RANDOM % 220))
-  developer2_color=$((1 + $RANDOM % 220))
-  developer3_color=$((1 + $RANDOM % 220))
-  developer4_color=$((1 + $RANDOM % 220))
-  email_color=$((1 + $RANDOM % 220))
-  email2_color=$((1 + $RANDOM % 220))
-  ide_color=$((1 + $RANDOM % 220))
-  ide2_color=$((1 + $RANDOM % 220))
-  role_color=$((1 + $RANDOM % 220))
-  role2_color=$((1 + $RANDOM % 220))
-  role3_color=$((1 + $RANDOM % 220))
-  greeting_color=$((1 + $RANDOM % 220))
-  greeting2_color=$((1 + $RANDOM % 220))
-  greeting3_color=$((1 + $RANDOM % 220))
-  greeting4_color=$((1 + $RANDOM % 220))
-
-  echo -e ""
-  echo -e "  \033[1m \033[38;5;${company_color}m🅲 🅾 🅼 🅿 🅰 🅽 🆈 : \033[0m\033[1m\033[38;5;${company2_color}m🆃 🅾 🆈 🅻 🅰 🅱  🅲 🅾 .,🅻 🆃 🅳 .\033[0m .\033[0m"
-  # echo -e "  \033[1m \033[38;5;${developer_color}m🅳 🅴 🆅 🅴 🅻 🅾 🅿 🅴 🆁 : \033[0m\033[1m\033[38;5;${developer2_color}m🆃 🅴 🅴 🆁 🅰 🅿 🅰 🆃 \033[0m \033[1m\033[38;5;${developer3_color}m🆆 🅰 🆂 🆂 🅰 🆅 🅰 🅽 🅸 🅲 🅷 \033[0m \033[1m\033[38;5;${developer4_color}m(🅱 🅴 🅰 🆁 🆈 )\033[0m"
-  echo -e "  \033[1m \033[38;5;${developer_color}m🅳 🅴 🆅 🅴 🅻 🅾 🅿 🅴 🆁 : \033[0m\033[1m\033[38;5;${developer2_color}m🆃 🅴 🅴 🆁 🅰 🅿 🅰 🆃 \033[0m \033[1m\033[38;5;${developer3_color}m🆆 🅰 🆂 🆂 🅰 🆅 🅰 🅽 🅸 🅲 🅷 \033[0m \033"
-  # echo -e "  \033[1m \033[38;5;${email_color}m🅴.🅼.🅰.🅸.🅻.: \033[0m\033[1m \033[38;5;${email2_color}m🆃.🅴.🅴.🆁.🅰.🅿.🅰.🆃..🆃.🅴.🅲.🅷.@🅶.🅼.🅰.🅸.🅻..🅲.🅾.🅼.\033[0m"
-  echo -e "  \033[1m  \033[1m \033[38;5;${email_color}m🅴.🅼.🅰.🅸.🅻.: \033[0m\033[1m \033[38;5;${email2_color}m🆃.🅴.🅴.🆁.🅰.🅿.🅰.🆃..🆃.🅴.🅲.🅷.@🅶.🅼.🅰.🅸.🅻..🅲.🅾.🅼.\033[0m"
-  echo -e "  \033[1m \033[38;5;${ide_color}m🅸.🅳.🅴.: \033[0m\033[1m \033[38;5;${ide2_color}m🅽.🅴.🅾.🆅.🅸.🅼.\033[0m"
-  # echo -e "  \033[1m \033[38;5;${role_color}m🆁.🅾.🅻.🅴.: \033[0m\033[1m\033[38;5;${role_color}m🆂.🅾.🅵.🆃.🆆.🅰.🆁.🅴. 🅳.🅴.🆅.,\033[0m \033[1m\033[38;5;${role_color}m🅲 🅴 🅳 \033[0m"
-  echo -e "  \033[1m \033[38;5;${role_color}m🆁.🅾.🅻.🅴.: \033[0m\033[1m\033[38;5;${role_color}m🆂.🅾.🅵.🆃.🆆.🅰.🆁.🅴. 🅳.🅴.🆅.,\033[0m \033"
-  echo -e ""
-  # echo -e "  \033[1m \033[38;5;${greeting_color}m🅷 🅸 \033[0m \033[1m\033[38;5;${greeting2_color}m🅱 🅴 🅰 🆁 🆈 ,\033[0m \033[1m\033[38;5;${greeting3_color}m🅷 🅰 🅿 🅿 🆈 \033[0m \033[1m\033[38;5;${greeting_color}m🅲 🅾 🅳 🅸 🅽 🅶 \033[0m"
-  echo -e "  \033[1m  \033[1m \033[1m\033[38;5;${greeting3_color}m🅷 🅰 🅿 🅿 🆈 \033[0m \033[1m\033[38;5;${greeting_color}m🅲 🅾 🅳 🅸 🅽 🅶 \033[0m"
-  echo -e ""
-}
-
-alias showinfo='show_info'
-alias showinforandom='show_info_random'
-
-# ╭──────────────────────────────────────────────────────────╮
 # │ #Git │
 # ╰──────────────────────────────────────────────────────────╯
 
@@ -1753,8 +1656,12 @@ alias netbird-list='netbird routes list'
 # │ OpenCode                                                 │
 # ╰──────────────────────────────────────────────────────────╯
 # curl -fsSL https://opencode.ai/install | bash
-alias ai='opencode'
-alias opencodeauth='opencode auth login'
+
+# claude-opus-4-5-20251101-v1
+# claude-sonnet-4-5-20250929-v1
+
+alias opencode-custom-model='opencode -m amazon-bedrock/anthropic.claude-sonnet-4-5-20250929-v1:0'
+alias ai='opencode-custom-model'
 export PATH=/Users/teerapat/.opencode/bin:$PATH
 
 # ╭──────────────────────────────────────────────────────────╮
