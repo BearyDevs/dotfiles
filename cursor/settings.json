@@ -1,0 +1,55 @@
+{
+    "window.commandCenter": true,
+    "workbench.colorTheme": "Cursor Dark Midnight",
+    "editor.fontFamily": "ComicShannsMono Nerd Font",
+    "editor.fontSize": 14,
+    "terminal.integrated.fontSize": 14,
+    "editor.formatOnSave": true,
+    "tailwind-fold.autoFold": false,
+    "git.blame.editorDecoration.enabled": true,
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": "explicit"
+    },
+    "git.enableSmartCommit": true,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "workbench.colorCustomizations": {
+        "editor.lineHighlightBackground": "#1073cf2d",
+        "editor.lineHighlightBorder": "#9fced11f"
+    },
+    "editor.wordWrap": "off",
+    "diffEditor.wordWrap": "off",
+    "editor.guides.indentation": true,
+    "vscode-edge-devtools.webhintInstallNotification": true,
+    // Formatter
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    // BracketPairColors
+    "editor.bracketPairColorization.enabled": true,
+    "editor.guides.bracketPairs": "active",
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    // Inlayhints
+    "editor.inlayHints.enabled": "on",
+    "typescript.inlayHints.parameterNames.enabled": "all",
+    "javascript.inlayHints.parameterNames.enabled": "all",
+    "typescript.inlayHints.variableTypes.enabled": true,
+    "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
+    "typescript.inlayHints.propertyDeclarationTypes.enabled": true,
+    // Gitlens
+    "gitlens.codeLens.enabled": true,
+    "gitlens.codeLens.authors.enabled": true,
+    "gitlens.codeLens.recentChange.enabled": true,
+    // Code Lens
+    "editor.codeLens": true,
+    "typescript.referencesCodeLens.enabled": true,
+    "typescript.referencesCodeLens.showOnAllFunctions": true,
+    "typescript.implementationsCodeLens.enabled": true,
+    "javascript.referencesCodeLens.enabled": true,
+    "javascript.referencesCodeLens.showOnAllFunctions": true,
+    "editor.showUnused": true
+}

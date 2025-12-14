@@ -5,9 +5,6 @@ fi
 source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-# ╭──────────────────────────────────────────────────────────╮
-# │ BedRock                                                  │
-# ╰──────────────────────────────────────────────────────────╯
 export AWS_PROFILE=bedrock
 export AWS_REGION=us-east-1
 # export ANTHROPIC_MODEL='arn:aws:bedrock:us-east-1:978373393266:inference-profile/us.anthropic.claude-opus-4-5-20251101-v1:0'
@@ -15,8 +12,6 @@ export ANTHROPIC_MODEL='arn:aws:bedrock:us-east-1:978373393266:inference-profile
 
 # export ANTHROPIC_MODEL='arn:aws:bedrock:us-east-1:978373393266:inference-profile/us.anthropic.claude-opus-4-1-20250805-v1:0'
 export CLAUDE_CODE_USE_BEDROCK=1
-
-# opencode models 2>&1 | head -50
 
 export GITHUB_COPILOT_TOKEN=
 # Check models that can use
@@ -730,6 +725,61 @@ bindkey '^[[A' history-search-backward
 bindkey '^[[B' history-search-forward
 # demo use : nvim ...use arrow
 
+
+# ================================
+# Cursor Backup & Restore
+# ================================
+CURSOR_BACKUP_DIR="$HOME/dotfile/cursor"
+CURSOR_CONFIG_DIR="$HOME/Library/Application Support/Cursor/User"
+
+# Backup Cursor settings, keybindings, snippets, and extensions
+backup-cursor() {
+  echo "📦 Backing up Cursor configuration..."
+  
+  # Create backup directory
+  mkdir -p "$CURSOR_BACKUP_DIR/snippets"
+  
+  # Backup settings and keybindings
+  cp "$CURSOR_CONFIG_DIR/settings.json" "$CURSOR_BACKUP_DIR/" 2>/dev/null && echo "✓ settings.json"
+  cp "$CURSOR_CONFIG_DIR/keybindings.json" "$CURSOR_BACKUP_DIR/" 2>/dev/null && echo "✓ keybindings.json"
+  
+  # Backup snippets
+  cp -r "$CURSOR_CONFIG_DIR/snippets/"* "$CURSOR_BACKUP_DIR/snippets/" 2>/dev/null && echo "✓ snippets"
+  
+  # Export extensions list
+  cursor --list-extensions > "$CURSOR_BACKUP_DIR/extensions.txt" 2>/dev/null && echo "✓ extensions.txt"
+  
+  echo "✅ Backup complete: $CURSOR_BACKUP_DIR"
+}
+
+# Restore Cursor settings, keybindings, snippets, and extensions
+restore-cursor() {
+  echo "📥 Restoring Cursor configuration..."
+  
+  # Check if backup exists
+  if [ ! -d "$CURSOR_BACKUP_DIR" ]; then
+    echo "❌ Backup directory not found: $CURSOR_BACKUP_DIR"
+    return 1
+  fi
+  
+  # Restore settings and keybindings
+  cp "$CURSOR_BACKUP_DIR/settings.json" "$CURSOR_CONFIG_DIR/" 2>/dev/null && echo "✓ settings.json"
+  cp "$CURSOR_BACKUP_DIR/keybindings.json" "$CURSOR_CONFIG_DIR/" 2>/dev/null && echo "✓ keybindings.json"
+  
+  # Restore snippets
+  mkdir -p "$CURSOR_CONFIG_DIR/snippets"
+  cp -r "$CURSOR_BACKUP_DIR/snippets/"* "$CURSOR_CONFIG_DIR/snippets/" 2>/dev/null && echo "✓ snippets"
+  
+  # Install extensions
+  if [ -f "$CURSOR_BACKUP_DIR/extensions.txt" ]; then
+    echo "📦 Installing extensions..."
+    cat "$CURSOR_BACKUP_DIR/extensions.txt" | xargs -L 1 cursor --install-extension
+    echo "✓ extensions installed"
+  fi
+  
+  echo "✅ Restore complete! Restart Cursor to apply changes."
+}
+
 # ╭──────────────────────────────────────────────────────────╮
 # │ dotfile backup                                           │
 # ╰──────────────────────────────────────────────────────────╯
@@ -761,7 +811,7 @@ alias afterDone='cd ~/dotfile; gs; gaa; sleep 1; cd ~/dotfile; cls; echo -e DOTF
 alias restore-iterm2-config='cp ~/dotfile/com.googlecode.iterm2.plist ~/Library/Preferences/com.googlecode.iterm2.plist'
 alias dotfile='cd ~/dotfile/'
 
-alias store-dotfile='hh; dlconfigfirst; bknvim; bknvim-lazy-old; bkalacritty; bkghostty; bkiterm2; bkyazi; bkasciilogo; bkp10; bktmux; bktmuxfolder; bkzsh; store-ssh; bkzshenv; bkwakatime; bkgitconfig; store-iterm2-all-config; store-sh; afterStore; afterDone'
+alias store-dotfile='hh; dlconfigfirst; bknvim; bknvim-lazy-old; bkalacritty; bkghostty; bkiterm2; bkyazi; bkasciilogo; bkp10; bktmux; bktmuxfolder; bkzsh; store-ssh; bkzshenv; bkwakatime; bkgitconfig; store-iterm2-all-config; backup-cursor; store-sh; afterStore; afterDone'
 
 alias minfo='echo -e "\033[1;31m🅷 🅸 \033[0m \033[1;38;2;255;215;0m🅱 🅴 🅰 🆁 🆈 , \033[38;2;255;105;180m🅷 🅰 🅿 🅿 🆈 \033[0m \033[1;38;2;148;0;211m🅲 🅾 🅳 🅸 🅽 🅶 .\033[0m"' # Bold font
 
@@ -1657,8 +1707,14 @@ alias netbird-list='netbird routes list'
 # ╰──────────────────────────────────────────────────────────╯
 # curl -fsSL https://opencode.ai/install | bash
 
+# lists all models
+# $ opencode models 2>&1 | head -50
+
 # claude-opus-4-5-20251101-v1
 # claude-sonnet-4-5-20250929-v1
+
+# For static export with env
+# $ export OPENCODE_MODEL="amazon-bedrock/anthropic.claude-sonnet-4-5-20250929-v1:0"
 
 alias opencode-custom-model='opencode -m amazon-bedrock/anthropic.claude-sonnet-4-5-20250929-v1:0'
 alias ai='opencode-custom-model'
