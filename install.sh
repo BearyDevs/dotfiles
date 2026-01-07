@@ -2,14 +2,14 @@
 
 # Install xCode cli tools
 if [[ "$(uname)" == "Darwin" ]]; then
-    echo "macOS deteted..."
+  echo "macOS deteted..."
 
-    if xcode-select -p &>/dev/null; then
-        echo "Xcode already installed"
-    else
-        echo "Installing commandline tools..."
-        xcode-select --install
-    fi
+  if xcode-select -p &>/dev/null; then
+    echo "Xcode already installed"
+  else
+    echo "Installing commandline tools..."
+    xcode-select --install
+  fi
 fi
 
 # Homebrew
@@ -17,7 +17,7 @@ fi
 echo "Installing Brew..."
 cd ~ && /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 echo "Configuring Brew..."
-echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zshrc
+echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >>~/.zshrc
 sleep 1
 eval "$(/opt/homebrew/bin/brew shellenv)"
 sleep 1
@@ -131,6 +131,8 @@ brew install redis
 brew install gemini-cli
 brew install opencode
 brew install gopls
+brew install plantuml
+brew install graphviz
 
 ## Casks
 brew install --cask raycast
@@ -213,26 +215,26 @@ TARGET_IT2_CONFIG="$IT2_PREFS_DIR/com.googlecode.iterm2.plist"
 
 # Check if the source config file exists
 if [ -f "$DOTFILE_IT2_CONFIG" ]; then
-    echo "  -> Found iTerm2 config in dotfile."
+  echo "  -> Found iTerm2 config in dotfile."
 
-    # IMPORTANT: Quit iTerm2 before changing settings to prevent overwrites
-    # Using 'pkill -f' is a reliable way to find and kill the process.
-    # The '|| true' part ensures the script doesn't fail if iTerm2 wasn't running.
-    echo "  -> Ensuring iTerm2 is not running..."
-    pkill -f "iTerm2" || true
-    sleep 1 # Give the process a moment to terminate
+  # IMPORTANT: Quit iTerm2 before changing settings to prevent overwrites
+  # Using 'pkill -f' is a reliable way to find and kill the process.
+  # The '|| true' part ensures the script doesn't fail if iTerm2 wasn't running.
+  echo "  -> Ensuring iTerm2 is not running..."
+  pkill -f "iTerm2" || true
+  sleep 1 # Give the process a moment to terminate
 
-    # Copy the new config file
-    echo "  -> Copying preferences file..."
-    cp "$DOTFILE_IT2_CONFIG" "$TARGET_IT2_CONFIG"
+  # Copy the new config file
+  echo "  -> Copying preferences file..."
+  cp "$DOTFILE_IT2_CONFIG" "$TARGET_IT2_CONFIG"
 
-    # IMPORTANT: Force macOS to reload preferences from disk
-    echo "  -> Reloading macOS preferences cache..."
-    killall cfprefsd
+  # IMPORTANT: Force macOS to reload preferences from disk
+  echo "  -> Reloading macOS preferences cache..."
+  killall cfprefsd
 
-    echo "\033[1;36m  -> **iTerm2 configuration successfully installed.\033[0m"
+  echo "\033[1;36m  -> **iTerm2 configuration successfully installed.\033[0m"
 else
-    echo "\033[1;33m  -> **WARNING: iTerm2 config not found at $DOTFILE_IT2_CONFIG. Skipping.\033[0m"
+  echo "\033[1;33m  -> **WARNING: iTerm2 config not found at $DOTFILE_IT2_CONFIG. Skipping.\033[0m"
 fi
 # --- End of iTerm2 Configuration ---
 

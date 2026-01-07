@@ -1715,7 +1715,8 @@ alias netbird-list='netbird routes list'
 # claude-sonnet-4-5-20250929-v1
 
 # For static export with env
-$ export OPENCODE_MODEL="amazon-bedrock/anthropic.claude-opus-4-5-20251101-v1:0"
+export OPENCODE_MODEL="amazon-bedrock/anthropic.claude-opus-4-5-20251101-v1:0"
+# export OPENCODE_MODEL="amazon-bedrock/anthropic.claude-sonnet-4-5-20250929-v1:0"
 
 # claude-opus-4-5-20251101-v1:0
 # claude-sonnet-4-5-20250929-v1:0
@@ -1728,6 +1729,27 @@ export PATH=/Users/teerapat/.opencode/bin:$PATH
 # │ Gemini                                                   │
 # ╰──────────────────────────────────────────────────────────╯
 # $ gemini
+
+# ╭──────────────────────────────────────────────────────────╮
+# │ Five-Server                                              │
+# ╰──────────────────────────────────────────────────────────╯
+# # Specify port
+# five-server --port=3000
+#
+# # Open a specific file
+# five-server --open=/index.html
+#
+# # Specify host
+# five-server --host=0.0.0.0
+#
+# # Disable browser auto-open
+# five-server --no-open
+#
+# # Watch additional files
+# five-server --watch="./**/*.css,./**/*.js"
+#
+# # Specify root directory
+# five-server --root="./dist"
 
 # bun completions
 [ -s "/Users/teerapat/.bun/_bun" ] && source "/Users/teerapat/.bun/_bun"
