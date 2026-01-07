@@ -5,11 +5,10 @@ fi
 source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-
 export AWS_PROFILE=bedrock
 export AWS_REGION=us-east-1
-export ANTHROPIC_MODEL='arn:aws:bedrock:us-east-1:978373393266:inference-profile/us.anthropic.claude-opus-4-5-20251101-v1:0'
-# export ANTHROPIC_MODEL='arn:aws:bedrock:us-east-1:978373393266:inference-profile/us.anthropic.claude-sonnet-4-5-20250929-v1:0'
+# export ANTHROPIC_MODEL='arn:aws:bedrock:us-east-1:978373393266:inference-profile/us.anthropic.claude-opus-4-5-20251101-v1:0'
+export ANTHROPIC_MODEL='arn:aws:bedrock:us-east-1:978373393266:inference-profile/us.anthropic.claude-sonnet-4-5-20250929-v1:0'
 
 # export ANTHROPIC_MODEL='arn:aws:bedrock:us-east-1:978373393266:inference-profile/us.anthropic.claude-opus-4-1-20250805-v1:0'
 export CLAUDE_CODE_USE_BEDROCK=1
@@ -1715,8 +1714,8 @@ alias netbird-list='netbird routes list'
 # claude-sonnet-4-5-20250929-v1
 
 # For static export with env
-export OPENCODE_MODEL="amazon-bedrock/anthropic.claude-opus-4-5-20251101-v1:0"
-# export OPENCODE_MODEL="amazon-bedrock/anthropic.claude-sonnet-4-5-20250929-v1:0"
+# export OPENCODE_MODEL="amazon-bedrock/anthropic.claude-opus-4-5-20251101-v1:0"
+export OPENCODE_MODEL="amazon-bedrock/anthropic.claude-sonnet-4-5-20250929-v1:0"
 
 # claude-opus-4-5-20251101-v1:0
 # claude-sonnet-4-5-20250929-v1:0
