@@ -51,5 +51,6 @@
     "typescript.implementationsCodeLens.enabled": true,
     "javascript.referencesCodeLens.enabled": true,
     "javascript.referencesCodeLens.showOnAllFunctions": true,
-    "editor.showUnused": true
+    "editor.showUnused": true,
+    "gitlens.currentLine.enabled": false
 }

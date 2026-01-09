@@ -5,6 +5,7 @@ fi
 source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+
 export AWS_PROFILE=bedrock
 export AWS_REGION=us-east-1
 # export ANTHROPIC_MODEL='arn:aws:bedrock:us-east-1:978373393266:inference-profile/us.anthropic.claude-opus-4-5-20251101-v1:0'

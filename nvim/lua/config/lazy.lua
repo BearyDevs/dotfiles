@@ -32,7 +32,7 @@ require("lazy").setup({
     {
       "folke/snacks.nvim",
       opts = {
-        scroll = { enabled = false },
+        -- scroll = { enabled = false },
         dashboard = {
           enabled = false,
           --   preset = {

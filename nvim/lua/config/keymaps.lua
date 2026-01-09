@@ -85,7 +85,111 @@ end, { desc = "Dynamic search and replace in selection" })
 -- │ Diagnostics                                             │
 -- ╰─────────────────────────────────────────────────────────╯
 map("n", "gl", function()
-  vim.diagnostic.open_float()
+  -- Map LSP source names to Mason package names for clarity
+  local source_map = {
+    -- TypeScript/JavaScript
+    ["ts"] = "typescript-language-server",
+    ["tsserver"] = "typescript-language-server",
+    ["ts_ls"] = "typescript-language-server",
+    ["vtsls"] = "vtsls",
+    ["eslint"] = "eslint-lsp",
+    ["eslint_d"] = "eslint_d",
+    
+    -- Lua
+    ["lua_ls"] = "lua-language-server",
+    ["Lua Syntax Check."] = "lua-language-server",
+    
+    -- CSS/Styling
+    ["tailwindcss"] = "tailwindcss-language-server",
+    ["cssls"] = "css-lsp",
+    ["css_variables"] = "css-variables-language-server",
+    ["cssmodules_ls"] = "cssmodules-language-server",
+    
+    -- HTML/Emmet
+    ["html"] = "html-lsp",
+    ["emmet_ls"] = "emmet-ls",
+    ["emmet_language_server"] = "emmet-language-server",
+    
+    -- Data formats
+    ["jsonls"] = "json-lsp",
+    ["yamlls"] = "yaml-language-server",
+    ["taplo"] = "taplo",
+    
+    -- Docker
+    ["dockerls"] = "dockerfile-language-server",
+    ["docker_language_server"] = "docker-language-server",
+    ["docker_compose_language_service"] = "docker-compose-language-service",
+    
+    -- Database
+    ["prismals"] = "prisma-language-server",
+    ["sqls"] = "sqls",
+    ["postgres_lsp"] = "postgres-language-server",
+    ["bqls"] = "bqls",
+    
+    -- Shell/Bash
+    ["bashls"] = "bash-language-server",
+    
+    -- Markdown
+    ["marksman"] = "marksman",
+    ["markdownlint"] = "markdownlint-cli2",
+    
+    -- CI/CD
+    ["gh_actions_ls"] = "gh-actions-language-server",
+    ["gitlab_ci_ls"] = "gitlab-ci-ls",
+    
+    -- Security/Linting
+    ["sonarlint"] = "sonarlint-language-server",
+    ["hadolint"] = "hadolint",
+    ["dotenv-linter"] = "dotenv-linter",
+    ["trivy"] = "trivy",
+    ["snyk"] = "snyk",
+    
+    -- Formatters
+    ["prettier"] = "prettier",
+    ["prettierd"] = "prettierd",
+    ["stylua"] = "stylua",
+    ["beautysh"] = "beautysh",
+    ["shfmt"] = "shfmt",
+    ["rustywind"] = "rustywind",
+  }
+  
+  vim.diagnostic.open_float({
+    border = "rounded",
+    source = "if_many", -- Show source only if multiple sources exist
+    format = function(diagnostic)
+      local message = diagnostic.message
+      local code = diagnostic.code
+      
+      -- If code exists and is not already in the message, append it
+      if code and not message:find(vim.pesc(tostring(code))) then
+        return string.format("%s [%s]", message, code)
+      end
+      
+      return message
+    end,
+    prefix = function(diagnostic, i, total)
+      local icon = "●"
+      if diagnostic.severity == vim.diagnostic.severity.ERROR then
+        icon = ""
+      elseif diagnostic.severity == vim.diagnostic.severity.WARN then
+        icon = ""
+      elseif diagnostic.severity == vim.diagnostic.severity.INFO then
+        icon = ""
+      elseif diagnostic.severity == vim.diagnostic.severity.HINT then
+        icon = ""
+      end
+      
+      -- Map source to Mason package name
+      local source = diagnostic.source or ""
+      local display_source = source_map[source] or source
+      
+      if display_source ~= "" then
+        return string.format("%d. %s [%s] ", i, icon, display_source), "DiagnosticFloating" .. vim.diagnostic.severity[diagnostic.severity]
+      end
+      
+      return string.format("%d. %s ", i, icon), "DiagnosticFloating" .. vim.diagnostic.severity[diagnostic.severity]
+    end,
+  })
 end, { desc = "Show diagnostics hover" })
 
 map("n", "gj", function()

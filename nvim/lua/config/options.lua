@@ -3,6 +3,24 @@
 -- Add any additional options here
 
 -- ╭─────────────────────────────────────────────────────────╮
+-- │ Diagnostic Configuration                                │
+-- ╰─────────────────────────────────────────────────────────╯
+vim.diagnostic.config({
+  float = {
+    border = "rounded",
+    source = "if_many", -- Show source only if multiple sources exist
+  },
+  virtual_text = {
+    prefix = "●",
+    source = false, -- Don't show source in virtual text (would be too long)
+  },
+  signs = true,
+  underline = true,
+  update_in_insert = false,
+  severity_sort = true,
+})
+
+-- ╭─────────────────────────────────────────────────────────╮
 -- │ Todo Comment Demo                                       │
 -- ╰─────────────────────────────────────────────────────────╯
 -- NOTE:
