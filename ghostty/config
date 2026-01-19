@@ -5,7 +5,9 @@
 # Applied Aardvark Blue theme from iTerm2 on 2025-11-13
 
 title = "[Teerapat Wassavanich] - Software Engineer - teerapat@1moby.com (Pat) 💼 - Ghostty Terminal 👻"
-shell-integration-features = no-cursor,sudo,no-title
+# shell-integration-features = no-cursor,sudo,no-title
+# Commented out to allow Amazon Q CLI integration to work properly
+shell-integration-features = sudo
 # font-family = "JetBrains Mono Nerd Font"
 font-family = "ComicShannsMono Nerd Font"
 # font-family = "CaskaydiaCove Nerd Font"
@@ -98,4 +100,7 @@ alpha-blending = linear-corrected
 # freetype-load-flags = no-hinting
 # command = /bin/zsh -c "SESSION_NAME='TMUX'; if tmux has-session -t \$SESSION_NAME 2>/dev/null; then tmux attach-session -t \$SESSION_NAME; else tmux new-session -s \$SESSION_NAME -d && tmux attach-session -t \$SESSION_NAME; fi"
 command = /bin/zsh -c "tmux attach -t TMUX || tmux new -s TMUX"
+# Commented out to allow Amazon Q CLI (qterm) to initialize properly
+# Use 'tm' alias in shell instead to start tmux manually
+# command = /bin/zsh
 keybind = shift+enter=text:\x1b\r

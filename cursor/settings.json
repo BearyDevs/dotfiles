@@ -4,12 +4,22 @@
     "editor.fontFamily": "ComicShannsMono Nerd Font",
     "editor.fontSize": 14,
     "terminal.integrated.fontSize": 14,
-    "editor.formatOnSave": true,
     "tailwind-fold.autoFold": false,
     "git.blame.editorDecoration.enabled": true,
+    "editor.formatOnSave": false,
     "editor.codeActionsOnSave": {
-        "source.organizeImports": "explicit"
+        // "source.organizeImports": "explicit"
     },
+    "[javascript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascriptreact]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[json]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
     "git.enableSmartCommit": true,
     "diffEditor.ignoreTrimWhitespace": false,
     "workbench.colorCustomizations": {
@@ -22,7 +32,7 @@
     "vscode-edge-devtools.webhintInstallNotification": true,
     // Formatter
     "[typescriptreact]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+        "editor.defaultFormatter": "vscode.typescript-language-features"
     },
     "[typescript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -52,5 +62,6 @@
     "javascript.referencesCodeLens.enabled": true,
     "javascript.referencesCodeLens.showOnAllFunctions": true,
     "editor.showUnused": true,
-    "gitlens.currentLine.enabled": false
+    "gitlens.currentLine.enabled": false,
+    "editor.accessibilitySupport": "off"
 }

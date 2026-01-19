@@ -1,18 +1,13 @@
+
+# Kiro CLI pre block. Keep at the top of this file.
+[[ -f "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.pre.zsh"
+
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
 source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
 export PATH=$HOME/bin:/usr/local/bin:$PATH
-
-
-export AWS_PROFILE=bedrock
-export AWS_REGION=us-east-1
-# export ANTHROPIC_MODEL='arn:aws:bedrock:us-east-1:978373393266:inference-profile/us.anthropic.claude-opus-4-5-20251101-v1:0'
-export ANTHROPIC_MODEL='arn:aws:bedrock:us-east-1:978373393266:inference-profile/us.anthropic.claude-sonnet-4-5-20250929-v1:0'
-
-# export ANTHROPIC_MODEL='arn:aws:bedrock:us-east-1:978373393266:inference-profile/us.anthropic.claude-opus-4-1-20250805-v1:0'
-export CLAUDE_CODE_USE_BEDROCK=1
 
 export GITHUB_COPILOT_TOKEN=
 # Check models that can use
@@ -350,6 +345,9 @@ alias dockerrmall-volume='docker volume rm $(docker volume ls -q)'
 alias dockerrmall-network='docker network rm $(docker network ls -q)'
 alias dockerrmall-buildcache='docker builder prune -af'
 alias dockerrm-everything='docker system prune -af --volumes'
+
+# docker ps -a --filter "name=postgres" --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
+# docker ps -a --filter "name=redis" --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
 
 # ╭──────────────────────────────────────────────────────────╮
 # │ Build and run combine cli │
@@ -1716,7 +1714,7 @@ alias netbird-list='netbird routes list'
 
 # For static export with env
 # export OPENCODE_MODEL="amazon-bedrock/anthropic.claude-opus-4-5-20251101-v1:0"
-export OPENCODE_MODEL="amazon-bedrock/anthropic.claude-sonnet-4-5-20250929-v1:0"
+# export OPENCODE_MODEL="amazon-bedrock/anthropic.claude-sonnet-4-5-20250929-v1:0"
 
 # claude-opus-4-5-20251101-v1:0
 # claude-sonnet-4-5-20250929-v1:0
@@ -1751,11 +1749,20 @@ export PATH=/Users/teerapat/.opencode/bin:$PATH
 # # Specify root directory
 # five-server --root="./dist"
 
+# ╭──────────────────────────────────────────────────────────╮
+# │ Redis                                                    │
+# ╰──────────────────────────────────────────────────────────╯
+# CLI
+
+# Clear all
+# $ FLUSHALL
+
+# Clear all for only db
+# $ FLUSHDB
+
 # bun completions
 [ -s "/Users/teerapat/.bun/_bun" ] && source "/Users/teerapat/.bun/_bun"
 export PATH="$HOME/.local/bin:$PATH"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-cls

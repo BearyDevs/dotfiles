@@ -42,6 +42,7 @@ mtxr.sqltools
 naumovs.color-highlight
 oderwat.indent-rainbow
 pflannery.vscode-versionlens
+postman.postman-for-vscode
 pranaygp.vscode-css-peek
 prisma.prisma
 prisma.prisma-insider

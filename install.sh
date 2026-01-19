@@ -133,6 +133,8 @@ brew install opencode
 brew install gopls
 brew install plantuml
 brew install graphviz
+brew install amazon-q
+brew install postgresql
 
 ## Casks
 brew install --cask raycast
