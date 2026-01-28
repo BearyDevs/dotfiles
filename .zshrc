@@ -9,6 +9,14 @@ fi
 source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+# export AWS_PROFILE=bedrock
+# export AWS_REGION=us-east-1
+# # export ANTHROPIC_MODEL='arn:aws:bedrock:us-east-1:978373393266:inference-profile/us.anthropic.claude-opus-4-5-20251101-v1:0'
+# export ANTHROPIC_MODEL='arn:aws:bedrock:us-east-1:978373393266:inference-profile/us.anthropic.claude-sonnet-4-5-20250929-v1:0'
+
+# export ANTHROPIC_MODEL='arn:aws:bedrock:us-east-1:978373393266:inference-profile/us.anthropic.claude-opus-4-1-20250805-v1:0'
+# export CLAUDE_CODE_USE_BEDROCK=1
+
 export GITHUB_COPILOT_TOKEN=
 # Check models that can use
 # $ curl https://api.openai.com/v1/models \ -H "Authorization: Bearer YOUR_OPENAI_API_KEY"
@@ -1721,8 +1729,6 @@ alias netbird-list='netbird routes list'
 # alias opencode-custom-model='opencode -m amazon-bedrock/anthropic.claude-sonnet-4-5-20250929-v1:0'
 # alias ai='opencode-custom-model'
 alias ai='opencode'
-export PATH=/Users/teerapat/.opencode/bin:$PATH
-
 # ╭──────────────────────────────────────────────────────────╮
 # │ Gemini                                                   │
 # ╰──────────────────────────────────────────────────────────╯
@@ -1759,6 +1765,14 @@ export PATH=/Users/teerapat/.opencode/bin:$PATH
 
 # Clear all for only db
 # $ FLUSHDB
+
+# demo heygoody clear with endpoint
+# $ curl -X DELETE http://localhost:3000/hg-cache-key
+
+# ╭──────────────────────────────────────────────────────────╮
+# │ Curl IP                                                  │
+# ╰──────────────────────────────────────────────────────────╯
+# $ curl ifconfig.me
 
 # bun completions
 [ -s "/Users/teerapat/.bun/_bun" ] && source "/Users/teerapat/.bun/_bun"

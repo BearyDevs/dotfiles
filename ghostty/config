@@ -4,7 +4,7 @@
 # BACKUP: Previous config backed up to config.backup-20251113-220833.bak
 # Applied Aardvark Blue theme from iTerm2 on 2025-11-13
 
-title = "[Teerapat Wassavanich] - Software Engineer - teerapat@1moby.com (Pat) 💼 - Ghostty Terminal 👻"
+# title = "[Teerapat Wassavanich] - Software Engineer - teerapat@1moby.com (Pat) 💼 - Ghostty Terminal 👻"
 # shell-integration-features = no-cursor,sudo,no-title
 # Commented out to allow Amazon Q CLI integration to work properly
 shell-integration-features = sudo
@@ -19,7 +19,7 @@ font-size = 15
 # window-height=1600
 # window-width=2560
 
-background-opacity = 0.85
+background-opacity = 0.90
 # background-opacity = 1
 
 background = #001419

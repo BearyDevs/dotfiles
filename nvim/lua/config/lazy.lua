@@ -17,7 +17,16 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
   spec = {
     -- add LazyVim and import its plugins
-    { "LazyVim/LazyVim", import = "lazyvim.plugins", opts = { colorscheme = "tokyonight-storm" } },
+    {
+      "LazyVim/LazyVim",
+      import = "lazyvim.plugins",
+      opts = {
+        -- storm, dark, moon, night, day
+        colorscheme = "tokyonight-moon",
+        -- colorscheme = "catppuccin-mocha",
+        -- colorscheme = "solarized-osaka",
+      },
+    },
     {
       "folke/tokyonight.nvim",
       lazy = true,
@@ -43,7 +52,7 @@ require("lazy").setup({
           -- ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║
           -- ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║
           -- ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝
-          -- ]],
+          --   ]],
           --   },
         },
         picker = {

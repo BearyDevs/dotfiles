@@ -17,5 +17,15 @@
         "key": "cmd+shift+up",
         "command": "editor.action.marker.prev",
         "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+alt+cmd+/",
+        "command": "claude-vscode.editor.open",
+        "when": "!config.claudeCode.useTerminal"
+    },
+    {
+        "key": "shift+cmd+escape",
+        "command": "-claude-vscode.editor.open",
+        "when": "!config.claudeCode.useTerminal"
     }
 ]

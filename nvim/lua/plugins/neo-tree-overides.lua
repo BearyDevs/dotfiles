@@ -69,9 +69,9 @@ return {
       },
       window = {
         width = 40,
-        -- position = "float",
+        position = "float",
         -- position = "right",
-        position = "left",
+        -- position = "left",
 
         -- position = "bottom",
         -- height = function()

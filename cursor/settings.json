@@ -63,5 +63,8 @@
     "javascript.referencesCodeLens.showOnAllFunctions": true,
     "editor.showUnused": true,
     "gitlens.currentLine.enabled": false,
-    "editor.accessibilitySupport": "off"
+    "editor.accessibilitySupport": "off",
+    "claudeCode.preferredLocation": "panel",
+    "claudeCode.selectedModel": "claude-opus-4-5-20251101",
+    "update.releaseTrack": "prerelease"
 }

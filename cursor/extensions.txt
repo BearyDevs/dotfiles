@@ -1,5 +1,6 @@
 adpyke.codesnap
 alfredbirk.tailwind-documentation
+anthropic.claude-code
 anysphere.remote-containers
 bierner.markdown-mermaid
 bradlc.vscode-tailwindcss
@@ -51,7 +52,6 @@ redis.redis-for-vscode
 ritwickdey.liveserver
 robole.markdown-snippets
 shd101wyy.markdown-preview-enhanced
-sst-dev.opencode
 steoates.autoimport
 stivo.tailwind-fold
 streetsidesoftware.code-spell-checker
