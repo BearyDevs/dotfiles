@@ -1713,6 +1713,9 @@ alias netbird-list='netbird routes list'
 # │ OpenCode                                                 │
 # ╰──────────────────────────────────────────────────────────╯
 # curl -fsSL https://opencode.ai/install | bash
+#
+# Specify version
+# curl -fsSL https://opencode.ai/install | bash -s -- --version 1.1.37
 
 # lists all models
 # $ opencode models 2>&1 | head -50
@@ -1729,6 +1732,9 @@ alias netbird-list='netbird routes list'
 # alias opencode-custom-model='opencode -m amazon-bedrock/anthropic.claude-sonnet-4-5-20250929-v1:0'
 # alias ai='opencode-custom-model'
 alias ai='opencode'
+
+export PATH=/Users/teerapat/.opencode/bin:$PATH
+alias occonfig='vim ~/.config/opencode/opencode.jsonc'
 # ╭──────────────────────────────────────────────────────────╮
 # │ Gemini                                                   │
 # ╰──────────────────────────────────────────────────────────╯
@@ -1773,6 +1779,8 @@ alias ai='opencode'
 # │ Curl IP                                                  │
 # ╰──────────────────────────────────────────────────────────╯
 # $ curl ifconfig.me
+
+alias p10kconfig='vim ~/.p10k.zsh'
 
 # bun completions
 [ -s "/Users/teerapat/.bun/_bun" ] && source "/Users/teerapat/.bun/_bun"

@@ -389,6 +389,12 @@
       # Tip: To always show local branch name in full without truncation, delete the next line.
       (( $#branch > 32 )) && branch[13,-13]="…"  # <-- this line
       res+="${clean}${(g::)POWERLEVEL9K_VCS_BRANCH_ICON}${branch//\%/%%}"
+
+      # Show nearest git tag (git describe) next to branch name
+      local nearest_tag=$(git describe --tags --abbrev=0 2>/dev/null)
+      if [[ -n $nearest_tag ]]; then
+        res+=" ${meta}🏷 ${clean}${nearest_tag//\%/%%}"
+      fi
     fi
 
     if [[ -n $VCS_STATUS_TAG
