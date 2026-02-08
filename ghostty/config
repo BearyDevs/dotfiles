@@ -1,0 +1,107 @@
+# others command
+# $ ghostty +list-themes
+# 
+# BACKUP: Previous config backed up to config.backup-20251113-220833.bak
+# Applied Aardvark Blue theme from iTerm2 on 2025-11-13
+
+# title = "[Teerapat Wassavanich] - Software Engineer - teerapat@1moby.com (Pat) 💼 - Ghostty Terminal 👻"
+# shell-integration-features = no-cursor,sudo,no-title
+# Commented out to allow Amazon Q CLI integration to work properly
+shell-integration-features = sudo
+# font-family = "JetBrains Mono Nerd Font"
+font-family = "ComicShannsMono Nerd Font"
+# font-family = "CaskaydiaCove Nerd Font"
+# font-family = "FantasqueSansM Nerd Font"
+font-size = 16
+
+# font-style = Bold
+# font-style = Regular
+# window-height=1600
+# window-width=2560
+
+background-opacity = 0.85
+# background-opacity = 1
+
+# background = #001419
+background = #00131e
+foreground = #cbe0f0
+cursor-color = #47ff9c
+
+# Aardvark Blue Theme Colors (converted from iTerm2)
+# background = #102040
+# foreground = #dddddd
+# cursor-color = #007acc
+
+cursor-style = block
+# cursor-style = bar
+# cursor-style = underline
+cursor-style-blink = true
+
+# cursor-text = #bfdbfe
+# selection-background = #bfdbfe
+# selection-foreground = #000000
+
+# ANSI Colors
+# palette = 0=#191919
+# palette = 1=#aa342e
+# palette = 2=#4b8c0f
+# palette = 3=#dbba00
+# palette = 4=#1370d3
+# palette = 5=#c43ac2
+# palette = 6=#008eb0
+# palette = 7=#bebebe
+# palette = 8=#454545
+# palette = 9=#f05b50
+# palette = 10=#95dc55
+# palette = 11=#ffe763
+# palette = 12=#60a4ec
+# palette = 13=#e16be1
+# palette = 14=#60b6cb
+# palette = 15=#f7f7f7
+cursor-click-to-move = true
+mouse-hide-while-typing
+background-blur-radius = 25
+keybind = cmd+r=reload_config
+keybind = cmd+t=unbind
+keybind = cmd+n=unbind
+window-colorspace = display-p3
+copy-on-select = clipboard
+# mouse-scroll-multiplier = 2
+# window-padding-balance = true
+window-save-state = always
+window-padding-x = 0
+window-padding-y = 0
+# window-decoration = false
+macos-titlebar-style = transparent
+# macos-titlebar-style = hidden
+# macos-icon = custom-style
+# macos-icon-frame = aluminum
+# macos-icon-ghost-color = grey
+# macos-icon-screen-color = dark grey,black
+macos-window-shadow = true
+# theme = "Aura"
+theme = "solarized-osaka"
+# macos-option-as-alt = left
+macos-option-as-alt = true
+# keybind = alt+left=unbind
+# keybind = alt+right=unbind
+clipboard-read = allow
+clipboard-write = allow
+shell-integration = zsh
+
+# Font rendering optimizations for external monitors
+# Uncomment these if you need thicker fonts
+font-thicken = true 
+font-thicken-strength = 128
+
+# Better text rendering quality (especially for external monitors)
+alpha-blending = linear-corrected
+
+# For Linux builds using FreeType (uncomment if needed):
+# freetype-load-flags = no-hinting
+# command = /bin/zsh -c "SESSION_NAME='TMUX'; if tmux has-session -t \$SESSION_NAME 2>/dev/null; then tmux attach-session -t \$SESSION_NAME; else tmux new-session -s \$SESSION_NAME -d && tmux attach-session -t \$SESSION_NAME; fi"
+command = /bin/zsh -c "tmux attach -t TMUX || tmux new -s TMUX"
+# Commented out to allow Amazon Q CLI (qterm) to initialize properly
+# Use 'tm' alias in shell instead to start tmux manually
+# command = /bin/zsh
+keybind = shift+enter=text:\x1b\r
