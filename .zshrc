@@ -2,12 +2,45 @@
 # Kiro CLI pre block. Keep at the top of this file.
 [[ -f "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.pre.zsh"
 
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# ╭──────────────────────────────────────────────────────────╮
+# │ Oh-My-Zsh Configuration (before instant prompt loads)    │
+# ╰──────────────────────────────────────────────────────────╯
+export ZSH="$HOME/.oh-my-zsh"
+ZSH_THEME=""  # We'll load Powerlevel10k from Homebrew instead
+plugins=(git)
+DISABLE_AUTO_TITLE="true"
+
+# Source Oh-My-Zsh (must be quiet - no console output)
+source $ZSH/oh-my-zsh.sh
+
+# Load Powerlevel10k theme from Homebrew
 source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
+
+# Powerlevel10k configuration
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
+POWERLEVEL9K_NODE_VERSION=true
+
 export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+# ╭──────────────────────────────────────────────────────────╮
+# │ Ai Api                                                   │
+# ╰──────────────────────────────────────────────────────────╯
+# export AWS_PROFILE=bedrock
+# export AWS_REGION=us-east-1
+# # export ANTHROPIC_MODEL='arn:aws:bedrock:us-east-1:978373393266:inference-profile/us.anthropic.claude-opus-4-5-20251101-v1:0'
+# export ANTHROPIC_MODEL='arn:aws:bedrock:us-east-1:978373393266:inference-profile/us.anthropic.claude-sonnet-4-5-20250929-v1:0'
+
+# export ANTHROPIC_MODEL='arn:aws:bedrock:us-east-1:978373393266:inference-profile/us.anthropic.claude-opus-4-1-20250805-v1:0'
+# export CLAUDE_CODE_USE_BEDROCK=1
+
+export GITHUB_COPILOT_TOKEN=
 # Check models that can use
 # $ curl https://api.openai.com/v1/models \ -H "Authorization: Bearer YOUR_OPENAI_API_KEY"
 
@@ -142,17 +175,9 @@ export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
 export LDFLAGS="-L/opt/homebrew/opt/llvm/lib/c++ -Wl,-rpath,/opt/homebrew/opt/llvm/lib/c++"
 
 # ╭──────────────────────────────────────────────────────────╮
-# │ Oh-My-Zsh Configuration                                  │
+# │ Oh-My-Zsh is configured at the top of this file         │
 # ╰──────────────────────────────────────────────────────────╯
-# Disable Oh-My-Zsh auto title to let tmux handle window naming
-DISABLE_AUTO_TITLE="true"
-
-ZSH_THEME="powerlevel10k/powerlevel10k"
-plugins=(git)
-export ZSH="$HOME/.oh-my-zsh"
-source $ZSH/oh-my-zsh.sh
-typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
-POWERLEVEL9K_NODE_VERSION=true
+# (Configuration moved to top to prevent instant prompt issues)
 
 # Unlock to Install 3rd Party App
 alias unlock-install='sudo spctl --global-disable && sudo xattr -cr' # program path after that, can drag into
@@ -179,6 +204,7 @@ alias hh='home'
 # alias clr='clear; neofetch --source ~/neofetch-custom.txt'
 alias clr='clear'
 alias dl='home; cd Downloads'
+alias dc='home; cd Documents'
 # alias cls='clear; showinfo'
 # alias cls='clear; neofetch; showinforandom;'
 # alias cls='clear; neofetch --source ~/neofetch-custom2.txt;'
