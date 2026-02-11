@@ -30,6 +30,11 @@ POWERLEVEL9K_NODE_VERSION=true
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # ╭──────────────────────────────────────────────────────────╮
+# │ Enable key repeat                                        │
+# ╰──────────────────────────────────────────────────────────╯
+# $ defaults write -g ApplePressAndHoldEnabled -bool false
+
+# ╭──────────────────────────────────────────────────────────╮
 # │ Ai Api                                                   │
 # ╰──────────────────────────────────────────────────────────╯
 # export AWS_PROFILE=bedrock
@@ -1173,8 +1178,6 @@ function gpb() {
 # ╰──────────────────────────────────────────────────────────╯
 # $ cp *.md ./folderMd/
 
-alias inkdrop-keymap='sudonvim /Users/teerapat/Library/Application\ Support/inkdrop/keymap.json'
-
 # ╭──────────────────────────────────────────────────────────╮
 # │ Android Platform Tools                                   │
 # ╰──────────────────────────────────────────────────────────╯
@@ -1220,6 +1223,7 @@ alias create-dotnet-console-app='dotnet new console -n' # dotnet new console -n 
 # ╭──────────────────────────────────────────────────────────╮
 # │ InkDrop                                                  │
 # ╰──────────────────────────────────────────────────────────╯
+alias inkdrop-keymap='sudonvim "$HOME/Library/Application Support/inkdrop/keymap.json"'
 
 # ╭──────────────────────────────────────────────────────────╮
 # │ Mac Fix mic-vol                                          │
@@ -1810,16 +1814,42 @@ alias occonfig='vim ~/.config/opencode/opencode.json'
 
 alias p10kconfig='vim ~/.p10k.zsh'
 
-# bun completions
-[ -s "/Users/teerapat/.bun/_bun" ] && source "/Users/teerapat/.bun/_bun"
-export PATH="$HOME/.local/bin:$PATH"
 
 # Added by Antigravity
 export PATH="/Users/teerapat/.antigravity/antigravity/bin:$PATH"
 
-# bun
+# ╭──────────────────────────────────────────────────────────╮
+# │ bun                                                      │
+# ╰──────────────────────────────────────────────────────────╯
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+# bun completions
+[ -s "/Users/teerapat/.bun/_bun" ] && source "/Users/teerapat/.bun/_bun"
+export PATH="$HOME/.local/bin:$PATH"
+
+# ╭──────────────────────────────────────────────────────────╮
+# │ SwitchAudioOsx                                           │
+# ╰──────────────────────────────────────────────────────────╯
+# $ SwitchAudioSource -a -t output -- list all output devices
+#
+# Lock microphone to MacBook built-in mic (replace with actual name from input list)
+alias lockmac='SwitchAudioSource -t input -s "MacBook Air Microphone"'
+
+# Set DitooPro speaker as output + MacBook mic as input
+alias ditoo='SwitchAudioSource -t input -s "MacBook Air Microphone" && SwitchAudioSource -t output -s "DitooPro-Audio"'
+
+# Set ARZOPA speaker as output + MacBook mic as input
+alias arzopa='SwitchAudioSource -t input -s "MacBook Air Microphone" && SwitchAudioSource -t output -s "ARZOPA"'
+
+# Back to MacBook speakers and mic
+alias macaudio='SwitchAudioSource -t input -s "MacBook Air Microphone" && SwitchAudioSource -t output -s "MacBook Air Speakers"'
+
+# Check current audio devices
+alias checkaudio='echo "🎤 Input: $(SwitchAudioSource -t input -c)" && echo "🔊 Output: $(SwitchAudioSource -t output -c)"'
+
+# Quick fix - just lock mic to MacBook
+alias fixmic='SwitchAudioSource -t input -s "MacBook Air Microphone"'
+
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

@@ -33,9 +33,10 @@ curl -fsSL https://bun.sh/install | bash
 
 ## Taps
 echo "Tapping Brew..."
-brew tap homebrew/cask-fonts
-brew tap FelixKratz/formulae
-brew tap fwartner/tap
+brew tap homebrew/cask-fonts # fonts
+brew tap FelixKratz/formulae # qmk
+brew tap fwartner/tap        # mac-cleanup
+brew tap bwya77/tap          # Dock Anchor
 
 ## Formulae
 echo "Installing Brew Formulae..."
@@ -97,6 +98,7 @@ brew install imagemagick ffmpeg
 brew install poppler
 brew install p7zip jq
 brew install uv
+brew install switchaudio-osx
 
 ### dev things
 brew install node
@@ -164,6 +166,7 @@ brew install --cask font-niramit
 brew install --cask dbeaver-community
 brew install --cask lookaway
 brew install --cask pearcleaner
+brew install --cask dockanchor
 
 # Rust
 brew install rustup-init && sleep 1 && rustup-init -y
