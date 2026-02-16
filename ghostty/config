@@ -22,8 +22,8 @@ font-size = 16
 background-opacity = 0.85
 # background-opacity = 1
 
-# background = #001419
-background = #00131e
+background = #001419
+# background = #00131e
 foreground = #cbe0f0
 cursor-color = #47ff9c
 

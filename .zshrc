@@ -1243,7 +1243,7 @@ alias set-mic-vol='set-mic'
 # ╭──────────────────────────────────────────────────────────╮
 # │ Expo                                                     │
 # ╰──────────────────────────────────────────────────────────╯
-# $ bun install -g eas-cli 
+# $ bun install -g eas-cli
 #
 # // EAS CLI is used to log in to your Expo account and compile your app using different EAS services such as Build, Update, or Submit. You can also use this tool to:
 # Publish your app to the app stores
@@ -1265,6 +1265,9 @@ alias set-mic-vol='set-mic'
 # $ bunx expo-doctor
 
 # // Expo Doctor is a command line tool used to diagnose issues in your Expo project. To use it, run the following command in your project's root directory:
+
+# $ eas build --profile development --platform all --non-interactive
+# $ eas build --profile development --platform android --non-interactive
 
 # ╭──────────────────────────────────────────────────────────╮
 # │ Pod                                                      │

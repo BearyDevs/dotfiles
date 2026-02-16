@@ -19,18 +19,16 @@
         "when": "editorFocus"
     },
     {
-        "key": "ctrl+alt+cmd+/",
-        "command": "claude-vscode.editor.open",
-        "when": "!config.claudeCode.useTerminal"
+        "key": "cmd+shift+\\",
+        "command": "-workbench.action.toggleAuxiliaryBar"
     },
     {
-        "key": "shift+cmd+escape",
-        "command": "-claude-vscode.editor.open",
-        "when": "!config.claudeCode.useTerminal"
+        "key": "cmd+shift+\\",
+        "command": "-workbench.action.toggleSidebarVisibility"
     },
     {
-        "key": "space",
-        "command": "whichkey.show",
-        "when": "vim.mode == 'Normal' && !inDebugRepl && !suggestWidgetVisible"
+        "key": "cmd+shift+\\",
+        "command": "editor.action.jumpToBracket",
+        "when": "editorTextFocus"
     }
 ]

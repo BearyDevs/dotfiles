@@ -72,23 +72,24 @@
   "extensions.experimental.affinity": {
     "asvetliakov.vscode-neovim": 1
   },
+
   // Vim leader key configuration
-  "vim.leader": "<space>",
-  "vim.useSystemClipboard": true,
-  // Cursor shape for Normal mode - Block cursor (█)
-  "vim.cursorStylePerMode.normal": "block",
-  // Cursor shape for Insert mode - Line/Bar cursor (|)
-  "vim.cursorStylePerMode.insert": "line",
-  // Cursor shape for Visual mode - Block cursor (█)
-  "vim.cursorStylePerMode.visual": "block",
-  "vim.cursorStylePerMode.visualline": "block",
-  "vim.cursorStylePerMode.visualblock": "block",
-  // Cursor shape for Replace mode - Underline cursor (_)
-  "vim.cursorStylePerMode.replace": "underline",
-  // Cursor blinking style (solid = no blink, like Vim)
-  "editor.cursorBlinking": "solid",
-  // Default cursor style for non-Vim modes
-  "editor.cursorStyle": "line",
-  // Smooth cursor animation
-  "editor.cursorSmoothCaretAnimation": "on"
+  // "vim.leader": "<space>",
+  // "vim.useSystemClipboard": true,
+  // // Cursor shape for Normal mode - Block cursor (█)
+  // "vim.cursorStylePerMode.normal": "block",
+  // // Cursor shape for Insert mode - Line/Bar cursor (|)
+  // "vim.cursorStylePerMode.insert": "line",
+  // // Cursor shape for Visual mode - Block cursor (█)
+  // "vim.cursorStylePerMode.visual": "block",
+  // "vim.cursorStylePerMode.visualline": "block",
+  // "vim.cursorStylePerMode.visualblock": "block",
+  // // Cursor shape for Replace mode - Underline cursor (_)
+  // "vim.cursorStylePerMode.replace": "underline",
+  // // Cursor blinking style (solid = no blink, like Vim)
+  // "editor.cursorBlinking": "solid",
+  // // Default cursor style for non-Vim modes
+  // "editor.cursorStyle": "line",
+  // // Smooth cursor animation
+  // "editor.cursorSmoothCaretAnimation": "on"
 }
