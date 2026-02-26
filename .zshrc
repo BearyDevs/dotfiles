@@ -10,6 +10,12 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # ╭──────────────────────────────────────────────────────────╮
+# │ Ai                                                       │
+# ╰──────────────────────────────────────────────────────────╯
+export GEMINI_API_KEY=AIzaSyDCsVwOU_wfrzzc3GG7ZOA_fJEZ3UyaKZs
+export GOOGLE_GENERATIVE_AI_API_KEY=AIzaSyDCsVwOU_wfrzzc3GG7ZOA_fJEZ3UyaKZs
+
+# ╭──────────────────────────────────────────────────────────╮
 # │ Oh-My-Zsh Configuration (before instant prompt loads)    │
 # ╰──────────────────────────────────────────────────────────╯
 export ZSH="$HOME/.oh-my-zsh"
@@ -34,18 +40,7 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 # ╰──────────────────────────────────────────────────────────╯
 # $ defaults write -g ApplePressAndHoldEnabled -bool false
 
-# ╭──────────────────────────────────────────────────────────╮
-# │ Ai Api                                                   │
-# ╰──────────────────────────────────────────────────────────╯
-# export AWS_PROFILE=bedrock
-# export AWS_REGION=us-east-1
-# # export ANTHROPIC_MODEL='arn:aws:bedrock:us-east-1:978373393266:inference-profile/us.anthropic.claude-opus-4-5-20251101-v1:0'
-# export ANTHROPIC_MODEL='arn:aws:bedrock:us-east-1:978373393266:inference-profile/us.anthropic.claude-sonnet-4-5-20250929-v1:0'
-
-# export ANTHROPIC_MODEL='arn:aws:bedrock:us-east-1:978373393266:inference-profile/us.anthropic.claude-opus-4-1-20250805-v1:0'
-# export CLAUDE_CODE_USE_BEDROCK=1
-
-export GITHUB_COPILOT_TOKEN=
+# export GITHUB_COPILOT_TOKEN=
 # Check models that can use
 # $ curl https://api.openai.com/v1/models \ -H "Authorization: Bearer YOUR_OPENAI_API_KEY"
 
@@ -234,7 +229,7 @@ alias lazypath='cd ~/.local/share/nvim/lazy/LazyVim'
 alias dl='home; cd Downloads'
 alias dt='home; cd Desktop'
 # alias work='dl; cd @Projects'
-alias work='home; cd @Projects'
+alias work='dc; cd @Projects'
 alias neofetch-config='nvim ~/.config/neofetch/config.conf'
 alias sudonvim='sudo -E nvim' # NvChad
 alias neovide='neovide --maximized --frame transparent'
@@ -1252,7 +1247,6 @@ alias set-mic-vol='set-mic'
 # Manage your app credentials
 # Create an ad hoc provisioning profile for an iOS device
 
-
 # $ brew install expo-orbit
 
 # // Orbit is a macOS and Windows app that enables:
@@ -1268,6 +1262,8 @@ alias set-mic-vol='set-mic'
 
 # $ eas build --profile development --platform all --non-interactive
 # $ eas build --profile development --platform android --non-interactive
+#
+# $ eas build --platform android --profile preview
 
 # ╭──────────────────────────────────────────────────────────╮
 # │ Pod                                                      │

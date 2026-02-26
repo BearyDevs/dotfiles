@@ -167,6 +167,7 @@ brew install --cask dbeaver-community
 brew install --cask lookaway
 brew install --cask pearcleaner
 brew install --cask dockanchor
+brew install --cask android-platform-tools
 
 # Rust
 brew install rustup-init && sleep 1 && rustup-init -y

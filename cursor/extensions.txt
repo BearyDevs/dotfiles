@@ -2,9 +2,7 @@ adpyke.codesnap
 alfredbirk.tailwind-documentation
 anthropic.claude-code
 anysphere.remote-containers
-asvetliakov.vscode-neovim
 bierner.markdown-mermaid
-bodil.file-browser
 bpruitt-goddard.mermaid-markdown-syntax-highlighting
 bradlc.vscode-tailwindcss
 chaitanyashahare.lazygit
@@ -12,7 +10,6 @@ christian-kohler.npm-intellisense
 christian-kohler.path-intellisense
 clinyong.vscode-css-modules
 codezombiech.gitignore
-coenraads.bracket-pair-colorizer
 coenraads.bracket-pair-colorizer-2
 csstools.postcss
 cweijan.dbclient-jdbc
@@ -24,6 +21,7 @@ dsznajder.es7-react-js-snippets
 eamodio.gitlens
 ecmel.vscode-html-css
 edwinhuish.better-comments-next
+enkia.tokyo-night
 esbenp.prettier-vscode
 formulahendry.auto-close-tag
 formulahendry.auto-rename-tag
@@ -35,10 +33,8 @@ imgildev.vscode-nestjs-generator
 imgildev.vscode-nestjs-snippets-extension
 imgildev.vscode-tailwindcss-snippets
 irongeek.vscode-env
-jacobdufault.fuzzy-search
 jebbs.plantuml
 jock.svg
-kahole.magit
 lightyen.tailwindcss-intellisense-twin
 lirobi.phone-preview
 lokalise.i18n-ally
@@ -62,16 +58,12 @@ redis.redis-for-vscode
 ritwickdey.liveserver
 robole.markdown-snippets
 shd101wyy.markdown-preview-enhanced
-sst-dev.opencode
 steoates.autoimport
 stivo.tailwind-fold
 tomoki1207.pdf
 tomoyukim.vscode-mermaid-editor
 typescriptteam.native-preview
 usernamehw.errorlens
-vscodevim.vim
-vspacecode.vspacecode
-vspacecode.whichkey
 vstirbu.vscode-mermaid-preview
 waderyan.gitblame
 yandeu.five-server

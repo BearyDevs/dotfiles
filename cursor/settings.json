@@ -1,6 +1,6 @@
 {
   "window.commandCenter": true,
-  "workbench.colorTheme": "Cursor Dark Midnight",
+  "workbench.colorTheme": "Tokyo Night",
   "editor.fontFamily": "ComicShannsMono Nerd Font",
   "editor.fontSize": 14,
   "terminal.integrated.fontSize": 14,
@@ -28,7 +28,7 @@
   },
   "editor.wordWrap": "off",
   "diffEditor.wordWrap": "off",
-  "editor.guides.indentation": true,
+  "editor.guides.indentation": true, // rainbow indentation
   "vscode-edge-devtools.webhintInstallNotification": true,
   // Formatter
   "[typescriptreact]": {
