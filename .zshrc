@@ -1837,9 +1837,6 @@ alias lockmac='SwitchAudioSource -t input -s "MacBook Air Microphone"'
 # Set DitooPro speaker as output + MacBook mic as input
 alias ditoo='SwitchAudioSource -t input -s "MacBook Air Microphone" && SwitchAudioSource -t output -s "DitooPro-Audio"'
 
-# Set ARZOPA speaker as output + MacBook mic as input
-alias arzopa='SwitchAudioSource -t input -s "MacBook Air Microphone" && SwitchAudioSource -t output -s "ARZOPA"'
-
 # Back to MacBook speakers and mic
 alias macaudio='SwitchAudioSource -t input -s "MacBook Air Microphone" && SwitchAudioSource -t output -s "MacBook Air Speakers"'
 
@@ -1849,6 +1846,11 @@ alias checkaudio='echo "🎤 Input: $(SwitchAudioSource -t input -c)" && echo "�
 # Quick fix - just lock mic to MacBook
 alias fixmic='SwitchAudioSource -t input -s "MacBook Air Microphone"'
 
+# ╭──────────────────────────────────────────────────────────╮
+# │ System check                                             │
+# ╰──────────────────────────────────────────────────────────╯
+# Battery
+alias checkbattery='system_profiler SPPowerDataType | grep -A 3 "Health Information"'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
