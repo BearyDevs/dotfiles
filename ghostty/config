@@ -19,7 +19,7 @@ font-size = 16
 # window-height=1600
 # window-width=2560
 
-background-opacity = 0.85
+background-opacity = 0.80
 # background-opacity = 1
 
 background = #001419
