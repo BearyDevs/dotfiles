@@ -22,10 +22,9 @@ font-size = 16
 background-opacity = 0.80
 # background-opacity = 1
 
-background = #001419
-# background = #00131e
-foreground = #cbe0f0
-cursor-color = #47ff9c
+# background = #001419
+# foreground = #cbe0f0
+# cursor-color = #47ff9c
 
 # Aardvark Blue Theme Colors (converted from iTerm2)
 # background = #102040
@@ -80,7 +79,8 @@ macos-titlebar-style = transparent
 # macos-icon-screen-color = dark grey,black
 macos-window-shadow = true
 # theme = "Aura"
-theme = "solarized-osaka"
+# theme = "solarized-osaka"
+theme = "TokyoNight Night"
 # macos-option-as-alt = left
 macos-option-as-alt = true
 # keybind = alt+left=unbind

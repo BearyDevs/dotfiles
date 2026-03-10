@@ -1,7 +1,9 @@
 adpyke.codesnap
 alfredbirk.tailwind-documentation
 anthropic.claude-code
+anysphere.cursorpyright
 anysphere.remote-containers
+batisteo.vscode-django
 bierner.markdown-mermaid
 bpruitt-goddard.mermaid-markdown-syntax-highlighting
 bradlc.vscode-tailwindcss
@@ -35,6 +37,7 @@ imgildev.vscode-tailwindcss-snippets
 irongeek.vscode-env
 jebbs.plantuml
 jock.svg
+kevinrose.vsc-python-indent
 lightyen.tailwindcss-intellisense-twin
 lirobi.phone-preview
 lokalise.i18n-ally
@@ -44,6 +47,10 @@ mikestead.dotenv
 ms-azuretools.vscode-containers
 ms-azuretools.vscode-docker
 ms-edgedevtools.vscode-edge-devtools
+ms-python.debugpy
+ms-python.pylint
+ms-python.python
+ms-python.vscode-python-envs
 mtxr.sqltools
 naumovs.color-highlight
 oderwat.indent-rainbow
