@@ -68,6 +68,7 @@ brew install grep
 brew install yazi
 brew install git-secrets
 brew install neofetch
+brew install watch
 
 ### Terminal
 brew install git
