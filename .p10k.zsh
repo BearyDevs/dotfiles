@@ -918,6 +918,8 @@
   # If set to "false", won't show virtualenv if pyenv is already shown.
   # If set to "if-different", won't show virtualenv if it's the same as pyenv.
   typeset -g POWERLEVEL9K_VIRTUALENV_SHOW_WITH_PYENV=false
+  # Show virtualenv even when named 'venv' (default hides generic names)
+  typeset -g POWERLEVEL9K_VIRTUALENV_GENERIC_NAMES=()
   # Separate environment name from Python version only with a space.
   typeset -g POWERLEVEL9K_VIRTUALENV_{LEFT,RIGHT}_DELIMITER=
   # Custom icon.

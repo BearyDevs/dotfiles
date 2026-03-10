@@ -219,8 +219,8 @@ alias dotconfig='cd ~/.config'
 alias dotlocal='cd ~/.local'
 alias dotcache='cd ~/.cache'
 alias nv='nvim'
-# alias vim='nvim'
-# alias vi='echo "Use vim or nvim instead"'
+alias vim='nvim'
+alias vi='echo "Use vim or nvim instead"'
 # alias vi='nvim'
 # alias v='nvim'
 # alias vide='neovide'
@@ -720,9 +720,14 @@ alias arcstore='cd /Users/techflow015/Library/Application\ Support/Arc'
 # ╭──────────────────────────────────────────────────────────╮
 # │ Python                                                   │
 # ╰──────────────────────────────────────────────────────────╯
-alias python='python3'
-alias py='python3'
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+# pyenv handles 'python' command — no alias needed
+alias py='python'
 alias pip='pip3'
+
 alias pips='f() {
   pip install "$@" --break-system-packages && {
     local req="requirements.txt"
