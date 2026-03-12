@@ -257,17 +257,6 @@ return {
             },
           },
         },
-        pylsp = {
-          settings = {
-            pylsp = {
-              plugins = {
-                pycodestyle = {
-                  ignore = { "E501" },
-                },
-              },
-            },
-          },
-        },
         prismals = {},
         dockerls = {},
         docker_compose_language_service = {},

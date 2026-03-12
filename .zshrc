@@ -299,6 +299,10 @@ killport() {
     fi
 }
 
+# ╭──────────────────────────────────────────────────────────╮
+# │ Port                                                     │
+# ╰──────────────────────────────────────────────────────────╯
+#
 # demo => killport 3000
 alias viewallport='sudo lsof -i -P -n'
 
@@ -338,6 +342,42 @@ function checkport() {
         fi
     fi
 }
+
+# ╭──────────────────────────────────────────────────────────╮
+# │ Kill brew process                                        │
+# ╰──────────────────────────────────────────────────────────╯
+# $ pkill -f "brew install --cask libreoffice"
+
+# ดู process ที่ค้างอยู่
+# $ ps aux | grep brew
+# ps aux | grep brew
+# patrickdev       46279   1.8  0.0 435309648   4352   ??  S    10:07AM   0:05.62 /usr/bin/curl --disable --cookie /dev/null --globoff --show-error --user-agent Homebrew/5.0.16 (Macintosh; arm64 Mac OS X 26.3.1) curl/8.7.1 --header Accept-Language: en --fail --progress-bar --silent --retry 3 --remote-time --output /Users/patrickdev/Library/Caches/Homebrew/downloads/b61943ffcce33d0bab069d8e18639f292ab28eca223a325c2fc870dfe3c7aa4f--LibreOffice_26.2.1_MacOS_aarch64.dmg.incomplete --continue-at - --location https://mirror.cyberbits.asia/tdf/libreoffice/stable/26.2.1/mac/aarch64/LibreOffice_26.2.1_MacOS_aarch64.dmg
+# patrickdev       44519   0.1  0.1 411892208  14560   ??  S    10:06AM   0:01.37 /opt/homebrew/Library/Homebrew/vendor/portable-ruby/current/bin/ruby -W1 --disable=gems,rubyopt /opt/homebrew/Library/Homebrew/brew.rb install --cask libreoffice
+# patrickdev       51121   0.0  0.0 410747584    656 s014  S     3:54PM   0:00.33 /opt/homebrew/Cellar/powerlevel10k/1.20.0/share/powerlevel10k/gitstatus/usrbin/gitstatusd-darwin-arm64 -G v1.5.4 -s -1 -u -1 -d -1 -c -1 -m -1 -v FATAL -t 20
+# patrickdev       50227   0.0  0.0 410746560    864 s004  S     3:54PM   0:00.33 /opt/homebrew/Cellar/powerlevel10k/1.20.0/share/powerlevel10k/gitstatus/usrbin/gitstatusd-darwin-arm64 -G v1.5.4 -s -1 -u -1 -d -1 -c -1 -m -1 -v FATAL -t 20
+# patrickdev       71741   0.0  0.0 410773184   1136 s003  S    Wed01AM   0:01.10 /opt/homebrew/Cellar/powerlevel10k/1.20.0/share/powerlevel10k/gitstatus/usrbin/gitstatusd-darwin-arm64 -G v1.5.4 -s -1 -u -1 -d -1 -c -1 -m -1 -v FATAL -t 20
+# patrickdev       22846   0.0  0.0 410764992   1136 s013  S    Wed12AM   0:01.14 /opt/homebrew/Cellar/powerlevel10k/1.20.0/share/powerlevel10k/gitstatus/usrbin/gitstatusd-darwin-arm64 -G v1.5.4 -s -1 -u -1 -d -1 -c -1 -m -1 -v FATAL -t 20
+# patrickdev       21975   0.0  0.0 410790592   1136 s002  S    Wed12AM   0:01.32 /opt/homebrew/Cellar/powerlevel10k/1.20.0/share/powerlevel10k/gitstatus/usrbin/gitstatusd-darwin-arm64 -G v1.5.4 -s -1 -u -1 -d -1 -c -1 -m -1 -v FATAL -t 20
+# patrickdev       40032   0.0  0.0 410295968    640 s006  S    Tue11PM   0:01.23 /opt/homebrew/Cellar/powerlevel10k/1.20.0/share/powerlevel10k/gitstatus/usrbin/gitstatusd-darwin-arm64 -G v1.5.4 -s -1 -u -1 -d -1 -c -1 -m -1 -v FATAL -t 20
+# patrickdev       40027   0.0  0.0 435311408    336 s006  S    Tue11PM   0:00.00 /opt/homebrew/bin/zsh -i
+# patrickdev       40026   0.0  0.0 435311392   1008 s006  S    Tue11PM   0:00.41 /opt/homebrew/bin/zsh -i
+# patrickdev       40024   0.0  0.0 435311408    320 s006  S    Tue11PM   0:00.00 /opt/homebrew/bin/zsh -i
+# patrickdev       34017   0.0  0.0 435315952   3440 s006  Ss+  Tue11PM   0:04.35 /opt/homebrew/bin/zsh -i
+# patrickdev       23586   0.0  0.0 410819264    864 s000  S    Tue03PM   0:01.92 /opt/homebrew/Cellar/powerlevel10k/1.20.0/share/powerlevel10k/gitstatus/usrbin/gitstatusd-darwin-arm64 -G v1.5.4 -s -1 -u -1 -d -1 -c -1 -m -1 -v FATAL -t 20
+# patrickdev       56921   0.0  0.0 435299968   1392 s015  S+   10:12AM   0:00.00 grep --color=auto --exclude-dir=.bzr --exclude-dir=CVS --exclude-dir=.git --exclude-dir=.hg --exclude-dir=.svn --exclude-dir=.idea --exclude-dir=.tox --exclude-dir=.venv --exclude-dir=venv brew
+# patrickdev       44126   0.0  0.0 410737344   1040 s015  S    10:06AM   0:00.01 /opt/homebrew/Cellar/powerlevel10k/1.20.0/share/powerlevel10k/gitstatus/usrbin/gitstatusd-darwin-arm64 -G v1.5.4 -s -1 -u -1 -d -1 -c -1 -m -1 -v FATAL -t 20
+
+# แล้ว kill ด้วย PID ที่เห็น:
+# $ kill -9 <PID>
+# $ kill -9 46279 44519
+
+# หรือจะ kill ทีเดียวเลย:
+# $ bashpkill -9 -f brew && rm -rf $(brew --cache)/downloads/*.incomplete
+
+# แล้วลบ incomplete file แล้ว install ใหม่:
+# $ bashrm -rf $(brew --cache)/downloads/*.incomplete
+# $ brew install --cask libreoffice
+
 
 # To sglpat-jKt6ofxaDTsUhirQqMYCet default password of user ubuntu
 

@@ -58,7 +58,19 @@ require("lazy").setup({
         picker = {
           hidden = true,
           ignored = true,
+          win = {
+            input = {
+              keys = {
+                ["h"] = { "toggle_hidden", mode = { "n" } },
+                ["H"] = { "toggle_ignored", mode = { "n" } },
+              },
+            },
+          },
           sources = {
+            files = {
+              hidden = true,
+              ignored = true,
+            },
             explorer = {
               auto_close = true,
               hidden = true,
