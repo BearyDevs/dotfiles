@@ -138,6 +138,7 @@ brew install plantuml
 brew install graphviz
 brew install amazon-q
 brew install postgresql
+brew install putty
 
 ## Casks
 brew install --cask raycast

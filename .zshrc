@@ -1927,6 +1927,17 @@ alias airpod-all='SwitchAudioSource -t input -s "AirPods" && SwitchAudioSource -
 # Battery
 alias checkbattery='system_profiler SPPowerDataType | grep -A 3 "Health Information"'
 
+# ╭──────────────────────────────────────────────────────────╮
+# │ Putty                                                    │
+# ╰──────────────────────────────────────────────────────────╯
+# แปลง .ppk → .pem ก่อน (ถ้าได้ key มาจาก Windows)
+# $ brew install putty
+# $ puttygen yourkey.ppk -O private-openssh -o yourkey.pem
+# $ chmod 400 yourkey.pem
+
+# แล้ว SSH ด้วย key
+ssh -i yourkey.pem username@sit-server-ip
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
