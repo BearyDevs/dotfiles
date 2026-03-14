@@ -1911,6 +1911,9 @@ alias lockmac='SwitchAudioSource -t input -s "MacBook Air Microphone"'
 # Set DitooPro speaker as output + MacBook mic as input
 alias ditoo='SwitchAudioSource -t input -s "MacBook Air Microphone" && SwitchAudioSource -t output -s "DitooPro-Audio"'
 
+# Set DitooPro USB speaker as output + MacBook mic as input
+alias ditoousb='SwitchAudioSource -t input -s "MacBook Air Microphone" && SwitchAudioSource -t output -s "Ditoo usb audio"'
+
 # Back to MacBook speakers and mic
 alias macaudio='SwitchAudioSource -t input -s "MacBook Air Microphone" && SwitchAudioSource -t output -s "MacBook Air Speakers"'
 

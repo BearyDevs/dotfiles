@@ -139,6 +139,7 @@ brew install graphviz
 brew install amazon-q
 brew install postgresql
 brew install putty
+brew install podman
 
 ## Casks
 brew install --cask raycast
