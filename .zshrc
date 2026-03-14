@@ -1946,6 +1946,13 @@ alias checkbattery='system_profiler SPPowerDataType | grep -A 3 "Health Informat
 # แล้ว SSH ด้วย key
 ssh -i yourkey.pem username@sit-server-ip
 
+# ╭──────────────────────────────────────────────────────────╮
+# │ Podman                                                   │
+# ╰──────────────────────────────────────────────────────────╯
+# Podman GUI : https://podman.io/
+# CLI : brew install podman
+# Login docker io to pull some images : podman login docker.io
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
