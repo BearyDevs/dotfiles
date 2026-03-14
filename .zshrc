@@ -49,6 +49,7 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 # ╰──────────────────────────────────────────────────────────╯
 eval "$(/opt/homebrew/bin/brew shellenv)"
 alias brewarchpath="export PATH=/usr/local/bin:${PATH}"
+alias caskpath='cd /opt/homebrew/Caskroom'
 
 
 # Random Secret for Secure
@@ -400,6 +401,9 @@ function checkport() {
 # $ docker run -d --restart unless-stopped --name mysql-server -p 3306:3306 mysql-docker:0.1 --default-authentication-plugin mysql_native_password
 # $ docker save imagename > imagename.zip || tar
 # $ docker load < imagename.zip || tar
+# $ docker compose logs -f # logs all services with follow
+# $ docker exec -it f23cb5c07c68 sh # run bash in container
+# $ dokcer compose up -d --build # with rebuild
 
 alias docker-stopall='docker ps -q | xargs -r docker stop && echo "Stopped all running containers successfully!"'
 alias dockerrmall-container='if [ "$(docker ps -q)" ]; then docker stop $(docker ps -q) && docker rm $(docker ps -q) && echo "Stopped and removed all running containers successfully!"; else echo "No running containers to stop and remove."; fi'
@@ -1835,6 +1839,7 @@ alias netbird-list='netbird routes list'
 
 export PATH=/Users/teerapat/.opencode/bin:$PATH
 alias occonfig='vim ~/.config/opencode/opencode.json'
+alias oc='opencode'
 # ╭──────────────────────────────────────────────────────────╮
 # │ Gemini                                                   │
 # ╰──────────────────────────────────────────────────────────╯
@@ -1943,3 +1948,5 @@ ssh -i yourkey.pem username@sit-server-ip
 
 # opencode
 export PATH=/Users/patrickdev/.opencode/bin:$PATH
+
+cls

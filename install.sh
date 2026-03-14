@@ -172,6 +172,8 @@ brew install --cask dockanchor
 brew install --cask android-platform-tools
 brew install --cask localsend # local file sharing all platforms ios android windows macos
 brew install --cask libreoffice
+brew install --cask kitty
+brew install --cask betterdisplay
 
 # Rust
 brew install rustup-init && sleep 1 && rustup-init -y

@@ -40,6 +40,7 @@ require("lazy").setup({
     },
     {
       "folke/snacks.nvim",
+      dependencies = { "nvim-tree/nvim-web-devicons" },
       opts = {
         scroll = { enabled = true },
         dashboard = {
@@ -72,12 +73,12 @@ require("lazy").setup({
               ignored = true,
             },
             explorer = {
-              auto_close = true,
+              auto_close = false,
               hidden = true,
               layout = {
                 layout = {
-                  -- position = "right",
-                  position = "left",
+                  position = "right",
+                  -- position = "left",
                 },
               },
             },

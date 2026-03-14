@@ -261,10 +261,16 @@ return {
         dockerls = {},
         docker_compose_language_service = {},
         marksman = {},
+        pyright = {
+          settings = {
+            python = {
+              analysis = {
+                typeCheckingMode = "off",
+              },
+            },
+          },
+        },
         bashls = {},
-        -- bashls = {
-        --   enabled = false,
-        -- },
       },
       setup = {
         --- @deprecated -- tsserver renamed to ts_ls but not yet released, so keep this for now
