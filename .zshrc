@@ -203,7 +203,7 @@ alias hh='home'
 # alias clr='clear; showinforandom;'
 # alias clr='clear; neofetch; showinfo'
 # alias clr='clear; neofetch --source ~/neofetch-custom.txt'
-alias clr='clear'
+alias clr='clear; neofetch'
 alias dl='home; cd Downloads'
 alias dc='home; cd Documents'
 # alias cls='clear; showinfo'
@@ -1927,7 +1927,7 @@ alias fixmic='SwitchAudioSource -t input -s "MacBook Air Microphone"'
 alias airpod='SwitchAudioSource -t input -s "MacBook Air Microphone" && SwitchAudioSource -t output -s "AirPods"'
 
 # Set Airpod speaker as output + input
-alias airpod-all='SwitchAudioSource -t input -s "AirPods" && SwitchAudioSource -t output -s "AirPods"'
+alias airpodall='SwitchAudioSource -t input -s "AirPods" && SwitchAudioSource -t output -s "AirPods"'
 
 # ╭──────────────────────────────────────────────────────────╮
 # │ System check                                             │
@@ -1952,6 +1952,16 @@ ssh -i yourkey.pem username@sit-server-ip
 # Podman GUI : https://podman.io/
 # CLI : brew install podman
 # Login docker io to pull some images : podman login docker.io
+# See auth.json : $ podman machine ssh cat /etc/containers/auth.json
+
+alias podman-stopall='podman ps -q | xargs -r podman stop && echo "Stopped all running containers successfully!"'
+alias podmanrmall-container='if [ "$(podman ps -q)" ]; then podman stop $(podman ps -q) && podman rm $(podman ps -q) && echo "Stopped and removed all running containers successfully!"; else echo "No running containers to stop and remove."; fi'
+alias podmanrmall-image='podman rmi $(podman images -a -q)'
+alias podman-pruneall='podman system prune -a --volumes -f && echo "Pruned all unused Podman objects successfully!"'
+alias podmanrmall-volume='podman volume rm $(podman volume ls -q)'
+alias podmanrmall-network='podman network rm $(podman network ls -q)'
+alias podmanrmall-buildcache='podman builder prune -af'
+alias podmanrm-everything='podman system prune -af --volumes'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
