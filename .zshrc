@@ -364,7 +364,7 @@ function checkport() {
 # patrickdev       40026   0.0  0.0 435311392   1008 s006  S    Tue11PM   0:00.41 /opt/homebrew/bin/zsh -i
 # patrickdev       40024   0.0  0.0 435311408    320 s006  S    Tue11PM   0:00.00 /opt/homebrew/bin/zsh -i
 # patrickdev       34017   0.0  0.0 435315952   3440 s006  Ss+  Tue11PM   0:04.35 /opt/homebrew/bin/zsh -i
-# patrickdev       23586   0.0  0.0 410819264    864 s000  S    Tue03PM   0:01.92 /opt/homebrew/Cellar/powerlevel10k/1.20.0/share/powerlevel10k/gitstatus/usrbin/gitstatusd-darwin-arm64 -G v1.5.4 -s -1 -u -1 -d -1 -c -1 -m -1 -v FATAL -t 20
+# patrickdev       23586   0.0  0.0 410819264    864 s000  S    Tue03PM   0:01.92 /opt/homebrew/Cellar/powerlevel10k/1.20.0/share/powerlevel10k/gitstatus/usrbin/gitstatusd-darwin-arm64 -G v1.5.4 -s -1 -u -1 -d -1 -c -1 -m -1 -v FATAL -t 20si-pmu
 # patrickdev       56921   0.0  0.0 435299968   1392 s015  S+   10:12AM   0:00.00 grep --color=auto --exclude-dir=.bzr --exclude-dir=CVS --exclude-dir=.git --exclude-dir=.hg --exclude-dir=.svn --exclude-dir=.idea --exclude-dir=.tox --exclude-dir=.venv --exclude-dir=venv brew
 # patrickdev       44126   0.0  0.0 410737344   1040 s015  S    10:06AM   0:00.01 /opt/homebrew/Cellar/powerlevel10k/1.20.0/share/powerlevel10k/gitstatus/usrbin/gitstatusd-darwin-arm64 -G v1.5.4 -s -1 -u -1 -d -1 -c -1 -m -1 -v FATAL -t 20
 

@@ -176,6 +176,7 @@ brew install --cask localsend # local file sharing all platforms ios android win
 brew install --cask libreoffice
 brew install --cask kitty
 brew install --cask betterdisplay
+brew install --cask vlc
 
 # Rust
 brew install rustup-init && sleep 1 && rustup-init -y
