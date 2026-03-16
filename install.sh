@@ -281,4 +281,27 @@ npm install -g live-server
 echo "Install snyk" # Check for vulnerabilities of npm packages
 npm install -g snyk
 
+echo "Install DBML tools (renderer + CLI)"
+npm install -g @softwaretechnik/dbml-renderer
+npm install -g @dbml/cli
+
+# ── DBML Language Server (build from source) ──
+echo "Install DBML Language Server..."
+mkdir -p ~/.local/bin
+if [ ! -f ~/.local/bin/dbml-language-server ]; then
+  git clone https://github.com/saskenuba/dbml-language-server.git /tmp/dbml-language-server
+  cd /tmp/dbml-language-server
+  git submodule update --init --recursive
+  # Remove deprecated nightly feature flag (stable since Rust 1.53)
+  sed -i '' 's/#!\[feature(or_patterns)\]//' src/lib.rs
+  cargo build --release
+  cp target/release/dbml-language-server ~/.local/bin/
+  chmod +x ~/.local/bin/dbml-language-server
+  cd ~
+  rm -rf /tmp/dbml-language-server
+  echo "\033[1;36m **DBML Language Server installed to ~/.local/bin/\033[0m"
+else
+  echo "\033[1;36m **DBML Language Server already installed, skipping.\033[0m"
+fi
+
 echo "Config from dotfile complete!"
