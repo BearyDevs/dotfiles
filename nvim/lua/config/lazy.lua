@@ -41,6 +41,42 @@ require("lazy").setup({
     {
       "folke/snacks.nvim",
       dependencies = { "nvim-tree/nvim-web-devicons" },
+      keys = {
+        { "<leader>e", false }, -- disable LazyVim default <leader>e for Snacks Explorer
+        {
+          "<leader>r",
+          function()
+            Snacks.explorer()
+          end,
+          desc = "Explorer (Snacks)",
+        },
+        -- {
+        --   "<leader>o",
+        --   function()
+        --     -- Toggle cursor between Buffer and Snacks Explorer
+        --     local snacks_win = nil
+        --     for _, win in ipairs(vim.api.nvim_list_wins()) do
+        --       local buf = vim.api.nvim_win_get_buf(win)
+        --       local ft = vim.bo[buf].filetype
+        --       if ft == "snacks_picker_list" or ft == "snacks_explorer" then
+        --         snacks_win = win
+        --         break
+        --       end
+        --     end
+        --     if snacks_win then
+        --       local current_win = vim.api.nvim_get_current_win()
+        --       if current_win == snacks_win then
+        --         vim.cmd("wincmd p")
+        --       else
+        --         vim.api.nvim_set_current_win(snacks_win)
+        --       end
+        --     else
+        --       Snacks.explorer()
+        --     end
+        --   end,
+        --   desc = "Toggle Cursor between Buffer and Snacks Explorer",
+        -- },
+      },
       opts = {
         scroll = { enabled = true },
         dashboard = {
@@ -77,8 +113,8 @@ require("lazy").setup({
               hidden = true,
               layout = {
                 layout = {
-                  position = "right",
-                  -- position = "left",
+                  -- position = "right",
+                  position = "left",
                 },
               },
             },

@@ -44,15 +44,16 @@ return {
   },
   -- stylua: ignore
   keys = {
-    { "<leader>ow", "<cmd>OverseerToggle<cr>",      desc = "Task list" },
-    { "<leader>or", "<cmd>OverseerRun<cr>",         desc = "Run task" },
-    { "<leader>oo", "<cmd>OverseerToggle<cr>",      desc = "Overseer Toggle" },
-    { "<leader>oq", "<cmd>OverseerQuickAction<cr>", desc = "Action recent task" },
-    { "<leader>oi", "<cmd>OverseerInfo<cr>",        desc = "Overseer Info" },
-    { "<leader>ob", "<cmd>OverseerBuild<cr>",       desc = "Task builder" },
-    { "<leader>ot", "<cmd>OverseerTaskAction<cr>",  desc = "Task action" },
-    { "<leader>oC", "<cmd>OverseerClearCache<cr>",  desc = "Clear cache" },
-    { "<leader>od", function()
+    { "<leader>O", desc = "Overseer" },
+    { "<leader>Ow", "<cmd>OverseerToggle<cr>",      desc = "Task list" },
+    { "<leader>Or", "<cmd>OverseerRun<cr>",         desc = "Run task" },
+    { "<leader>Oo", "<cmd>OverseerToggle<cr>",      desc = "Overseer Toggle" },
+    { "<leader>Oq", "<cmd>OverseerQuickAction<cr>", desc = "Action recent task" },
+    { "<leader>Oi", "<cmd>OverseerInfo<cr>",        desc = "Overseer Info" },
+    { "<leader>Ob", "<cmd>OverseerBuild<cr>",       desc = "Task builder" },
+    { "<leader>Ot", "<cmd>OverseerTaskAction<cr>",  desc = "Task action" },
+    { "<leader>OC", "<cmd>OverseerClearCache<cr>",  desc = "Clear cache" },
+    { "<leader>Od", function()
       local overseer = require("overseer")
       local tasks = overseer.list_tasks({ recent_first = true })
       if vim.tbl_isempty(tasks) then
@@ -61,7 +62,7 @@ return {
         overseer.run_action(tasks[1], "stop")
       end
     end, desc = "Stop recent task" },
-    { "<leader>oD", function()
+    { "<leader>OD", function()
       local overseer = require("overseer")
       local tasks = overseer.list_tasks({ status = "RUNNING" })
       if vim.tbl_isempty(tasks) then

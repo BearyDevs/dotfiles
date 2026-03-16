@@ -1963,6 +1963,84 @@ alias podmanrmall-network='podman network rm $(podman network ls -q)'
 alias podmanrmall-buildcache='podman builder prune -af'
 alias podmanrm-everything='podman system prune -af --volumes'
 
+# ╭──────────────────────────────────────────────────────────╮
+# │ Kubernetes                                               │
+# ╰──────────────────────────────────────────────────────────╯
+#          ╭──────────────────────────────────────────────────────────╮
+#          │               kubectl : kubernetes control               │
+#          ╰──────────────────────────────────────────────────────────╯
+#         kubectl get pod : Get all pods
+#         kubectl get svc : Get all services
+#         kubectl get node : Get all nodes
+#         kubectl get deployment : Get all deployments
+#         kubectl get secret : Get all secrets
+#         kubectl get configmap : Get all configmaps
+#         kubectl get all : Get all resources
+#
+#         kubectl apply -f <filename.yml> : Apply a YAML file
+#         kubectl delete -f <filename.yml> : Delete a YAML file
+#         kubectl create -f <filename.yml> : Create a YAML file
+#         kubectl replace -f <filename.yml> : Replace a YAML file
+#         kubectl patch -f <filename.yml> : Patch a YAML file
+#
+#         kubectl create namespace <namespace-name> : Create a namespace
+#         kubectl delete namespace <namespace-name> : Delete a namespace
+#         kubectl get namespace : Get all namespaces
+#
+#         kubectl describe namespace <namespace-name> : Describe a namespace
+#         kubectl describe pod <pod-name> : Describe a pod
+#         kubectl describe service <service-name> : Describe a service
+#         kubectl describe deployment <deployment-name> : Describe a deployment
+#         kubectl describe secret <secret-name> : Describe a secret
+#         kubectl describe configmap <configmap-name> : Describe a configmap
+#         kubectl describe node <node-name> : Describe a node
+#         kubectl describe all : Describe all resources
+#
+#         kubectl config get-contexts : Get all contexts
+#         kubectl config use-context <context-name> : Use a context
+#         kubectl config current-context : Get the current context
+#         kubectl config delete-context <context-name> : Delete a context
+#         kubectl config rename-context <old-context-name> <new-context-name> : Rename a context
+
+#          ╭──────────────────────────────────────────────────────────╮
+#          │                   demo Podmenifest.yml                   │
+#          ╰──────────────────────────────────────────────────────────╯
+#
+# ```yml
+# apiVersion: v1
+# kind: Pod
+# metadata:
+#   name: nginx
+#   namespace: demo
+# spec:
+#   hard:
+#     cpu: "1"
+#     memory: 1Gi
+#     # memory: 512Mi
+#   containers:
+#     - name: nginx
+#       image: nginx:latest
+#       imagePullPolicy: IfNotPresent
+#       ports:
+#         - containerPort: 80
+# ```
+#
+#          ╭──────────────────────────────────────────────────────────╮
+#          │                      ResourceQuota                       │
+#          ╰──────────────────────────────────────────────────────────╯
+#
+# ```yml
+# apiVersion: v1
+# kind: ResourceQuota
+# metadata:
+#   name: demo-quota
+#   namespace: demo
+# spec:
+#   hard:
+#     cpu: "1"
+#     memory: 1Gi
+# ```
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
@@ -1970,3 +2048,8 @@ alias podmanrm-everything='podman system prune -af --volumes'
 export PATH=/Users/patrickdev/.opencode/bin:$PATH
 
 cls
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/patrickdev/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+# End of Docker CLI completions
