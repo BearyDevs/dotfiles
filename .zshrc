@@ -894,13 +894,8 @@ restore-cursor() {
 # ╰──────────────────────────────────────────────────────────╯
 alias dlconfigfirst='rm -rf ~/dotfile/.config'
 
-alias bknvim='cp -rvf ~/.config/nvim/ ~/dotfile/nvim/ && echo "\033[1;36m **nvim copy success\033[0m"'
-alias bkalacritty='cp -rvf ~/.config/alacritty/ ~/dotfile/alacritty/ && echo "\033[1;36m **alacritty copy success\033[0m"'
-alias bkghostty='cp -rvf ~/.config/ghostty/ ~/dotfile/ghostty/ && echo "\033[1;36m **ghostty copy success\033[0m"'
-alias bkiterm2='cp -rvf ~/.config/iterm2/ ~/dotfile/iterm2/ && echo "\033[1;36m **iterm2 copy success\033[0m"'
-alias bkyazi='cp -rvf ~/.config/yazi/ ~/dotfile/yazi/ && echo "\033[1;36m **yazi copy success\033[0m"'
+alias bkconfig='cp -rvf ~/.config/ ~/dotfile/.config/ && echo "\033[1;36m **~/.config copy success\033[0m"'
 alias bkasciilogo='cp -rvf ~/neofetch-bearydev-logo.txt ~/dotfile/ && echo "\033[1;36m **neofetch-bearydev-logo copy success\033[0m"'
-alias bknvim-lazy-old='cp -rvf ~/.config/nvim-lazy/ ~/dotfile/nvim-lazy/ && echo "\033[1;36m **nvim-lazy copy success\033[0m"'
 
 alias bkp10='cp -rvf ~/.p10k.zsh ~/dotfile/ && echo "\033[1;36m **.p10k.zsh copy success\033[0m"'
 alias bktmux='cp -rvf ~/.tmux.conf ~/dotfile/ && cp -rvf ~/.tmux.conf ~/dotfile/ && echo "\033[1;36m **.tmux.conf copy success\033[0m"'
@@ -911,7 +906,6 @@ alias bkwakatime='cp -rvf ~/.wakatime ~/dotfile/ && echo "\033[1;36m **.wakatime
 alias bkgitconfig='cp -rvf ~/.gitconfig ~/dotfile/ && echo "\033[1;36m **.gitconfig copy success\033[0m"'
 alias store-iterm2-all-config='cp ~/Library/Preferences/com.googlecode.iterm2.plist ~/dotfile/ && echo "\033[1;36m **com.googlecode.iterm2.plist copy success\033[0m"'
 
-alias store-sh='cp ~/.config/install.sh ~/dotfile/ && cp ~/.config/fzf-git.sh ~/dotfile/ && cp ~/.config/fzf_listoldfiles.sh ~/dotfile/ && cp ~/.config/zoxide_openfiles_nvim.sh ~/dotfile/ && echo "\033[1;36m **sh scripts copy success\033[0m"'
 alias store-ssh='cp -rvf ~/.ssh ~/dotfile/ && echo "\033[1;36m **.ssh copy success\033[0m"'
 
 alias afterStore='echo -e "\033[38;2;255;215;0mALL SCRIPT BACKUP IS DONE, @~/dotfile \033[0m"; sleep 2'
@@ -920,7 +914,7 @@ alias afterDone='cd ~/dotfile; gs; gaa; sleep 1; cd ~/dotfile; cls; echo -e DOTF
 alias restore-iterm2-config='cp ~/dotfile/com.googlecode.iterm2.plist ~/Library/Preferences/com.googlecode.iterm2.plist'
 alias dotfile='cd ~/dotfile/'
 
-alias store-dotfile='hh; dlconfigfirst; bknvim; bknvim-lazy-old; bkalacritty; bkghostty; bkiterm2; bkyazi; bkasciilogo; bkp10; bktmux; bktmuxfolder; bkzsh; store-ssh; bkzshenv; bkwakatime; bkgitconfig; store-iterm2-all-config; backup-cursor; store-sh; afterStore; afterDone'
+alias store-dotfile='hh; dlconfigfirst; bkconfig; bkasciilogo; bkp10; bktmux; bktmuxfolder; bkzsh; store-ssh; bkzshenv; bkwakatime; bkgitconfig; store-iterm2-all-config; backup-cursor; afterStore; afterDone'
 
 alias minfo='echo -e "\033[1;31m🅷 🅸 \033[0m \033[1;38;2;255;215;0m🅱 🅴 🅰 🆁 🆈 , \033[38;2;255;105;180m🅷 🅰 🅿 🅿 🆈 \033[0m \033[1;38;2;148;0;211m🅲 🅾 🅳 🅸 🅽 🅶 .\033[0m"' # Bold font
 

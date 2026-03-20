@@ -1,0 +1,168 @@
+{
+  "session_id": "ses_7vhuzow4",
+  "browser_session_id": "ses_vtz7y44v",
+  "request": "Test octto is working correctly with a simple brainstorm about what to have for lunch today",
+  "created_at": 1773983005540,
+  "updated_at": 1773983018062,
+  "branches": {
+    "cuisine_type": {
+      "id": "cuisine_type",
+      "scope": "What type of cuisine or food category sounds appealing for lunch",
+      "status": "done",
+      "questions": [
+        {
+          "id": "q_q1tvlosk",
+          "type": "pick_one",
+          "text": "What type of cuisine are you in the mood for today?",
+          "config": {
+            "question": "What type of cuisine are you in the mood for today?",
+            "options": [
+              {
+                "id": "italian",
+                "label": "🍝 Italian",
+                "description": "Pasta, pizza, risotto"
+              },
+              {
+                "id": "asian",
+                "label": "🍜 Asian",
+                "description": "Sushi, ramen, stir-fry"
+              },
+              {
+                "id": "mexican",
+                "label": "🌮 Mexican",
+                "description": "Tacos, burritos, quesadillas"
+              },
+              {
+                "id": "american",
+                "label": "🍔 American",
+                "description": "Burgers, sandwiches, salads"
+              },
+              {
+                "id": "mediterranean",
+                "label": "🥙 Mediterranean",
+                "description": "Falafel, hummus, wraps"
+              }
+            ]
+          },
+          "answer": {
+            "selected": "asian"
+          },
+          "answeredAt": 1773983014535
+        }
+      ],
+      "finding": "The user is in the mood for Asian cuisine for lunch today."
+    },
+    "effort_level": {
+      "id": "effort_level",
+      "scope": "How much time and effort you want to spend on lunch",
+      "status": "exploring",
+      "questions": [
+        {
+          "id": "q_e0fddzv3",
+          "type": "show_options",
+          "text": "How much effort do you want to put into lunch today?",
+          "config": {
+            "question": "How much effort do you want to put into lunch today?",
+            "options": [
+              {
+                "id": "quick",
+                "label": "Quick & Easy",
+                "description": "Under 10 minutes",
+                "pros": [
+                  "Saves time",
+                  "Low effort",
+                  "Back to work fast"
+                ],
+                "cons": [
+                  "Fewer options",
+                  "Might not be as satisfying"
+                ]
+              },
+              {
+                "id": "cook",
+                "label": "Cook Something",
+                "description": "30-45 minutes in the kitchen",
+                "pros": [
+                  "Fresh & tasty",
+                  "Healthier",
+                  "More satisfying"
+                ],
+                "cons": [
+                  "Takes time",
+                  "Dishes to clean"
+                ]
+              },
+              {
+                "id": "order",
+                "label": "Order Delivery",
+                "description": "Let someone else do the work",
+                "pros": [
+                  "No effort",
+                  "Wide variety",
+                  "Restaurant quality"
+                ],
+                "cons": [
+                  "Costs more",
+                  "Wait time",
+                  "Less healthy options"
+                ]
+              }
+            ],
+            "recommended": "quick"
+          }
+        }
+      ],
+      "finding": null
+    },
+    "dietary_vibe": {
+      "id": "dietary_vibe",
+      "scope": "Health and dietary preferences for today's lunch",
+      "status": "exploring",
+      "questions": [
+        {
+          "id": "q_wse1r2x3",
+          "type": "pick_many",
+          "text": "Any dietary priorities for lunch today?",
+          "config": {
+            "question": "Any dietary priorities for lunch today?",
+            "options": [
+              {
+                "id": "healthy",
+                "label": "🥗 Light & healthy"
+              },
+              {
+                "id": "comfort",
+                "label": "🍕 Comfort food"
+              },
+              {
+                "id": "high_protein",
+                "label": "💪 High protein"
+              },
+              {
+                "id": "vegetarian",
+                "label": "🌱 Vegetarian/Vegan"
+              },
+              {
+                "id": "low_carb",
+                "label": "🥩 Low carb"
+              },
+              {
+                "id": "whatever",
+                "label": "🤷 No preference — just hungry!"
+              }
+            ],
+            "recommended": [
+              "whatever"
+            ]
+          }
+        }
+      ],
+      "finding": null
+    }
+  },
+  "branch_order": [
+    "cuisine_type",
+    "effort_level",
+    "dietary_vibe"
+  ]
+}
