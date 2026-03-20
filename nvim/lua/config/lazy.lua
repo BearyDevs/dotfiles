@@ -109,7 +109,7 @@ require("lazy").setup({
               ignored = true,
             },
             explorer = {
-              auto_close = false,
+              auto_close = true,
               hidden = true,
               layout = {
                 layout = {
