@@ -2,7 +2,7 @@
   "window.commandCenter": true,
   "workbench.colorTheme": "Tokyo Night",
   "editor.fontFamily": "ComicShannsMono Nerd Font",
-  "editor.fontSize": 18,
+  "editor.fontSize": 16,
   "terminal.integrated.fontSize": 14,
   "tailwind-fold.autoFold": false,
   "git.blame.editorDecoration.enabled": true,

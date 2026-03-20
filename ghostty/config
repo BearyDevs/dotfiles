@@ -14,7 +14,7 @@ shell-integration-features = sudo
 font-family = "ComicShannsMono Nerd Font"
 # font-family = "CaskaydiaCove Nerd Font"
 # font-family = "FantasqueSansM Nerd Font"
-font-size = 18
+font-size = 16
 
 # font-style = Bold
 # font-style = Regular

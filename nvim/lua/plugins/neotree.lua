@@ -19,7 +19,7 @@ return {
     -- { "<leader>e", "<leader>fe", desc = "Explorer NeoTree (cwd)", remap = true },
     -- { "<leader>r", "<leader>fe", desc = "Explorer NeoTree (cwd)", remap = true },
     {
-      "<leader>e",
+      "<leader>r",
       function()
         local neo_tree_win = nil
 
@@ -58,43 +58,43 @@ return {
       desc = "Toggle Neo-Tree with Focus",
       remap = true,
     },
-    {
-      "<leader>o",
-      function()
-        local neo_tree_win = nil
-
-        for _, win in ipairs(vim.api.nvim_list_wins()) do
-          local buf = vim.api.nvim_win_get_buf(win)
-          local buf_name = vim.api.nvim_buf_get_name(buf)
-          if string.match(buf_name, "neo%-tree") then
-            neo_tree_win = win
-            break
-          end
-        end
-
-        if neo_tree_win then
-          local current_win = vim.api.nvim_get_current_win()
-          if current_win == neo_tree_win then
-            -- In Neo-tree, jump back to previous window
-            vim.cmd("wincmd p")
-          else
-            -- In buffer, jump to Neo-tree window
-            vim.api.nvim_set_current_win(neo_tree_win)
-          end
-        else
-          -- Neo-tree not open, open it without stealing focus from current buffer
-          require("neo-tree.command").execute({
-            action = "focus",
-            source = "filesystem",
-            position = "left",
-            reveal_file = vim.fn.expand("%:p"),
-            reveal_force_cwd = true,
-          })
-        end
-      end,
-      desc = "Toggle Cursor between Buffer and Neo-Tree",
-      remap = true,
-    },
+    -- {
+    --   "<leader>o",
+    --   function()
+    --     local neo_tree_win = nil
+    --
+    --     for _, win in ipairs(vim.api.nvim_list_wins()) do
+    --       local buf = vim.api.nvim_win_get_buf(win)
+    --       local buf_name = vim.api.nvim_buf_get_name(buf)
+    --       if string.match(buf_name, "neo%-tree") then
+    --         neo_tree_win = win
+    --         break
+    --       end
+    --     end
+    --
+    --     if neo_tree_win then
+    --       local current_win = vim.api.nvim_get_current_win()
+    --       if current_win == neo_tree_win then
+    --         -- In Neo-tree, jump back to previous window
+    --         vim.cmd("wincmd p")
+    --       else
+    --         -- In buffer, jump to Neo-tree window
+    --         vim.api.nvim_set_current_win(neo_tree_win)
+    --       end
+    --     else
+    --       -- Neo-tree not open, open it without stealing focus from current buffer
+    --       require("neo-tree.command").execute({
+    --         action = "focus",
+    --         source = "filesystem",
+    --         position = "left",
+    --         reveal_file = vim.fn.expand("%:p"),
+    --         reveal_force_cwd = true,
+    --       })
+    --     end
+    --   end,
+    --   desc = "Toggle Cursor between Buffer and Neo-Tree",
+    --   remap = true,
+    -- },
   },
   opts = {
     filesystem = {

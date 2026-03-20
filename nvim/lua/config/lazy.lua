@@ -42,9 +42,9 @@ require("lazy").setup({
       "folke/snacks.nvim",
       dependencies = { "nvim-tree/nvim-web-devicons" },
       keys = {
-        { "<leader>e", false }, -- disable LazyVim default <leader>e for Snacks Explorer
+        { "<leader>r", false }, -- disable LazyVim default <leader>e for Snacks Explorer
         {
-          "<leader>r",
+          "<leader>e",
           function()
             Snacks.explorer()
           end,

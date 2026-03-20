@@ -100,6 +100,7 @@ brew install poppler
 brew install p7zip jq
 brew install uv
 brew install switchaudio-osx
+brew install wakatime-cli
 
 ### dev things
 brew install node
@@ -284,6 +285,9 @@ npm install -g snyk
 echo "Install DBML tools (renderer + CLI)"
 npm install -g @softwaretechnik/dbml-renderer
 npm install -g @dbml/cli
+
+echo "Install type-inject-mcp"
+npm install -g @nick-vi/type-inject-mcp
 
 # ── DBML Language Server (build from source) ──
 echo "Install DBML Language Server..."
