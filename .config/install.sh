@@ -83,7 +83,7 @@ brew install gx
 brew install pfetch
 brew install htop
 brew install bottom
-brew install mx-power-gadget
+# brew install mx-power-gadget
 brew install imagemagick
 brew install ffmpeg
 brew install only-switch
@@ -133,7 +133,6 @@ brew install jq
 brew install java
 brew install redis
 brew install gemini-cli
-brew install opencode
 brew install gopls
 brew install plantuml
 brew install graphviz
@@ -142,6 +141,7 @@ brew install postgresql
 brew install putty
 brew install kubectl
 brew install podman
+brew install pytest
 
 ## Casks
 brew install --cask raycast
@@ -178,6 +178,7 @@ brew install --cask localsend # local file sharing all platforms ios android win
 brew install --cask kitty
 brew install --cask betterdisplay
 brew install --cask vlc
+brew install --cask opencode-desktop
 
 # Rust
 brew install rustup-init && sleep 1 && rustup-init -y
@@ -288,6 +289,11 @@ npm install -g @dbml/cli
 
 echo "Install type-inject-mcp"
 npm install -g @nick-vi/type-inject-mcp
+
+# Opencode
+brew install opencode
+npm install -g opencode-zellij-namer
+npm install -g opencode-claude-auth
 
 # ── DBML Language Server (build from source) ──
 echo "Install DBML Language Server..."

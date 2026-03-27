@@ -1,0 +1,33 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "snapshot": false,
+  "plugin": [
+    "opencode-claude-auth",
+    "@nick-vi/opencode-type-inject",
+    "opencode-gemini-auth@latest",
+    "opencode-zellij-namer",
+    "octto"
+  ],
+  //  "mcp": {
+  //    "pencil": {
+  //      "type": "local",
+  //      "command": [
+  //        "/Applications/Pencil.app/Contents/Resources/app.asar.unpacked/out/mcp-server-darwin-arm64",
+  //        "--app",
+  //        "desktop"
+  //      ],
+  //      "enabled": true
+  //    }
+  //  }
+  "mcp": {
+    "pencil": {
+      "type": "local",
+      "command": [
+        "/Applications/Pencil.app/Contents/Resources/app.asar.unpacked/out/mcp-server-darwin-arm64",
+        "--app",
+        "desktop"
+      ],
+      "enabled": true
+    }
+  }
+}

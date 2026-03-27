@@ -1,0 +1,13 @@
+{
+  "agents": {
+    "octto": {
+      "model": "anthropic/claude-sonnet-4-6"
+    },
+    "bootstrapper": {
+      "model": "anthropic/claude-sonnet-4-6"
+    },
+    "probe": {
+      "model": "anthropic/claude-sonnet-4-6"
+    }
+  }
+}

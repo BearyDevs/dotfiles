@@ -1287,20 +1287,6 @@ alias create-dotnet-console-app='dotnet new console -n' # dotnet new console -n 
 # ╰──────────────────────────────────────────────────────────╯
 alias inkdrop-keymap='sudonvim "$HOME/Library/Application Support/inkdrop/keymap.json"'
 
-# ╭──────────────────────────────────────────────────────────╮
-# │ Mac Fix mic-vol                                          │
-# ╰──────────────────────────────────────────────────────────╯
-# alias set-mic-vol='osascript -e "set volume input volume 85"'
-
-function set-mic() {
-  if [ -z "$1" ]; then
-    echo "Please provide a volume level (0-100)."
-  else
-    osascript -e "set volume input volume $1"
-  fi
-}
-
-alias set-mic-vol='set-mic'
 
 # ╭──────────────────────────────────────────────────────────╮
 # │ Expo                                                     │
@@ -1352,6 +1338,7 @@ alias ghosttyconfig='nvim ~/.config/ghostty/config'
 alias ghosttythemes='ghostty +list-themes'
 alias ghosttykeybinds='ghostty +list-keybinds'
 alias ghosttyfonts='ghostty +list-fonts'
+alias ghostty='echo Ghostty Terminal'
 
 # ╭──────────────────────────────────────────────────────────╮
 # │ Kitty Terminal                                           │
@@ -1740,7 +1727,7 @@ esac
 # │ The following lines have been added by Docker Desktop    │
 # │ to enable Docker CLI completions.                        │
 # ╰──────────────────────────────────────────────────────────╯
-fpath=(/Users/teerapat/.docker/completions $fpath)
+fpath=(/Users/patrickdev/.docker/completions $fpath)
 autoload -Uz compinit
 compinit
 # End of Docker CLI completions
@@ -1924,6 +1911,53 @@ alias airpod='SwitchAudioSource -t input -s "MacBook Air Microphone" && SwitchAu
 alias airpodall='SwitchAudioSource -t input -s "AirPods" && SwitchAudioSource -t output -s "AirPods"'
 
 # ╭──────────────────────────────────────────────────────────╮
+# │ Mac Fix mic-vol                                          │
+# ╰──────────────────────────────────────────────────────────╯
+# alias set-mic-vol='osascript -e "set volume input volume 85"'
+
+function set-mic() {
+  if [ -z "$1" ]; then
+    echo "Please provide a volume level (0-100)."
+  else
+    osascript -e "set volume input volume $1"
+  fi
+}
+
+alias set-mic-vol='set-mic'
+
+# Lock mic at current volume (disable auto-adjust)
+miclock() {
+  if [[ -f /tmp/.miclock.pid ]] && kill -0 $(cat /tmp/.miclock.pid) 2>/dev/null; then
+    echo "Mic is already locked. Run 'micunlock' first."
+    return 1
+  fi
+  local vol=$(osascript -e "input volume of (get volume settings)")
+  while true; do osascript -e "set volume input volume $vol"; sleep 2; done &
+  echo $! > /tmp/.miclock.pid
+  echo "Mic locked at ${vol}% (PID: $!). Use 'micunlock' to stop."
+}
+# Lock mic at max volume (disable auto-adjust)
+miclock-max() {
+  if [[ -f /tmp/.miclock.pid ]] && kill -0 $(cat /tmp/.miclock.pid) 2>/dev/null; then
+    echo "Mic is already locked. Run 'micunlock' first."
+    return 1
+  fi
+  while true; do osascript -e "set volume input volume 100"; sleep 2; done &
+  echo $! > /tmp/.miclock.pid
+  echo "Mic locked at 100% (PID: $!). Use 'micunlock' to stop."
+}
+# Unlock mic (restore normal macOS auto-adjust)
+micunlock() {
+  if [[ -f /tmp/.miclock.pid ]]; then
+    kill $(cat /tmp/.miclock.pid) 2>/dev/null
+    rm -f /tmp/.miclock.pid
+    echo "Mic unlocked. macOS auto-adjust is back to normal."
+  else
+    echo "No mic lock running."
+  fi
+}
+
+# ╭──────────────────────────────────────────────────────────╮
 # │ System check                                             │
 # ╰──────────────────────────────────────────────────────────╯
 # Battery
@@ -2041,9 +2075,12 @@ alias podmanrm-everything='podman system prune -af --volumes'
 # opencode
 export PATH=/Users/patrickdev/.opencode/bin:$PATH
 
+
+if type brew &>/dev/null; then
+    FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+
+    autoload -Uz compinit
+    compinit
+  fi
+
 cls
-# The following lines have been added by Docker Desktop to enable Docker CLI completions.
-fpath=(/Users/patrickdev/.docker/completions $fpath)
-autoload -Uz compinit
-compinit
-# End of Docker CLI completions
