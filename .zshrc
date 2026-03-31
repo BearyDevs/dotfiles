@@ -211,7 +211,7 @@ alias dc='home; cd Documents'
 # alias cls='clear; neofetch --source ~/neofetch-custom2.txt;'
 # alias cls='clear; neofetch --source ~/neofetch-bearydev-logo.txt'
 # alias cls='clear; neofetch'
-alias cls='clear'
+alias cls='clear; neofetch'
 # alias cls='clear; echo -e "$(cat ~/neofetch-custom2.txt)"; showinforandom;'
 alias nf='neofetch'
 alias zshrc='nvim ~/.zshrc'
@@ -2082,5 +2082,10 @@ if type brew &>/dev/null; then
     autoload -Uz compinit
     compinit
   fi
+
+# Prevent nested Neovim in terminal
+if [ -n "$NVIM" ]; then
+  alias nvim="echo 'Already inside Neovim!'"
+fi
 
 cls

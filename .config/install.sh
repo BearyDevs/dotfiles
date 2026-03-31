@@ -179,6 +179,7 @@ brew install --cask kitty
 brew install --cask betterdisplay
 brew install --cask vlc
 brew install --cask opencode-desktop
+brew install --cask markedit
 
 # Rust
 brew install rustup-init && sleep 1 && rustup-init -y
