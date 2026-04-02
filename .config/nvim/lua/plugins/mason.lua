@@ -46,7 +46,6 @@ return {
     --   "goimports",
     --   "google-java-format",
     --   "gopls",
-    --   -- "hadolint",
     --   "docker-language-server",
     --   "html-lsp",
     --   "htmlbeautifier",

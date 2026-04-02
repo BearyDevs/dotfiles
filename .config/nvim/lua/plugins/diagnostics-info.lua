@@ -16,56 +16,56 @@ return {
           ["vtsls"] = "vtsls",
           ["eslint"] = "eslint-lsp",
           ["eslint_d"] = "eslint_d",
-          
+
           -- Lua
           ["lua_ls"] = "lua-language-server",
           ["Lua Syntax Check."] = "lua-language-server",
-          
+
           -- CSS/Styling
           ["tailwindcss"] = "tailwindcss-language-server",
           ["cssls"] = "css-lsp",
           ["css_variables"] = "css-variables-language-server",
           ["cssmodules_ls"] = "cssmodules-language-server",
-          
+
           -- HTML/Emmet
           ["html"] = "html-lsp",
           ["emmet_ls"] = "emmet-ls",
           ["emmet_language_server"] = "emmet-language-server",
-          
+
           -- Data formats
           ["jsonls"] = "json-lsp",
           ["yamlls"] = "yaml-language-server",
           ["taplo"] = "taplo",
-          
+
           -- Docker
           ["dockerls"] = "dockerfile-language-server",
           ["docker_language_server"] = "docker-language-server",
           ["docker_compose_language_service"] = "docker-compose-language-service",
-          
+
           -- Database
           ["prismals"] = "prisma-language-server",
           ["sqls"] = "sqls",
           ["postgres_lsp"] = "postgres-language-server",
           ["bqls"] = "bqls",
-          
+
           -- Shell/Bash
           ["bashls"] = "bash-language-server",
-          
+
           -- Markdown
           ["marksman"] = "marksman",
           ["markdownlint"] = "markdownlint-cli2",
-          
+
           -- CI/CD
           ["gh_actions_ls"] = "gh-actions-language-server",
           ["gitlab_ci_ls"] = "gitlab-ci-ls",
-          
+
           -- Security/Linting
           ["sonarlint"] = "sonarlint-language-server",
-          ["hadolint"] = "hadolint",
+          --["hadolint"] = "hadolint",
           ["dotenv-linter"] = "dotenv-linter",
           ["trivy"] = "trivy",
           ["snyk"] = "snyk",
-          
+
           -- Formatters
           ["prettier"] = "prettier",
           ["prettierd"] = "prettierd",
@@ -147,7 +147,10 @@ return {
         end
 
         table.insert(lines, "")
-        table.insert(lines, "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
+        table.insert(
+          lines,
+          "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+        )
         table.insert(lines, "💡 Tip: Hover on diagnostic for source info")
 
         vim.notify(table.concat(lines, "\n"), vim.log.levels.INFO, {

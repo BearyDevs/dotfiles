@@ -19,7 +19,7 @@ return {
     -- { "<leader>e", "<leader>fe", desc = "Explorer NeoTree (cwd)", remap = true },
     -- { "<leader>r", "<leader>fe", desc = "Explorer NeoTree (cwd)", remap = true },
     {
-      "<leader>r",
+      "<leader>e",
       function()
         local neo_tree_win = nil
 

@@ -142,7 +142,7 @@ map("n", "gl", function()
 
     -- Security/Linting
     ["sonarlint"] = "sonarlint-language-server",
-    ["hadolint"] = "hadolint",
+    --  ["hadolint"] = "hadolint",
     ["dotenv-linter"] = "dotenv-linter",
     ["trivy"] = "trivy",
     ["snyk"] = "snyk",
@@ -336,6 +336,8 @@ map("n", "<leader>gM", function()
 
   vim.notify(table.concat(info, "\n"), vim.log.levels.INFO, { title = "Mason Tools", timeout = 2000 })
 end, { desc = "Show Mason tools for current buffer" })
+
+map("n", "<leader>M", "<cmd>Markview toggle<cr>", opts)
 
 -- ╭─────────────────────────────────────────────────────────╮
 -- │ Code Fold keymap                                        │

@@ -10,12 +10,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # ╭──────────────────────────────────────────────────────────╮
-# │ Ai                                                       │
-# ╰──────────────────────────────────────────────────────────╯
-export GEMINI_API_KEY=AIzaSyDCsVwOU_wfrzzc3GG7ZOA_fJEZ3UyaKZs
-export GOOGLE_GENERATIVE_AI_API_KEY=AIzaSyDCsVwOU_wfrzzc3GG7ZOA_fJEZ3UyaKZs
-
-# ╭──────────────────────────────────────────────────────────╮
 # │ Oh-My-Zsh Configuration (before instant prompt loads)    │
 # ╰──────────────────────────────────────────────────────────╯
 export ZSH="$HOME/.oh-my-zsh"
@@ -203,6 +197,7 @@ alias hh='home'
 # alias clr='clear; showinforandom;'
 # alias clr='clear; neofetch; showinfo'
 # alias clr='clear; neofetch --source ~/neofetch-custom.txt'
+alias neofetch='neofetch --source ~/.config/apple-ascii.txt'
 alias clr='clear; neofetch'
 alias dl='home; cd Downloads'
 alias dc='home; cd Documents'
@@ -2087,5 +2082,20 @@ if type brew &>/dev/null; then
 if [ -n "$NVIM" ]; then
   alias nvim="echo 'Already inside Neovim!'"
 fi
+
+# ╭──────────────────────────────────────────────────────────╮
+# │ Ping Server                                              │
+# ╰──────────────────────────────────────────────────────────╯
+
+# nc is short for netcat.
+#
+# Test Kafka port 9094
+# $ nc -zv 192.168.50.117 9094 2>&1
+#
+## Test Redis port 6379
+# $ nc -zv 192.168.50.117 6379 2>&1
+#
+## Test MSSQL port 1433 on team server
+# $ nc -zv 192.168.50.117 1433 2>&1
 
 cls

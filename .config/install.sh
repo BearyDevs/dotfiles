@@ -132,7 +132,7 @@ brew install glow
 brew install jq
 brew install java
 brew install redis
-brew install gemini-cli
+# brew install gemini-cli
 brew install gopls
 brew install plantuml
 brew install graphviz

@@ -24,7 +24,7 @@
         "--app",
         "desktop"
       ],
-      "enabled": true
+      "enabled": false
     }
   },
   //  "mcp": {
