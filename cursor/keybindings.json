@@ -30,10 +30,5 @@
         "key": "cmd+shift+\\",
         "command": "editor.action.jumpToBracket",
         "when": "editorTextFocus"
-    },
-    {
-        "key": "alt+cmd+s",
-        "command": "workbench.action.toggleUnifiedSidebarFromKeyboard",
-        "when": "cursor.agentIdeUnification.enabled == true && !isAuxiliaryWindowFocusedContext"
     }
 ]

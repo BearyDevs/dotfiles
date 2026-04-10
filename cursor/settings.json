@@ -1,6 +1,6 @@
 {
   "window.commandCenter": true,
-  "workbench.colorTheme": "Tokyo Night",
+  "workbench.colorTheme": "Ayu Dark",
   "editor.fontFamily": "ComicShannsMono Nerd Font",
   "editor.fontSize": 16,
   "terminal.integrated.fontSize": 14,
@@ -73,6 +73,7 @@
     "asvetliakov.vscode-neovim": 1
   },
   "python.defaultInterpreterPath": "/opt/homebrew/bin/python3",
+  "typescript.experimental.useTsgo": true,
 
   // Vim leader key configuration
   // "vim.leader": "<space>",

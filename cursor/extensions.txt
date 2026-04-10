@@ -3,6 +3,7 @@ alfredbirk.tailwind-documentation
 anthropic.claude-code
 anysphere.cursorpyright
 anysphere.remote-containers
+anysphere.remote-ssh
 batisteo.vscode-django
 bierner.markdown-mermaid
 bpruitt-goddard.mermaid-markdown-syntax-highlighting
@@ -65,8 +66,10 @@ redis.redis-for-vscode
 ritwickdey.liveserver
 robole.markdown-snippets
 shd101wyy.markdown-preview-enhanced
+solomonkinard.git-blame
 steoates.autoimport
 stivo.tailwind-fold
+teabyii.ayu
 tomoki1207.pdf
 tomoyukim.vscode-mermaid-editor
 typescriptteam.native-preview

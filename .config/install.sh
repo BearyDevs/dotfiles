@@ -142,6 +142,7 @@ brew install putty
 brew install kubectl
 brew install podman
 brew install pytest
+# brew install microsoft/mssql-release/msodbcsql18 # MSSQL ODBC Driver 18
 
 ## Casks
 brew install --cask raycast
@@ -178,7 +179,6 @@ brew install --cask localsend # local file sharing all platforms ios android win
 brew install --cask kitty
 brew install --cask betterdisplay
 brew install --cask vlc
-brew install --cask opencode-desktop
 brew install --cask markedit
 
 # Rust

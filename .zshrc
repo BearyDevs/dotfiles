@@ -198,7 +198,7 @@ alias hh='home'
 # alias clr='clear; neofetch; showinfo'
 # alias clr='clear; neofetch --source ~/neofetch-custom.txt'
 alias neofetch='neofetch --source ~/.config/apple-ascii.txt'
-alias clr='clear; neofetch'
+alias clr='clear'
 alias dl='home; cd Downloads'
 alias dc='home; cd Documents'
 # alias cls='clear; showinfo'
@@ -262,8 +262,6 @@ alias mclean='mac-cleanup'
 # ╭──────────────────────────────────────────────────────────╮
 # │ Metal performance HUD with MangoHUD                      │
 # ╰──────────────────────────────────────────────────────────╯
-# alias fpson='launchctl setenv MTL_HUD_ENABLED 1'
-# alias fpsoff='launchctl setenv MTL_HUD_ENABLED 0'
 alias fpson='/bin/launchctl setenv MTL_HUD_ENABLED 1 && echo "Metal Performance HUD ON"'
 alias fpsoff='/bin/launchctl setenv MTL_HUD_ENABLED 0 && echo "Metal Performance HUD OFF"'
 
@@ -1814,8 +1812,9 @@ alias netbird-list='netbird routes list'
 # alias ai='opencode'
 
 export PATH=/Users/teerapat/.opencode/bin:$PATH
-alias occonfig='vim ~/.config/opencode/opencode.json'
+alias occonfig='vim ~/.config/opencode/opencode.jsonc'
 alias oc='opencode'
+
 # ╭──────────────────────────────────────────────────────────╮
 # │ Gemini                                                   │
 # ╰──────────────────────────────────────────────────────────╯
@@ -2097,5 +2096,44 @@ fi
 #
 ## Test MSSQL port 1433 on team server
 # $ nc -zv 192.168.50.117 1433 2>&1
+
+#          ╭──────────────────────────────────────────────────────────╮
+#          │                          Skills                          │
+#          ╰──────────────────────────────────────────────────────────╯
+# ╭──────────────────────────────────────────────────────────╮
+# │ Check for updates                                        │
+# ╰──────────────────────────────────────────────────────────╯
+# npx skills check
+#
+# ╭──────────────────────────────────────────────────────────╮
+# │ Update all skills                                        │
+# ╰──────────────────────────────────────────────────────────╯
+# npx skills update
+#
+# ╭──────────────────────────────────────────────────────────╮
+# │ Generate lock file                                       │
+# ╰──────────────────────────────────────────────────────────╯
+# npx skills generate-lock
+# npx skills generate-lock -dry-run
+#
+# ╭──────────────────────────────────────────────────────────╮
+# │ Discover and install                                     │
+# ╰──────────────────────────────────────────────────────────╯
+# npx skills find react
+# npx skills add vercel-labs/agent-skills -- skill frontend-design
+#
+# ╭──────────────────────────────────────────────────────────╮
+# │ Create new skill                                         │
+# ╰──────────────────────────────────────────────────────────╯
+# npx skills init my-custom-skill
+#
+
+export EDITOR=nvim
+
+#          ╭──────────────────────────────────────────────────────────╮
+#          │                        OpenClaude                        │
+#          ╰──────────────────────────────────────────────────────────╯
+alias oclaude='openclaude'
+export CLAUDE_MODEL="claude-opus-4-6"
 
 cls
