@@ -408,6 +408,8 @@ alias dockerrmall-network='docker network rm $(docker network ls -q)'
 alias dockerrmall-buildcache='docker builder prune -af'
 alias dockerrm-everything='docker system prune -af --volumes'
 
+alias docker-nuke='docker system prune -a --volumes -f && docker buildx prune -a -f && docker builder prune -a -f'
+
 # docker ps -a --filter "name=postgres" --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
 # docker ps -a --filter "name=redis" --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
 
@@ -1809,11 +1811,10 @@ alias netbird-list='netbird routes list'
 # claude-sonnet-4-5-20250929-v1:0
 # alias opencode-custom-model='opencode -m amazon-bedrock/anthropic.claude-sonnet-4-5-20250929-v1:0'
 # alias ai='opencode-custom-model'
-# alias ai='opencode'
 
 export PATH=/Users/teerapat/.opencode/bin:$PATH
 alias occonfig='vim ~/.config/opencode/opencode.jsonc'
-alias oc='opencode'
+alias full-clear-cache-opencode='opencode uninstall --dry-run'
 
 # ╭──────────────────────────────────────────────────────────╮
 # │ Gemini                                                   │
@@ -2130,10 +2131,22 @@ fi
 
 export EDITOR=nvim
 
-#          ╭──────────────────────────────────────────────────────────╮
-#          │                        OpenClaude                        │
-#          ╰──────────────────────────────────────────────────────────╯
-alias oclaude='openclaude'
-export CLAUDE_MODEL="claude-opus-4-6"
+# ╭──────────────────────────────────────────────────────────╮
+# │ Ollama                                                   │
+# ╰──────────────────────────────────────────────────────────╯
+# $ ollama launch opencode --model qwen3.5
+# $ ollama list
+# $ ollama rm <model-name>
+
+
+# ╭──────────────────────────────────────────────────────────╮
+# │ Unbind ctrl+d to close current session of tmux           │
+# ╰──────────────────────────────────────────────────────────╯
+setopt IGNORE_EOF
+  bindkey -r '^D'              # unbind list-choices
+  bindkey '^D' undefined-key   # make Ctrl+D a no-op
 
 cls
+
+# Added by Antigravity
+export PATH="/Users/patrickdev/.antigravity/antigravity/bin:$PATH"

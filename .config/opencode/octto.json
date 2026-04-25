@@ -1,0 +1,13 @@
+{
+  "agents": {
+    "octto": {
+      "model": "anthropic/claude-opus-4-7"
+    },
+    "bootstrapper": {
+      "model": "anthropic/claude-opus-4-7"
+    },
+    "probe": {
+      "model": "anthropic/claude-opus-4-7"
+    }
+  }
+}

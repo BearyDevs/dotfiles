@@ -31,6 +31,9 @@ echo "source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme" >>~/.
 # Install bun
 curl -fsSL https://bun.sh/install | bash
 
+# Install Ollama
+curl -fsSL https://ollama.com/install.sh | sh
+
 ## Taps
 echo "Tapping Brew..."
 brew tap homebrew/cask-fonts # fonts
@@ -132,7 +135,7 @@ brew install glow
 brew install jq
 brew install java
 brew install redis
-# brew install gemini-cli
+brew install gemini-cli
 brew install gopls
 brew install plantuml
 brew install graphviz
@@ -180,6 +183,7 @@ brew install --cask kitty
 brew install --cask betterdisplay
 brew install --cask vlc
 brew install --cask markedit
+brew install --cask dockdoor # dock preview all windows
 
 # Rust
 brew install rustup-init && sleep 1 && rustup-init -y

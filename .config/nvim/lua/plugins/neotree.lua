@@ -104,10 +104,10 @@ return {
         hide_gitignored = false,
       },
       window = {
-        width = 40,
+        -- width = 40,
         -- position = "float",
         -- position = "right",
-        position = "left",
+        -- position = "left",
 
         -- position = "bottom",
         -- height = function()

@@ -22,10 +22,11 @@ font-size = 16
 # window-height=1600
 # window-width=2560
 
-background-opacity = 0.85
+background-opacity = 0.80
 # background-opacity = 1
 
-background = #001419
+# background = #001419
+background = #030712
 foreground = #cbe0f0
 cursor-color = #47ff9c
 
@@ -62,7 +63,7 @@ cursor-style-blink = true
 # palette = 15=#f7f7f7
 cursor-click-to-move = true
 mouse-hide-while-typing
-background-blur-radius = 25
+background-blur-radius = 30
 keybind = cmd+r=reload_config
 keybind = cmd+t=unbind
 keybind = cmd+n=unbind
